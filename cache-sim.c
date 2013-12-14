@@ -122,7 +122,7 @@ int main(int argc, char *argv[])
 						char news[3];
 						for (int j = 0; j<strlen(argv[i+1]);j++)
 						{
-							strcpy(temp,argv[i+1][6+j]);
+							strcpy(temp,(char)argv[i+1][6+j]);
 							strcat(news,temp);
 						}
 						l1n = atoi(news);
