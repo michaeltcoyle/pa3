@@ -118,8 +118,8 @@ int main(int argc, char *argv[])
 					}
 					else
 					{
-						printf("%s","here3\n");
-						//char news[3];
+						printf("%s",argv[i+1]);
+						char news[3];
 						printf("%d",strlen(argv[i+1]));
 						for (int j = 0; j<strlen(argv[i+1]);j++)
 						{
