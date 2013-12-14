@@ -116,6 +116,7 @@ int main(int argc, char *argv[])
 					}
 					else
 					{
+						flag = 1;
 						char news[1];
 						memcpy(news,&(argv[i+1])[6],1);
 						l1n = atoi(news);
@@ -128,7 +129,7 @@ int main(int argc, char *argv[])
 			}
 			else
 			{
-				strcpy(l1assoc,"assoc:");
+				strcpy(l1assoc,"assoc:n");
 			}
 			i++;
 		}
@@ -146,6 +147,7 @@ int main(int argc, char *argv[])
 					}
 					else
 					{
+						flag = 1;
 						char news[1];
 						memcpy(news,&(argv[i+1])[6],1);
 						l2n = atoi(news);
@@ -158,7 +160,7 @@ int main(int argc, char *argv[])
 			}
 			else
 			{
-				strcpy(l2assoc,"assoc:");
+				strcpy(l2assoc,"assoc:n");
 			}
 			i++;
 		}	
@@ -176,6 +178,7 @@ int main(int argc, char *argv[])
 					}
 					else
 					{
+						flag = 1;
 						char news[1];
 						memcpy(news,&(argv[i+1])[6],1);
 						l3n = atoi(news);
@@ -188,7 +191,7 @@ int main(int argc, char *argv[])
 			}
 			else
 			{
-				strcpy(l3assoc,"assoc:");
+				strcpy(l3assoc,"assoc:n");
 			}
 			i++;
 		}
