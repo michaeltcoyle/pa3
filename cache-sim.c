@@ -102,9 +102,6 @@ int main(int argc, char *argv[])
 			l3size = atoi(argv[i+1]);
 			i++;
 		}
-		
-		//save associativity setting
-		printf("%s","here1\n");
 		else if (strcmp(argv[i], "-l1assoc")==0)
 		{
 			printf("%s","here2\n");
