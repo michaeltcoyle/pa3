@@ -46,7 +46,7 @@ int strcicmp(char const *a, char const *b)
 int llog2(int n)  
 {  
     // log(n)/log(2) is log2.  
-    return log(n)/log(2);  
+    return log10(n)/log10(2);  
 }
 
 //direct mapped cache FIFO
