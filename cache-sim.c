@@ -104,10 +104,10 @@ int main(int argc, char *argv[])
 		}
 		
 		//save associativity setting
-		if (debug==1){printf("%s","here1\n");}
+		printf("%s","here1\n");
 		else if (strcmp(argv[i], "-l1assoc")==0)
 		{
-			if (debug==1){printf("%s","here2\n");}
+			printf("%s","here2\n");
 			int flag = 0;
 			char * temp = 0;
 			if (strcmp(argv[i+1], "direct")!=0)
@@ -121,7 +121,7 @@ int main(int argc, char *argv[])
 					}
 					else
 					{
-						if (debug==1){printf("%s","here3\n");}
+						printf("%s","here3\n");
 						char news[3];
 						for (int j = 0; j<strlen(argv[i+1]);j++)
 						{
