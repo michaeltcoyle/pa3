@@ -64,7 +64,7 @@ int main(int argc, char *argv[])
 
 	if (argc<2)
 	{
-		printf("invalid arguments.\n");
+		printf("ERROR: invalid arguments.\n");
 		return 0;
 	}
 	for (int i=1; i<argc; i++)
@@ -78,7 +78,7 @@ int main(int argc, char *argv[])
 		{
 			if (isdigit(*argv[i+1]) == 0)
 			{
-				printHelp();
+				printf("ERROR: size arguments must be a power of 2.\n");
 				return 0;
 			}
 			l1size = atoi(argv[i+1]);
@@ -88,7 +88,7 @@ int main(int argc, char *argv[])
 		{
 			if (isdigit(*argv[i+1]) == 0)
 			{
-				printHelp();
+				printf("ERROR: size arguments must be a power of 2.\n");
 				return 0;
 			}
 			l2size = atoi(argv[i+1]);
@@ -98,7 +98,7 @@ int main(int argc, char *argv[])
 		{
 			if (isdigit(*argv[i+1]) == 0)
 			{
-				printHelp();
+				printf("ERROR: size arguments must be a power of 2.\n");
 				return 0;
 			}
 			l3size = atoi(argv[i+1]);
@@ -113,7 +113,7 @@ int main(int argc, char *argv[])
 				{
 					if (strncmp(argv[i+1],"assoc:",6)!=0)
 					{
-						printHelp();
+						printf("ERROR: associativity must be either 'direct, assoc, or assoc:n' where n is the set size.\n");
 						return 0;
 					}
 					else
@@ -144,7 +144,7 @@ int main(int argc, char *argv[])
 				{
 					if (strncmp(argv[i+1],"assoc:",6)!=0)
 					{
-						printHelp();
+						printf("ERROR: associativity must be either 'direct, assoc, or assoc:n' where n is the set size.\n");
 						return 0;
 					}
 					else
@@ -175,7 +175,7 @@ int main(int argc, char *argv[])
 				{
 					if (strncmp(argv[i+1],"assoc:",6)!=0)
 					{
-						printHelp();
+						printf("ERROR: associativity must be either 'direct, assoc, or assoc:n' where n is the set size.\n");
 						return 0;
 					}
 					else
