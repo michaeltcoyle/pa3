@@ -43,10 +43,10 @@ int strcicmp(char const *a, char const *b)
     }
 }
 // Calculates log2 of number.  
-int log2( int n )  
+int log2(int n)  
 {  
     // log(n)/log(2) is log2.  
-    return log( n ) / log( 2 );  
+    return log(n)/log(2);  
 }
 
 //direct mapped cache FIFO
