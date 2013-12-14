@@ -106,7 +106,7 @@ int main(int argc, char *argv[])
 		{
 			printf("%s","here2\n");
 			int flag = 0;
-			char temp[1];
+			char temp[1] = "0"
 			if (strcmp(argv[i+1], "direct")!=0)
 			{
 				if (strcmp(argv[i+1], "assoc")!=0)
@@ -120,11 +120,7 @@ int main(int argc, char *argv[])
 					{
 						printf("%s","here3");
 						char news[3];
-						for (int j = 0; j<strlen(argv[i+1]);j++)
-						{
-							strcpy(temp,(char *)(argv[i+1][6+j]));
-							strcat(news,temp);
-						}
+						memcpy(news,&(argv[i+1])[6],1);
 						l1n = atoi(news);
 					}
 				}
