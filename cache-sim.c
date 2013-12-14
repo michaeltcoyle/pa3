@@ -97,7 +97,7 @@ int main(int argc, char *argv[])
 
 		else if (strcmp(argv[i], "-l1assoc")==0)
 		{
-			int l1n;
+			
 			int flag = 0;
 			char temp;
 			if (strcmp(argv[i+1], "direct")!=0)
@@ -125,7 +125,7 @@ int main(int argc, char *argv[])
 								strcat(news,temp);
 							}
 						}
-						l1n = atoi(news);
+						int l1n = atoi(news);
 					}
 				}
 			}
@@ -233,7 +233,7 @@ int main(int argc, char *argv[])
 	if (strcmp(l1assoc,"direct")==0)
 	{
 		b1bits = log2(blocksize);
-		s1bits = blocksize
+		s1bits = blocksize;
 	}
 	else if (strcmp(l1assoc,"assoc")==0)
 	{
@@ -250,6 +250,7 @@ int main(int argc, char *argv[])
 		{
 			break;
 		}
+	}
 
 
 
