@@ -122,7 +122,7 @@ int main(int argc, char *argv[])
 							}
 							if (flag==1)
 							{
-								strcat(news,fgets(argv[i+1]);
+								strcat(news,temp);
 							}
 						}
 						l1n = atoi(news);
