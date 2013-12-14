@@ -111,7 +111,7 @@ int main(int argc, char *argv[])
 			{
 				if (strcmp(argv[i+1], "assoc")!=0)
 				{
-					if (strncmp(argv[i+1],"assoc:",6)!=0)
+					if (strncmp(argv[i+1],"assoc:",5)!=0)
 					{
 						printHelp();
 						return 0;
