@@ -106,12 +106,12 @@ int main(int argc, char *argv[])
 		{
 			printf("%s","here2\n");
 			int flag = 0;
-			char * temp = 0;
+			char temp = 0;
 			if (strcmp(argv[i+1], "direct")!=0)
 			{
 				if (strcmp(argv[i+1], "assoc")!=0)
 				{
-					if (strncmp(argv[i+1],"assoc:",5)!=0)
+					if (strncmp(argv[i+1],"assoc:",6)!=0)
 					{
 						printHelp();
 						return 0;
