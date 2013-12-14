@@ -92,11 +92,13 @@ int main(int argc, char *argv[])
 			l3size = atoi(argv[i+1]);
 			i++;
 		}
+		
 		//save associativity setting
-		int l1n;
-		int flag = 0;
+
 		else if (strcmp(argv[i], "-l1assoc")==0)
 		{
+			int l1n;
+			int flag = 0;
 			if (strcmp(argv[i+1], "direct")!=0)
 			{
 				if (strcmp(argv[i+1], "assoc")!=0)
