@@ -106,7 +106,7 @@ int main(int argc, char *argv[])
 		{
 			printf("%s","here2\n");
 			int flag = 0;
-			char temp = 0;
+			char * temp = 0;
 			if (strcmp(argv[i+1], "direct")!=0)
 			{
 				if (strcmp(argv[i+1], "assoc")!=0)
@@ -118,7 +118,7 @@ int main(int argc, char *argv[])
 					}
 					else
 					{
-						printf("here3");
+						printf("%s","here3");
 						char news[3];
 						for (int j = 0; j<strlen(argv[i+1]);j++)
 						{
