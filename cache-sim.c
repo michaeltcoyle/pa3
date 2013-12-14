@@ -43,7 +43,7 @@ int strcicmp(char const *a, char const *b)
     }
 }
 // Calculates log2 of number.  
-int log2(int n)  
+int llog2(int n)  
 {  
     // log(n)/log(2) is log2.  
     return log(n)/log(2);  
@@ -242,13 +242,13 @@ int main(int argc, char *argv[])
 
 	if (strcmp(l1assoc,"direct")==0)
 	{
-		b1bits = log2(blocksize);
+		b1bits = llog2(blocksize);
 		s1bits = blocksize;
 	}
 	else if (strcmp(l1assoc,"assoc")==0)
 	{
-		b1bits = log2(blocksize);
-		s1bits = log2(1);
+		b1bits = llog2(blocksize);
+		s1bits = llog2(1);
 	}
 
 
