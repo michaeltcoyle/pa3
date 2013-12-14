@@ -109,7 +109,7 @@ int main(int argc, char *argv[])
 		{
 			
 			int flag = 0;
-			char * temp;
+			char * temp = 0;
 			if (strcmp(argv[i+1], "direct")!=0)
 			{
 				if (strcmp(argv[i+1], "assoc")!=0)
@@ -125,7 +125,7 @@ int main(int argc, char *argv[])
 						for (int j = 0; j<strlen(argv[i+1]);j++)
 						{
 							fgets(temp, 1, (FILE*)argv[i+1]);
-							printf(temp);
+							printf("%s",temp);
 							if (strcmp(temp,":")==0)
 							{
 								flag = 1;
