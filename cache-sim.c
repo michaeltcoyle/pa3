@@ -106,7 +106,7 @@ int main(int argc, char *argv[])
 		{
 			printf("%s","here2\n");
 			int flag = 0;
-			char * temp = 0;
+			char temp = 0;
 			if (strcmp(argv[i+1], "direct")!=0)
 			{
 				if (strcmp(argv[i+1], "assoc")!=0)
@@ -121,8 +121,8 @@ int main(int argc, char *argv[])
 						printf("%s","here3");
 						char news[3];
 						for (int j = 0; j<strlen(argv[i+1]);j++)
-						{/*
-							fgets(temp, 1, (FILE*)argv[i+1]);
+						{
+							temp = getc(trace);
 							printf("%s",temp);
 							if (strcmp(temp,":")==0)
 							{
@@ -130,8 +130,8 @@ int main(int argc, char *argv[])
 							}
 							if (flag==1)
 							{
-								//strcat(news,temp);
-							}*/
+								strcat(news,temp);
+							}
 						}
 						l1n = atoi(news);
 					}
