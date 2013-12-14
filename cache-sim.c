@@ -111,14 +111,14 @@ int main(int argc, char *argv[])
 			{
 				if (strcmp(argv[i+1], "assoc")!=0)
 				{
-					if (strncmp(argv[i+1],"assoc:",5)!=0)
+					if (strncmp(argv[i+1],"assoc:",6)!=0)
 					{
 						printHelp();
 						return 0;
 					}
 					else
 					{
-						printf("%s",(char *)argv[i+1]);
+						printf("%s",argv[i+1]);
 						char news[3];
 						printf("%d",strlen(argv[i+1]));
 						for (int j = 0; j<strlen(argv[i+1]);j++)
