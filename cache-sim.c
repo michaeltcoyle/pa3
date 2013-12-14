@@ -118,9 +118,8 @@ int main(int argc, char *argv[])
 					}
 					else
 					{
-						printf("%s",argv[i+1]);
+						printf("here3");
 						char news[3];
-						printf("%d",strlen(argv[i+1]));
 						for (int j = 0; j<strlen(argv[i+1]);j++)
 						{
 							fgets(temp, 1, (FILE*)argv[i+1]);
