@@ -122,16 +122,8 @@ int main(int argc, char *argv[])
 						char news[3];
 						for (int j = 0; j<strlen(argv[i+1]);j++)
 						{
-							temp = getc(trace);
-							printf("%s",temp);
-							if (strcmp(temp,":")==0)
-							{
-								flag = 1;
-							}
-							if (flag==1)
-							{
-								strcat(news,temp);
-							}
+							temp = argv[i+1][6+j];
+							strcat(news,temp);
 						}
 						l1n = atoi(news);
 					}
