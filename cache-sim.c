@@ -40,12 +40,7 @@ int strcicmp(char const *a, char const *b)
 }
 
 //direct mapped cache FIFO
-{
 
-
-
-
-}
 
 //main program
 int main(int argc, char *argv[])
