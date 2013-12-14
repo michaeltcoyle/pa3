@@ -124,7 +124,7 @@ int main(int argc, char *argv[])
 						char news[3];
 						for (int j = 0; j<strlen(argv[i+1]);j++)
 						{
-							fgets(temp, 1, argv[i+1]);
+							fgets(temp, 1, (FILE*)argv[i+1]);
 							printf(temp);
 							if (strcmp(temp,":")==0)
 							{
