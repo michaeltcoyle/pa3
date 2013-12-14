@@ -111,9 +111,9 @@ int main(int argc, char *argv[])
 					else
 					{
 						char news[3];
-						for (int j = 0; j<strlen;argv[i+1];j++)
+						for (int j = 0; j<strlen(argv[i+1]);j++)
 						{
-							if (strcmp(fgets(argv[i+1],":")==0)
+							if (strcmp(fgets(argv[i+1]),":")==0)
 							{
 								flag = 1;
 							}
