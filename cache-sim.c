@@ -8,7 +8,9 @@
 #include <tgmath.h>
 #include "cache-sim.h"
 
-//test
+//this version successfully parses command line
+
+
 //debug
 int debug = 1;
 
@@ -49,7 +51,7 @@ int llog2(int n)
     return log10(n)/log10(2);  
 }
 
-//direct mapped cache FIFO
+
 
 
 //main program
