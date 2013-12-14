@@ -21,9 +21,9 @@ char l1assoc[8];
 char l2assoc[8];
 char l3assoc[8];
 char replacealg[4];
-int l1n;
-int l2n;
-int l3n;
+int l1n = -1;
+int l2n = -1;
+int l3n = -1;
 
 FILE *trace;
 
@@ -104,7 +104,6 @@ int main(int argc, char *argv[])
 		}
 		else if (strcmp(argv[i], "-l1assoc")==0)
 		{
-			printf("%s","here2\n");
 			int flag = 0;
 			if (strcmp(argv[i+1], "direct")!=0)
 			{
@@ -117,8 +116,7 @@ int main(int argc, char *argv[])
 					}
 					else
 					{
-						printf("%s","here3");
-						char news[3];
+						char news[1];
 						memcpy(news,&(argv[i+1])[6],1);
 						l1n = atoi(news);
 					}
@@ -136,34 +134,62 @@ int main(int argc, char *argv[])
 		}
 		else if (strcmp(argv[i], "-l2assoc")==0)
 		{
+			int flag = 0;
 			if (strcmp(argv[i+1], "direct")!=0)
 			{
 				if (strcmp(argv[i+1], "assoc")!=0)
 				{
-					if (strcmp(argv[i+1], "assoc:n")!=0)
-					{	
+					if (strncmp(argv[i+1],"assoc:",6)!=0)
+					{
 						printHelp();
 						return 0;
 					}
+					else
+					{
+						char news[1];
+						memcpy(news,&(argv[i+1])[6],1);
+						l2n = atoi(news);
+					}
 				}
 			}
-			strcpy(l2assoc,argv[i+1]);
+			if (flag==0)
+			{
+				strcpy(l2assoc,argv[i+1]);
+			}
+			else
+			{
+				strcpy(l2assoc,"assoc:");
+			}
 			i++;
 		}	
 		else if (strcmp(argv[i], "-l3assoc")==0)
 		{
+			int flag = 0;
 			if (strcmp(argv[i+1], "direct")!=0)
 			{
 				if (strcmp(argv[i+1], "assoc")!=0)
 				{
-					if (strcmp(argv[i+1], "assoc:n")!=0)
-					{	
+					if (strncmp(argv[i+1],"assoc:",6)!=0)
+					{
 						printHelp();
 						return 0;
 					}
+					else
+					{
+						char news[1];
+						memcpy(news,&(argv[i+1])[6],1);
+						l3n = atoi(news);
+					}
 				}
 			}
-			strcpy(l3assoc,argv[i+1]);
+			if (flag==0)
+			{
+				strcpy(l3assoc,argv[i+1]);
+			}
+			else
+			{
+				strcpy(l3assoc,"assoc:");
+			}
 			i++;
 		}
 		else if (i == argc-3)
@@ -209,6 +235,10 @@ int main(int argc, char *argv[])
 		printf("l3assoc: %s\n",l3assoc);
 		printf("blocksize: %d\n",blocksize);
 		printf("replacealg: %s\n",replacealg);
+		if (l1n!=-1){printf("l1n: %d\n",l1n);}
+		if (l2n!=-1){printf("l2n: %d\n",l2n);}
+		if (l3n!=-1){printf("l3n: %d\n",l3n);}
+		
 	}
 
 	//begin simulation
