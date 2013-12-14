@@ -5,6 +5,7 @@
 #include <string.h>
 #include <ctype.h>
 #include <math.h>
+#include <tgmath.h>
 #include "cache-sim.h"
 
 //test
@@ -42,7 +43,7 @@ int strcicmp(char const *a, char const *b)
     }
 }
 // Calculates log2 of number.  
-double log2( double n )  
+int log2( int n )  
 {  
     // log(n)/log(2) is log2.  
     return log( n ) / log( 2 );  
