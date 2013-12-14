@@ -5,6 +5,6 @@ void printHelp();
 
 int strcicmp(char const *a, char const *b);
 
-double Log2( double n ) ;
+double log2( double n ) ;
 
 #endif
