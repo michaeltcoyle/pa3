@@ -20,6 +20,9 @@ char l1assoc[8];
 char l2assoc[8];
 char l3assoc[8];
 char replacealg[4];
+int l1n;
+int l2n;
+int l3n;
 
 FILE *trace;
 
@@ -125,7 +128,7 @@ int main(int argc, char *argv[])
 								strcat(news,temp);
 							}
 						}
-						int l1n = atoi(news);
+						l1n = atoi(news);
 					}
 				}
 			}
