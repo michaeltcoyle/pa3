@@ -490,7 +490,7 @@ int main(int argc, char *argv[])
 		char *u;
 
 
-		memcpy(tag1,&currAddr[0],t1bits);
+		memcpy(tag1,&currAddr[1],t1bits);
 		memcpy(set1,&currAddr[t1bits],s1bits);
 		memcpy(block1,&currAddr[s1bits+t1bits],b1bits);
 
@@ -499,7 +499,7 @@ int main(int argc, char *argv[])
 		block1v = strtol(block1,&u,16);
 		
 		
-		memcpy(tag2,&currAddr[0],t2bits);
+		memcpy(tag2,&currAddr[1],t2bits);
 		memcpy(set2,&currAddr[t2bits],s2bits);
 		memcpy(block2,&currAddr[s2bits+t2bits],b2bits);
 
@@ -508,7 +508,7 @@ int main(int argc, char *argv[])
 		block2v = strtol(block2,&u,16);
 
 
-		memcpy(tag3,&currAddr[0],t3bits);
+		memcpy(tag3,&currAddr[1],t3bits);
 		memcpy(set3,&currAddr[t3bits],s3bits);
 		memcpy(block3,&currAddr[s3bits+t3bits],b3bits);
 
@@ -538,15 +538,15 @@ int main(int argc, char *argv[])
 		if (l1n!=-1){printf("l1n: %d\n",l1n);}
 		if (l2n!=-1){printf("l2n: %d\n",l2n);}
 		if (l3n!=-1){printf("l3n: %d\n",l3n);}
-		printf("b1bits: %d\n",b1bits);
-		printf("s1bits: %d\n",s1bits);
 		printf("t1bits: %d\n",t1bits);
-		printf("b2bits: %d\n",b2bits);
-		printf("s2bits: %d\n",s2bits);
+		printf("s1bits: %d\n",s1bits);
+		printf("b1bits: %d\n",b1bits);
 		printf("t2bits: %d\n",t2bits);
-		printf("b3bits: %d\n",b3bits);
-		printf("s3bits: %d\n",s3bits);
+		printf("s2bits: %d\n",s2bits);
+		printf("b2bits: %d\n",b2bits);
 		printf("t3bits: %d\n",t3bits);
+		printf("s3bits: %d\n",s3bits);
+		printf("b3bits: %d\n",b3bits);
 		printf("setsize1: %d\n",setsize1);
 		printf("setsize2: %d\n",setsize2);
 		printf("setsize3: %d\n",setsize3);
