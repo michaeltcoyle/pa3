@@ -20,6 +20,7 @@ struct Row {
 
 struct Cache {
 
+	int nrows;
 	struct Row *rows;
 
 };
@@ -250,17 +251,17 @@ int main(int argc, char *argv[])
 	struct Cache *l1 = malloc(sizeof(struct Cache));
 	l1->rows = malloc((l1size * sizeof(struct Row)));
 
-	l1->rows = l1size;
+	l1->nrows = l1size;
 
 	struct Cache *l2 = malloc(sizeof(struct Cache));
 	l2->rows = malloc((l2size * sizeof(struct Row)));
 
-	l2->rows = l1size;
+	l2->nrows = l1size;
 
 	struct Cache *l3 = malloc(sizeof(struct Cache));
 	l3->rows = malloc((l1size * sizeof(struct Row)));
 
-	l3->rows = l1size;
+	l3->nrows = l1size;
 
 	//begin simulation
 
