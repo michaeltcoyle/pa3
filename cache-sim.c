@@ -597,10 +597,10 @@ int main(int argc, char *argv[])
 					{
 						l1cache->hit++;
 						l1pass = 1;
-						first = 0;
+						workingSet[i]->first = 0;
 						break;
 					}
-					else if (workingSet[i]->valid==1 && first == 0)
+					else if (workingSet[i]->valid==1 && workingSet[i]->first == 0)
 					{
 						l1cache->confmiss++
 						break;
@@ -609,7 +609,7 @@ int main(int argc, char *argv[])
 					{	
 						l1cache->coldmiss++;
 						strcpy(workingSet[i]->block,block1);
-						first = 0;
+						workingSet[i]->first = 0;
 						break;
 					}
 				}
@@ -644,10 +644,10 @@ int main(int argc, char *argv[])
 					{
 						l2cache->hit++;
 						l2pass = 1;
-						first = 0;
+						workingSet[i]->first = 0;
 						break;
 					}
-					else if (workingSet[i]->valid==1 && first == 0)
+					else if (workingSet[i]->valid==1 && workingSet[i]->first == 0)
 					{
 						l2cache->confmiss++
 						break;
@@ -656,7 +656,7 @@ int main(int argc, char *argv[])
 					{	
 						l2cache->coldmiss++;
 						strcpy(workingSet[i]->block,block2);
-						first = 0;
+						workingSet[i]->first = 0;
 						break;
 					}
 				}
@@ -691,10 +691,10 @@ int main(int argc, char *argv[])
 					{
 						l3cache->hit++;
 						l3pass = 1;
-						first = 0;
+						workingSet[i]->first = 0;
 						break;
 					}
-					else if (workingSet[i]->valid==1 && first == 0)
+					else if (workingSet[i]->valid==1 && workingSet[i]->first == 0)
 					{
 						l3cache->confmiss++
 						break;
@@ -703,7 +703,7 @@ int main(int argc, char *argv[])
 					{	
 						l3cache->coldmiss++;
 						strcpy(workingSet[i]->block,block3);
-						first = 0;
+						workingSet[i]->first = 0;
 						break;
 					}
 				}
