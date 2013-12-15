@@ -575,7 +575,7 @@ int main(int argc, char *argv[])
 		{
 		
 			l1pass = 0;
-			struct Set workingSet = &l1cache[set1v];
+			Set *workingSet = l1cache->sets[set1v];
 			for (int i = 0; i<workingSet[i]->nrows; i++)
 			{
 				if (workingSet[i]->first!=1 && workingSet[i]->first!=0)
@@ -622,7 +622,9 @@ int main(int argc, char *argv[])
 		if ((l1pass = 0) && (l2pass == 0) && (strcmp(l2assoc,"direct")==0))
 		{
 			l2pass = 0;
-			struct Set workingSet = &l2cache[set2v];
+			malloc(sizeof(struct Cache));
+			Set *workingSet = l2cache->sets[set2v];
+			&l2cache[set2v];
 			for (int i=0;i<workingSet[i]->nrows;i++)
 			{
 				if (workingSet[i]->first!=1 && workingSet[i]->first!=0)
@@ -669,7 +671,7 @@ int main(int argc, char *argv[])
 		if ((l2pass = 0) && (l2pass == 0) && (l3pass == 0) && (strcmp(l3assoc,"direct")==0))
 		{
 			l3pass = 0;
-			struct Set workingSet = &l3cache[set3v];
+			Set *workingSet = l3cache->sets[set3v];
 			for (int i=0;i<workingSet[i]->nrows;i++)
 			{	
 				if (workingSet[i]->first!=1 && workingSet[i]->first!=0)
