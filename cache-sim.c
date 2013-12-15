@@ -335,10 +335,70 @@ int main(int argc, char *argv[])
 		char tempAddr[15] = "";
 		char tempStr[addrlength];
 		memcpy(tempStr,&currAddr[2],addrlength);
-		for (int i = 0; i < 16-addrlength; i++)
+		//for (int i = 0; i < 16-addrlength; i++)
+		//{
+		//	strcat(tempAddr,"0");
+		//}
+		switch (addrlength)
 		{
-			strcat(tempAddr,"0");
+
+			case 16:
+				break;
+			case 15:
+				strcat(tempAddr,"0");
+				break;
+			case 14:
+				strcat(tempAddr,"00");
+				break;
+			case 13: 
+				strcat(tempAddr,"000");
+				break;
+			case 12:
+				strcat(tempAddr,"0000");
+				break;
+			case 11:
+				strcat(tempAddr,"00000");
+				break;
+			case 10:
+				strcat(tempAddr,"000000");
+				break;
+			case 9:
+				strcat(tempAddr,"0000000");
+				break;
+			case 8:
+				strcat(tempAddr,"00000000");
+				break;
+			case 7:
+				strcat(tempAddr,"000000000");
+				break;
+			case 6:
+				strcat(tempAddr,"0000000000");
+				break;
+			case 5:
+				strcat(tempAddr,"00000000000");
+				break;
+			case 4:
+				strcat(tempAddr,"000000000000");
+				break;
+			case 3:
+				strcat(tempAddr,"0000000000000");
+				break;
+			case 2:
+				strcat(tempAddr,"00000000000000");
+				break;
+			case 1:
+				strcat(tempAddr,"000000000000000");
+				break;
+			case 0:
+				strcat(tempAddr,"0000000000000000");
+				break;
+			default:
+				break;
+				
 		}
+
+
+		
 		strcat(tempAddr,tempStr);
 		strcpy(currAddr,tempAddr);
 		printf("current address: %s\n",currAddr);
