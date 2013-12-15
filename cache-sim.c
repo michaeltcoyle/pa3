@@ -574,7 +574,7 @@ int main(int argc, char *argv[])
 		if ((l1pass == 0) && (strcmp(l1assoc,"direct")==0))
 		{
 			l1pass = 0;
-			struct Set *workingSet = &l1set[set1v];
+			struct Set *workingSet = &l1set;
 			
 			for (int i = 0; i<workingSet->nrows; i++)
 			{
@@ -593,7 +593,6 @@ int main(int argc, char *argv[])
 				}
 				if (strcmp(workingSet->rows[i].tag,tag1)==0)
 				{
-					printf("tst");
 					if (workingSet->rows[i].valid==1 && strcmp(workingSet->rows[i].block,block1)==0)
 					{
 						l1cache->hit++;
@@ -623,7 +622,7 @@ int main(int argc, char *argv[])
 		if ((l1pass = 0) && (l2pass == 0) && (strcmp(l2assoc,"direct")==0))
 		{
 			l2pass = 0;
-			struct Set *workingSet = &l2set[set2v];
+			struct Set *workingSet = &l2set;
 			for (int i=0;i<workingSet->nrows;i++)
 			{
 				if (workingSet->rows[i].first!=1 && workingSet->rows[i].first!=0)
@@ -670,7 +669,7 @@ int main(int argc, char *argv[])
 		if ((l2pass = 0) && (l2pass == 0) && (l3pass == 0) && (strcmp(l3assoc,"direct")==0))
 		{
 			l3pass = 0;
-			struct Set *workingSet = &l3set[set3v];
+			struct Set *workingSet = &l3set;
 			for (int i=0;i<workingSet->nrows;i++)
 			{	
 				if (workingSet->rows[i].first!=1 && workingSet->rows[i].first!=0)
