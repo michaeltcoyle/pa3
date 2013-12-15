@@ -421,6 +421,7 @@ int main(int argc, char *argv[])
 		char tempAddr[15] = "";
 		char tempStr[addrlength];
 		memcpy(tempStr,&currAddr[2],addrlength);
+		tempStr[strlen(tempStr)]=0;
 
 		switch (addrlength)
 		{
