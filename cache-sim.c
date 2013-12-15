@@ -23,7 +23,6 @@ char l1assoc[8];
 char l2assoc[8];
 char l3assoc[8];
 char replacealg[4];
-char filename[strlen(argv[argc-1])];
 int l1n = -1;
 int l2n = -1;
 int l3n = -1;
@@ -58,7 +57,7 @@ int llog2(int n)
 //main program
 int main(int argc, char *argv[])
 {
-
+	char filename[strlen(argv[argc-1])];
 	/*parse command line arguments and print them*/
 
 	/*check for valid input and save input parameters*/
