@@ -553,15 +553,15 @@ int main(int argc, char *argv[])
 		printf("l1cache rows: %d\n",l1cache->nrows*l1set->nrows);
 		printf("l2cache rows: %d\n",l2cache->nrows*l2set->nrows);
 		printf("l3cache rows: %d\n",l3cache->nrows*l3set->nrows);
-		printf("first address l1 tag: %d\n",tag1v);
-		printf("first address l1 set: %d\n",set1v);
-		printf("first address l1 block: %d\n",block1v);
-		printf("first address l2 tag: %d\n",tag2v);
-		printf("first address l2 set: %d\n",set2v);
-		printf("first address l2 block: %d\n",block2v);
-		printf("first address l3 tag: %d\n",tag3v);
-		printf("first address l3 set: %d\n",set3v);
-		printf("first address l3 block: %d\n",block3v);
+		printf("first address l1 tag: %dl\n",tag1v);
+		printf("first address l1 set: %dl\n",set1v);
+		printf("first address l1 block: %dl\n",block1v);
+		printf("first address l2 tag: %dl\n",tag2v);
+		printf("first address l2 set: %dl\n",set2v);
+		printf("first address l2 block: %dl\n",block2v);
+		printf("first address l3 tag: %dl\n",tag3v);
+		printf("first address l3 set: %dl\n",set3v);
+		printf("first address l3 block: %dl\n",block3v);
 #endif
 
 return 0;
