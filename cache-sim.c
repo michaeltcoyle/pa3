@@ -335,15 +335,15 @@ int main(int argc, char *argv[])
 		if (l1n!=-1){printf("l1n: %d\n",l1n);}
 		if (l2n!=-1){printf("l2n: %d\n",l2n);}
 		if (l3n!=-1){printf("l3n: %d\n",l3n);}
-		printf("b1bits: %s",b1bits);
-		printf("s1bits: %s",s1bits);
-		printf("t1bits: %s",t1bits);
-		printf("b2bits: %s",b2bits);
-		printf("s2bits: %s",s2bits);
-		printf("t2bits: %s",t2bits);
-		printf("b3bits: %s",b3bits);
-		printf("s3bits: %s",s3bits);
-		printf("t3bits: %s",t3bits);
+		printf("b1bits: %d",b1bits);
+		printf("s1bits: %d",s1bits);
+		printf("t1bits: %d",t1bits);
+		printf("b2bits: %d",b2bits);
+		printf("s2bits: %d",s2bits);
+		printf("t2bits: %d",t2bits);
+		printf("b3bits: %d",b3bits);
+		printf("s3bits: %d",s3bits);
+		printf("t3bits: %d",t3bits);
 		
 #endif
 
