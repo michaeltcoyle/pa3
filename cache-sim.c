@@ -226,23 +226,7 @@ int main(int argc, char *argv[])
 	}
 	
 
-	//print debug values
-#ifdef DEBUG
 
-		printf("l1size: %d\n",l1size);
-		printf("l2size: %d\n",l2size);
-		printf("l3size: %d\n",l3size);
-		printf("l1assoc: %s\n",l1assoc);
-		printf("l2assoc: %s\n",l2assoc);
-		printf("l3assoc: %s\n",l3assoc);
-		printf("blocksize: %d\n",blocksize);
-		printf("replacealg: %s\n",replacealg);
-		printf("filename: %s\n",filename);
-		if (l1n!=-1){printf("l1n: %d\n",l1n);}
-		if (l2n!=-1){printf("l2n: %d\n",l2n);}
-		if (l3n!=-1){printf("l3n: %d\n",l3n);}
-		
-#endif
 
 	//begin simulation
 
@@ -258,15 +242,58 @@ int main(int argc, char *argv[])
 	int s3bits;
 	int t3bits;
 
+//l1 assoc 
+
 	if (strcmp(l1assoc,"direct")==0)
 	{
 		b1bits = llog2(blocksize);
-		s1bits = blocksize;
+		s1bits = 1;
 	}
 	else if (strcmp(l1assoc,"assoc")==0)
 	{
 		b1bits = llog2(blocksize);
 		s1bits = llog2(1);
+	}
+	else if (strcmp(l1assoc,"assoc:n")==0)
+	{
+		b1bits = llog2(blocksize);
+		s1bits = l1n;
+	}
+
+//l2 assoc 
+
+	if (strcmp(l2assoc,"direct")==0)
+	{
+		b2bits = llog2(blocksize);
+		s2bits = 1;
+	}
+	else if (strcmp(l2assoc,"assoc")==0)
+	{
+		b2bits = llog2(blocksize);
+		s2bits = llog2(1);
+	}
+	else if (strcmp(l2assoc,"assoc:n")==0)
+	{
+		b2bits = llog2(blocksize);
+		s2bits = l2n;
+	}
+
+//l3 assoc 
+
+	if (strcmp(l3assoc,"direct")==0)
+	{
+		b3bits = llog2(blocksize);
+		s3bits = 1;
+	}
+	else if (strcmp(l3assoc,"assoc")==0)
+	{
+		b3bits = llog2(blocksize);
+		s3bits = llog2(1);
+	}
+	else if (strcmp(l3assoc,"assoc:n")==0)
+	{
+		b3bits = llog2(blocksize);
+		s3bits = l3n;
 	}
 
 	int getlength = 1;
@@ -280,6 +307,9 @@ int main(int argc, char *argv[])
 		{
 			addrlength = strlen(currAddr);
 			getlength = 0;
+			t1bits = addrlength-(b1bits+s1bits+2);
+			t2bits = addrlength-(b2bits+s2bits+2);
+			t3bits = addrlength-(b3bits+s3bits+2);
 		}
 		if (feof(trace)) 	//end of file
 		{
@@ -289,7 +319,32 @@ int main(int argc, char *argv[])
 	}
 
 
+	//print debug values
+#ifdef DEBUG
 
+		printf("l1size: %d\n",l1size);
+		printf("l2size: %d\n",l2size);
+		printf("l3size: %d\n",l3size);
+		printf("l1assoc: %s\n",l1assoc);
+		printf("l2assoc: %s\n",l2assoc);
+		printf("l3assoc: %s\n",l3assoc);
+		printf("blocksize: %d\n",blocksize);
+		printf("replacealg: %s\n",replacealg);
+		printf("filename: %s\n",filename);
+		if (l1n!=-1){printf("l1n: %d\n",l1n);}
+		if (l2n!=-1){printf("l2n: %d\n",l2n);}
+		if (l3n!=-1){printf("l3n: %d\n",l3n);}
+		printf("b1bits: %s",b1bits);
+		printf("s1bits: %s",s1bits);
+		printf("t1bits: %s",t1bits);
+		printf("b2bits: %s",b2bits);
+		printf("s2bits: %s",s2bits);
+		printf("t2bits: %s",t2bits);
+		printf("b3bits: %s",b3bits);
+		printf("s3bits: %s",s3bits);
+		printf("t3bits: %s",t3bits);
+		
+#endif
 
 return 0;
 }
