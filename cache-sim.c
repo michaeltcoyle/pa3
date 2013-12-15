@@ -16,7 +16,7 @@ struct set {
 	
 
 
-}
+};
 
 
 //global variables
