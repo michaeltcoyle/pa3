@@ -247,8 +247,8 @@ int main(int argc, char *argv[])
 	}
 	
 
-	struct cache *l1 = malloc(sizeof(struct cache));
-
+	//struct cache *l1 = malloc(sizeof(struct cache));
+	cache l1;
 	l1.rows = malloc((l1size * sizeof(Row));
 	if (l1.rows == 0)
 	{
@@ -257,8 +257,8 @@ int main(int argc, char *argv[])
 
 	l1.rows = l1size;
 
-	struct cache *l2 = malloc(sizeof(struct cache));
-
+	//struct cache *l2 = malloc(sizeof(struct cache));
+	cache l2;
 	l2.rows = malloc((l2size * sizeof(Row));
 	if (l2.rows == 0)
 	{
@@ -267,8 +267,8 @@ int main(int argc, char *argv[])
 
 	l2.rows = l1size;
 
-	struct cache *l3 = malloc(sizeof(struct cache));
-
+	//struct cache *l3 = malloc(sizeof(struct cache));
+	cache l3;
 	l3.rows = malloc((l1size * sizeof(Row));
 	if (l3.rows == 0)
 	{
