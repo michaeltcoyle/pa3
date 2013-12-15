@@ -30,7 +30,7 @@ struct Set {
 
 struct Cache {
 
-	int nrows;
+	int nsets;
 	struct Set *sets;
 	int miss;
 	int hit;
@@ -602,7 +602,7 @@ int main(int argc, char *argv[])
 					}
 					else if (workingSet.rows[i].valid==1 && workingSet.rows[i].first == 0)
 					{
-						l1cache->confmiss++
+						l1cache->confmiss++;
 						break;
 					}
 					else
@@ -623,8 +623,7 @@ int main(int argc, char *argv[])
 		{
 			l2pass = 0;
 			struct Set workingSet = l2cache->sets[set2v];
-			&l2cache[set2v];
-			for (int i=0;i<workingSet[i]->nrows;i++)
+			for (int i=0;i<workingSet.nrows;i++)
 			{
 				if (workingSet[i]->first!=1 && workingSet[i]->first!=0)
 				{
