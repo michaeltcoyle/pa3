@@ -335,35 +335,35 @@ int main(int argc, char *argv[])
 	int setsize2 = pow(16,s2bits);
 	int setsize3 = pow(16,s3bits);
 
-	struct Cache *l1 = malloc(sizeof(struct Cache));
-	l1->sets = malloc((l1size * sizeof(struct Set)));
+	struct Cache *l1cache = malloc(sizeof(struct Cache));
+	l1cache->sets = malloc((l1size * sizeof(struct Set)));
 
-	l1->nrows = l1size/setsize1;
+	l1cache->nrows = l1size/setsize1;
 	
-	struct Cache *l2 = malloc(sizeof(struct Cache));
-	l2->sets = malloc((l2size * sizeof(struct Set)));
+	struct Cache *l2cache = malloc(sizeof(struct Cache));
+	l2cache->sets = malloc((l2size * sizeof(struct Set)));
 
-	l2->nrows = l2size/setsize2;
+	l2cache->nrows = l2size/setsize2;
 
-	struct Cache *l3 = malloc(sizeof(struct Cache));
-	l3->sets = malloc((l3size * sizeof(struct Set)));
+	struct Cache *l3cache = malloc(sizeof(struct Cache));
+	l3cache->sets = malloc((l3size * sizeof(struct Set)));
 
-	l3->nrows = l3size/setsize3;
+	l3cache->nrows = l3size/setsize3;
 
-	struct Set *l1cache = malloc(sizeof(struct Set));
-	l1cache->rows = malloc(((l1size/setsize1) * sizeof(struct Row)));
+	struct Set *l1set = malloc(sizeof(struct Set));
+	l1set->rows = malloc(((l1size/setsize1) * sizeof(struct Row)));
 
-	l1cache->nrows = l1size;
+	l1set->nrows = setsize1;
 
-	struct Set *l2cache = malloc(sizeof(struct Cache));
-	l2cache->rows = malloc(((l2size/setsize2) * sizeof(struct Row)));
+	struct Set *l2set = malloc(sizeof(struct Cache));
+	l2set->rows = malloc(((l2size/setsize2) * sizeof(struct Row)));
 
-	l2cache->nrows = l1size;
+	l2set->nrows = setsize2;
 
-	struct Set *l3cache = malloc(sizeof(struct Cache));
-	l3cache->rows = malloc(((l3size/setsize3) * sizeof(struct Row)));
+	struct Set *l3set = malloc(sizeof(struct Cache));
+	l3set->rows = malloc(((l3size/setsize3) * sizeof(struct Row)));
 
-	l3cache->nrows = l1size;
+	l3set->nrows = setsize3;
 	
 	int addrlength;
 	char currAddr[17];
@@ -493,7 +493,15 @@ int main(int argc, char *argv[])
 		printf("setsize1: %d\n",setsize1);
 		printf("setsize2: %d\n",setsize2);
 		printf("setsize3: %d\n",setsize3);
-		
+		printf("l1cache sets: %d\n",l1cache->nrows);
+		printf("l2cache sets: %d\n",l2cache->nrows);
+		printf("l3cache sets: %d\n",l3cache->nrows);
+		printf("l1cache setsize: %d\n",l1set->nrows);
+		printf("l2cache setsize: %d\n",l2set->nrows);
+		printf("l3cache setsize: %d\n",l3set->nrows);
+		printf("l1cache rows: %d\n",l1cache->nrows*l1set->nrows;
+		printf("l2cache rows: %d\n",l2cache->nrows*l2set->nrows;
+		printf("l3cache rows: %d\n",l3cache->nrows*l3set->nrows;
 #endif
 
 return 0;
