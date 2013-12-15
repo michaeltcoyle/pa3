@@ -13,9 +13,9 @@
 struct Row {
 
 	int first;
-	char block;
+	char block[16];
 	int valid;
-	char tag;
+	char tag[16];
 
 };
 
