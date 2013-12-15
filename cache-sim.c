@@ -12,9 +12,10 @@
 
 struct Row {
 
-	int data;
-	int valid;
-	int written;
+	int first = 1;
+	int block;
+	int valid = 0;
+	int tag;
 
 };
 
@@ -29,11 +30,11 @@ struct Cache {
 
 	int nrows;
 	struct Set *sets;
-	int miss;
-	int hit;
-	int coldmiss;
-	int confmiss;
-	int capmiss;
+	int miss = 0;
+	int hit = 0;
+	int coldmiss = 0;
+	int confmiss = 0;
+	int capmiss = 0;
 
 };
 
@@ -98,7 +99,7 @@ int main(int argc, char *argv[])
 
 	if (argc<2)
 	{
-		printf("ERROR: invalid arguments.\n");
+		fprintf(stderr,"ERROR: invalid arguments.\n");
 		return 0;
 	}
 	for (int i=1; i<argc; i++)
@@ -112,7 +113,7 @@ int main(int argc, char *argv[])
 		{
 			if (isdigit(*argv[i+1]) == 0)
 			{
-				printf("ERROR: size arguments must be a power of 2.\n");
+				fprintf(stderr,"ERROR: size arguments must be a power of 2.\n");
 				return 0;
 			}
 			l1size = atoi(argv[i+1]);
@@ -122,7 +123,7 @@ int main(int argc, char *argv[])
 		{
 			if (isdigit(*argv[i+1]) == 0)
 			{
-				printf("ERROR: size arguments must be a power of 2.\n");
+				fprintf(stderr,"ERROR: size arguments must be a power of 2.\n");
 				return 0;
 			}
 			l2size = atoi(argv[i+1]);
@@ -132,7 +133,7 @@ int main(int argc, char *argv[])
 		{
 			if (isdigit(*argv[i+1]) == 0)
 			{
-				printf("ERROR: size arguments must be a power of 2.\n");
+				fprintf(stderr,"ERROR: size arguments must be a power of 2.\n");
 				return 0;
 			}
 			l3size = atoi(argv[i+1]);
@@ -147,7 +148,7 @@ int main(int argc, char *argv[])
 				{
 					if (strncmp(argv[i+1],"assoc:",6)!=0)
 					{
-						printf("ERROR: associativity must be either 'direct, assoc, or assoc:n' where n is the set size.\n");
+						fprintf(stderr,"ERROR: associativity must be either 'direct, assoc, or assoc:n' where n is the set size.\n");
 						return 0;
 					}
 					else
@@ -178,7 +179,7 @@ int main(int argc, char *argv[])
 				{
 					if (strncmp(argv[i+1],"assoc:",6)!=0)
 					{
-						printf("ERROR: associativity must be either 'direct, assoc, or assoc:n' where n is the set size.\n");
+						fprintf(stderr,"ERROR: associativity must be either 'direct, assoc, or assoc:n' where n is the set size.\n");
 						return 0;
 					}
 					else
@@ -209,7 +210,7 @@ int main(int argc, char *argv[])
 				{
 					if (strncmp(argv[i+1],"assoc:",6)!=0)
 					{
-						printf("ERROR: associativity must be either 'direct, assoc, or assoc:n' where n is the set size.\n");
+						fprintf(stderr,"ERROR: associativity must be either 'direct, assoc, or assoc:n' where n is the set size.\n");
 						return 0;
 					}
 					else
@@ -397,9 +398,9 @@ int main(int argc, char *argv[])
 	
 	int addrlength;
 	char currAddr[17];
+	memaccesses = 0;
 	while (1)
 	{
-
 		fscanf(trace, "%s", currAddr); 		//read an address
 
 		addrlength = strlen(currAddr)-2;
@@ -415,6 +416,10 @@ int main(int argc, char *argv[])
 		{
 			break;
 		}
+
+		//count mem access
+		
+		memaccesses++;
 		
 		//append leading 0s
 		
@@ -529,9 +534,102 @@ int main(int argc, char *argv[])
 		set3v = strtol(set3,&u,16);
 		block3v = strtol(block3,&u,16);
 		
+
+		//implementation
+		int l1pass = 0;
+		int l2pass = 0;
+		int l3pass = 0;
+		if ((l1pass == 0) && (strcmp(l1assoc,"direct")==0))
+		{
 		
-
-
+			l1pass = 0;
+			Set workingSet = l1cache[set1v];
+			for (int i = 0; i<workingSet->nrows; i++)
+			{
+				if (workingSet->nrows>l1size)
+				{
+					l1cache->capmiss++;
+					break;
+				}
+				else if (strcmp(workingSet[i]->tag,tag1)==0)
+				{
+					if (workingSet[i]->valid==1)
+					{
+						l1cache->hit++;
+						l1pass = 1;
+						break;
+					}
+					else
+					{
+						continue;
+					}
+				}
+				else
+				{
+					continue;
+				}
+			}
+		}
+		if ((l1pass = 0) && (l2pass == 0) && (strcmp(l2assoc,"direct")==0))
+		{
+			l2pass = 0;
+			workingSet = l2cache[set2v];
+			for (int i=0;i<workingSet->nrows;i++)
+			{
+				if (workingSet->nrows>l2size)
+				{
+					l2cache->capmiss++;
+					break;
+				}
+				else if (strcmp(workingSet[i]->tag,tag2)==0)
+				{
+					if (workingSet[i]->valid==1)
+					{
+						l2cache->hit++;
+						l2pass = 1;
+						break;
+					}
+					else
+					{
+						continue;
+					}
+				}
+				else
+				{
+					continue;
+				}
+			}
+		}
+		if ((l2pass = 0) && (l2pass == 0) && (l3pass == 0) && (strcmp(l3assoc,"direct")==0))
+		{
+			l3pass = 0;
+			workingSet = l3cache[set3v];
+			for (int i=0;i<workingSet->nrows;i++)
+			{					if (workingSet->nrows>l3size)
+				{
+					l3cache->capmiss++;
+					break;
+				}
+				else if (strcmp(workingSet[i]->tag,tag3)==0)
+				{
+					if (workingSet[i]->valid==1)
+					{
+						l3cache->hit++;
+						l3pass = 1;
+						break;
+					}
+					else
+					{
+						continue;		
+					}
+				}
+				else
+				{
+					continue;
+				}
+			}
+		}
+			
 		
 	}
 
@@ -572,24 +670,25 @@ int main(int argc, char *argv[])
 		printf("l1cache rows: %d\n",l1cache->nrows*l1set->nrows);
 		printf("l2cache rows: %d\n",l2cache->nrows*l2set->nrows);
 		printf("l3cache rows: %d\n",l3cache->nrows*l3set->nrows);
-		printf("first address l1 tag: %s\n",tag1);
-		printf("first address l1 set: %s\n",set1);
-		printf("first address l1 block: %s\n",block1);
-		printf("first address l2 tag: %s\n",tag2);
-		printf("first address l2 set: %s\n",set2);
-		printf("first address l2 block: %s\n",block2);
-		printf("first address l3 tag: %s\n",tag3);
-		printf("first address l3 set: %s\n",set3);
-		printf("first address l3 block: %s\n",block3);
-		printf("first address l1 tag dec: %ld\n",tag1v);
-		printf("first address l1 set dec: %ld\n",set1v);
-		printf("first address l1 block dec: %ld\n",block1v);
-		printf("first address l2 tag dec: %ld\n",tag2v);
-		printf("first address l2 set dec: %ld\n",set2v);
-		printf("first address l2 block dec: %ld\n",block2v);
-		printf("first address l3 tag dec: %ld\n",tag3v);
-		printf("first address l3 set dec: %ld\n",set3v);
-		printf("first address l3 block dec: %ld\n",block3v);
+		printf("last address l1 tag: %s\n",tag1);
+		printf("last address l1 set: %s\n",set1);
+		printf("last address l1 block: %s\n",block1);
+		printf("last address l2 tag: %s\n",tag2);
+		printf("last address l2 set: %s\n",set2);
+		printf("last address l2 block: %s\n",block2);
+		printf("last address l3 tag: %s\n",tag3);
+		printf("last address l3 set: %s\n",set3);
+		printf("last address l3 block: %s\n",block3);
+		printf("last address l1 tag dec: %ld\n",tag1v);
+		printf("last address l1 set dec: %ld\n",set1v);
+		printf("last address l1 block dec: %ld\n",block1v);
+		printf("last address l2 tag dec: %ld\n",tag2v);
+		printf("last address l2 set dec: %ld\n",set2v);
+		printf("last address l2 block dec: %ld\n",block2v);
+		printf("last address l3 tag dec: %ld\n",tag3v);
+		printf("last address l3 set dec: %ld\n",set3v);
+		printf("last address l3 block dec: %ld\n",block3v);
+		printf("memory accesses: %d\n",memaccesses);
 #endif
 
 return 0;
