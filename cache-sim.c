@@ -493,6 +493,7 @@ int main(int argc, char *argv[])
 		memcpy(tag1,&currAddr[0],t1bits);
 		memcpy(set1,&currAddr[t1bits-1],s1bits);
 		memcpy(block1,&currAddr[s1bits+t1bits-1],b1bits);
+		
 		tag1[t1bits]=0;
 		set1[s1bits]=0;
 		block1[b1bits]=0;
@@ -505,6 +506,10 @@ int main(int argc, char *argv[])
 		memcpy(tag2,&currAddr[0],t2bits);
 		memcpy(set2,&currAddr[t2bits-1],s2bits);
 		memcpy(block2,&currAddr[s2bits+t2bits-1],b2bits);
+		
+		tag2[t2bits]=0;
+		set2[s2bits]=0;
+		block2[b2bits]=0;
 
 		tag2v = strtol(tag2,&u,16);
 		set2v = strtol(set2,&u,16);
@@ -514,6 +519,10 @@ int main(int argc, char *argv[])
 		memcpy(tag3,&currAddr[0],t3bits);
 		memcpy(set3,&currAddr[t3bits-1],s3bits);
 		memcpy(block3,&currAddr[s3bits+t3bits-1],b3bits);
+
+		tag3[t3bits]=0;
+		set3[s3bits]=0;
+		block3[b3bits]=0;
 
 		tag3v = strtol(tag3,&u,16);
 		set3v = strtol(set3,&u,16);
