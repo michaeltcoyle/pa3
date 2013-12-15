@@ -630,23 +630,23 @@ int main(int argc, char *argv[])
 				}
 				if (workingSet.rows[i].valid!=1 && workingSet.rows[i].valid!=0)
 				{
-					workingSet[i]->valid=0;
+					workingSet.rows[i].valid=0;
 				}
 				if (workingSet->nrows>l2size)
 				{
 					l2cache->capmiss++;
 					break;
 				}
-				else if (strcmp(workingSet[i]->tag,tag2)==0)
+				else if (strcmp(workingSet.rows[i].tag,tag2)==0)
 				{
-					if (workingSet[i]->valid==1 && strcmp(workingSet[i]->block,block2)==0)
+					if (workingSet.rows[i].valid==1 && strcmp(workingSet.rows[i].block,block2)==0)
 					{
 						l2cache->hit++;
 						l2pass = 1;
-						workingSet[i]->first = 0;
+						workingSet.rows[i].first = 0;
 						break;
 					}
-					else if (workingSet[i]->valid==1 && workingSet[i]->first == 0)
+					else if (workingSet.rows[i].valid==1 && workingSet.rows[i].first == 0)
 					{
 						l2cache->confmiss++
 						break;
@@ -654,8 +654,8 @@ int main(int argc, char *argv[])
 					else
 					{	
 						l2cache->coldmiss++;
-						strcpy(workingSet[i]->block,block2);
-						workingSet[i]->first = 0;
+						strcpy(workingSet.rows[i].block,block2);
+						workingSet.rows[i].first = 0;
 						break;
 					}
 				}
@@ -669,31 +669,31 @@ int main(int argc, char *argv[])
 		{
 			l3pass = 0;
 			struct Set workingSet = l3cache->sets[set3v];
-			for (int i=0;i<workingSet[i]->nrows;i++)
+			for (int i=0;i<workingSet.nrows;i++)
 			{	
-				if (workingSet[i]->first!=1 && workingSet[i]->first!=0)
+				if (workingSet.rows[i].first!=1 && workingSet.rows[i].first!=0)
 				{
-					workingSet[i]->first=1;
+					workingSet.rows[i].first=1;
 				}
-				if (workingSet[i]->valid!=1 && workingSet[i]->valid!=0)
+				if (workingSet.rows[i].valid!=1 && workingSet.rows[i].valid!=0)
 				{
-					workingSet[i]->valid=0;
+					workingSet.rows[i].valid=0;
 				}
 				if (workingSet->nrows>l3size)
 				{
 					l3cache->capmiss++;
 					break;
 				}
-				else if (strcmp(workingSet[i]->tag,tag3)==0)
+				else if (strcmp(workingSet.rows[i].tag,tag3)==0)
 				{
-					if (workingSet[i]->valid==1 && strcmp(workingSet[i]->block,block3)==0)
+					if (workingSet.rows[i].valid==1 && strcmp(workingSet.rows[i].block,block3)==0)
 					{
 						l3cache->hit++;
 						l3pass = 1;
-						workingSet[i]->first = 0;
+						workingSet.rows[i].first = 0;
 						break;
 					}
-					else if (workingSet[i]->valid==1 && workingSet[i]->first == 0)
+					else if (workingSet.rows[i].valid==1 && workingSet.rows[i].first == 0)
 					{
 						l3cache->confmiss++
 						break;
@@ -701,8 +701,8 @@ int main(int argc, char *argv[])
 					else
 					{	
 						l3cache->coldmiss++;
-						strcpy(workingSet[i]->block,block3);
-						workingSet[i]->first = 0;
+						strcpy(workingSet.rows[i].block,block3);
+						workingSet.rows[i].first = 0;
 						break;
 					}
 				}
