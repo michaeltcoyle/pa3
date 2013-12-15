@@ -504,7 +504,7 @@ int main(int argc, char *argv[])
 
 		memcpy(tag3,&currAddr[0],t3bits);
 		memcpy(set3,&currAddr[t3bits],s3bits);
-		memcpy(block32,&currAddr[s3bits+t3bits],b3bits);
+		memcpy(block3,&currAddr[s3bits+t3bits],b3bits);
 
 		tag3v = strtol(tag3,&u,16);
 		set3v = strtol(set3,&u,16);
