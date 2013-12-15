@@ -329,16 +329,17 @@ int main(int argc, char *argv[])
 		{
 			break;
 		}
-
+		if (strcmp(currAddr,"#eof")==0)
+		{
+			break;
+		}
+		
 		//append leading 0s
 		
 		char tempAddr[15] = "";
 		char tempStr[addrlength];
 		memcpy(tempStr,&currAddr[2],addrlength);
-		//for (int i = 0; i < 16-addrlength; i++)
-		//{
-		//	strcat(tempAddr,"0");
-		//}
+
 		switch (addrlength)
 		{
 
