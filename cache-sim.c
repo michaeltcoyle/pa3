@@ -10,11 +10,17 @@
 
 //this version successfully parses command line (and probably gets correct bits (t,s,b)
 
-struct set {
+struct Row {
 
-	int size;
-	
+	int data;
+	int valid;
+	int written;
 
+};
+
+struct cache {
+
+	Row *rows;
 
 };
 
@@ -241,7 +247,35 @@ int main(int argc, char *argv[])
 	}
 	
 
+	struct cache *l1 = malloc(sizeof(struct cache));
 
+	l1.rows = malloc((l1size * sizeof(Row));
+	if (l1.rows == 0)
+	{
+    		handle_out_of_memory();
+    	}
+
+	l1.rows = l1size;
+
+	struct cache *l2 = malloc(sizeof(struct cache));
+
+	l2.rows = malloc((l2size * sizeof(Row));
+	if (l2.rows == 0)
+	{
+    		handle_out_of_memory();
+    	}
+
+	l2.rows = l1size;
+
+		struct cache *l1 = malloc(sizeof(struct cache));
+
+	l3.rows = malloc((l1size * sizeof(Row));
+	if (l3.rows == 0)
+	{
+    		handle_out_of_memory();
+    	}
+
+	l3.rows = l1size;
 
 	//begin simulation
 
