@@ -716,6 +716,9 @@ int main(int argc, char *argv[])
 		
 	}
 
+		l1cache->miss = l1cache->coldmiss+l1cache->confmiss+l1cache->capmiss;
+		l2cache->miss = l2cache->coldmiss+l2cache->confmiss+l2cache->capmiss;
+		l3cache->miss = l3cache->coldmiss+l3cache->confmiss+l3cache->capmiss;
 
 	//print debug values
 #ifdef DEBUG
@@ -772,12 +775,22 @@ int main(int argc, char *argv[])
 		printf("last address l3 set dec: %ld\n",set3v);
 		printf("last address l3 block dec: %ld\n",block3v);
 		printf("memory accesses: %d\n",memaccesses);
+		printf("l1 cache hits: %d\n",l1cache->hit);
+		printf("l1 cache misses: %d\n",l1cache->miss);
+		printf("l1 cache coldmisses: %d\n",l1cache->coldmiss);
+		printf("l1 cache confmisses: %d\n",l1cache->confmiss);
+		printf("l2 cache hits: %d\n",l2cache->hit);
+		printf("l2 cache misses: %d\n",l2cache->miss);
+		printf("l2 cache coldmisses: %d\n",l2cache->coldmiss);
+		printf("l2 cache confmisses: %d\n",l2cache->confmiss);
+		printf("l3 cache hits: %d\n",l3cache->hit);
+		printf("l3 cache misses: %d\n",l3cache->miss);
+		printf("l3 cache coldmisses: %d\n",l3cache->coldmiss);
+		printf("l3 cache confmisses: %d\n",l3cache->confmiss);
+
 #endif
 
 
-		l1cache->miss = l1cache->coldmiss+l1cache->confmiss+l1cache->capmiss;
-		l2cache->miss = l2cache->coldmiss+l2cache->confmiss+l2cache->capmiss;
-		l3cache->miss = l3cache->coldmiss+l3cache->confmiss+l3cache->capmiss;
 
 return 0;
 }
