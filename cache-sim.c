@@ -337,13 +337,13 @@ int main(int argc, char *argv[])
 		
 		char tempAddr[15] = "";
 		char tempStr[addrlength];
-		memcpy(tempStr,&currAddr[2];addrlength);
+		memcpy(tempStr,&currAddr[2],addrlength);
 		for (int i = 0; i < 16-addrlength; i++)
 		{
 			strcat(tempAddr,"0");
 		}
 		strcat(tempAddr,tempStr);
-		currAddr = tempAddr;
+		strcpy(currAddr,tempAddr);
 		printf("current address: %s\n",currAddr);
 		
 	}
