@@ -581,6 +581,15 @@ int main(int argc, char *argv[])
 		printf("first address l3 tag: %s\n",tag3);
 		printf("first address l3 set: %s\n",set3);
 		printf("first address l3 block: %s\n",block3);
+		printf("first address l1 tag dec: %ld\n",tag1v);
+		printf("first address l1 set dec: %ld\n",set1v);
+		printf("first address l1 block dec: %ld\n",block1v);
+		printf("first address l2 tag dec: %ld\n",tag2v);
+		printf("first address l2 set dec: %ld\n",set2v);
+		printf("first address l2 block dec: %ld\n",block2v);
+		printf("first address l3 tag dec: %ld\n",tag3v);
+		printf("first address l3 set dec: %ld\n",set3v);
+		printf("first address l3 block dec: %ld\n",block3v);
 #endif
 
 return 0;
