@@ -632,7 +632,7 @@ int main(int argc, char *argv[])
 				{
 					workingSet.rows[i].valid=0;
 				}
-				if (workingSet->nrows>l2size)
+				if (workingSet.nrows>l2size)
 				{
 					l2cache->capmiss++;
 					break;
@@ -648,7 +648,7 @@ int main(int argc, char *argv[])
 					}
 					else if (workingSet.rows[i].valid==1 && workingSet.rows[i].first == 0)
 					{
-						l2cache->confmiss++
+						l2cache->confmiss++;
 						break;
 					}
 					else
@@ -695,7 +695,7 @@ int main(int argc, char *argv[])
 					}
 					else if (workingSet.rows[i].valid==1 && workingSet.rows[i].first == 0)
 					{
-						l3cache->confmiss++
+						l3cache->confmiss++;
 						break;
 					}
 					else
@@ -744,9 +744,9 @@ int main(int argc, char *argv[])
 		printf("setsize1: %d\n",setsize1);
 		printf("setsize2: %d\n",setsize2);
 		printf("setsize3: %d\n",setsize3);
-		printf("l1cache sets: %d\n",l1cache->nrows);
-		printf("l2cache sets: %d\n",l2cache->nrows);
-		printf("l3cache sets: %d\n",l3cache->nrows);
+		printf("l1cache sets: %d\n",l1cache->nsets);
+		printf("l2cache sets: %d\n",l2cache->nsets);
+		printf("l3cache sets: %d\n",l3cache->nsets);
 		printf("l1cache setsize: %d\n",l1set->nrows);
 		printf("l2cache setsize: %d\n",l2set->nrows);
 		printf("l3cache setsize: %d\n",l3set->nrows);
