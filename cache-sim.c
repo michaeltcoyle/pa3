@@ -20,7 +20,7 @@ struct Row {
 
 struct cache {
 
-	Row *rows;
+	struct Row *rows;
 
 };
 
