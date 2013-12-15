@@ -53,7 +53,7 @@ char replacealg[4];
 int l1n = -1;
 int l2n = -1;
 int l3n = -1;
-memaccesses = 0;
+int memaccesses = 0;
 
 FILE *trace;
 
@@ -576,7 +576,7 @@ int main(int argc, char *argv[])
 		
 			l1pass = 0;
 			struct Set workingSet = l1cache[set1v];
-			for (int i = 0; i<workingSet->nrows; i++)
+			for (int i = 0; i<(workingSet->nrows); i++)
 			{
 				if (workingSet[i]->first!=1 && workingSet[i]->first!=0)
 				{
@@ -623,7 +623,7 @@ int main(int argc, char *argv[])
 		{
 			l2pass = 0;
 			struct workingSet = l2cache[set2v];
-			for (int i=0;i<workingSet->nrows;i++)
+			for (int i=0;i<(workingSet->nrows);i++)
 			{
 				if (workingSet[i]->first!=1 && workingSet[i]->first!=0)
 				{
@@ -670,7 +670,7 @@ int main(int argc, char *argv[])
 		{
 			l3pass = 0;
 			struct workingSet = l3cache[set3v];
-			for (int i=0;i<workingSet->nrows;i++)
+			for (int i=0;(i<workingSet->nrows);i++)
 			{	
 				if (workingSet[i]->first!=1 && workingSet[i]->first!=0)
 				{
