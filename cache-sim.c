@@ -578,11 +578,11 @@ int main(int argc, char *argv[])
 			struct Set workingSet = l1cache->sets[set1v];
 			for (int i = 0; i<workingSet.nrows; i++)
 			{
-				if (workingSet.rows[i]->first!=1 && workingSet.rows[i]->first!=0)
+				if (workingSet.rows[i].first!=1 && workingSet.rows[i].first!=0)
 				{
-					workingSet.rows[i]->first=1;
+					workingSet.rows[i].first=1;
 				}
-				if (workingSet.rows[i]->valid!=1 && workingSet.rows[i]->valid!=0)
+				if (workingSet.rows[i].valid!=1 && workingSet.rows[i].valid!=0)
 				{
 					workingSet->rows[i]->valid=0;
 				}
@@ -591,9 +591,9 @@ int main(int argc, char *argv[])
 					l1cache->capmiss++;
 					break;
 				}
-				else if (strcmp(workingSet[i]->tag,tag1)==0)
+				else if (strcmp(workingSet.rows[i].tag,tag1)==0)
 				{
-					if (workingSet[i]->valid==1 && strcmp(workingSet[i]->block,block1)==0)
+					if (workingSet.rows[i].valid==1 && strcmp(workingSet.rows[i].block,block1)==0)
 					{
 						l1cache->hit++;
 						l1pass = 1;
