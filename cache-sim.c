@@ -578,15 +578,15 @@ int main(int argc, char *argv[])
 			struct Set workingSet = l1cache->sets[set1v];
 			for (int i = 0; i<workingSet.nrows; i++)
 			{
-				if (workingSet->rows[i]->first!=1 && workingSet->rows[i]->first!=0)
+				if (workingSet.rows[i]->first!=1 && workingSet.rows[i]->first!=0)
 				{
-					workingSet->rows[i]->first=1;
+					workingSet.rows[i]->first=1;
 				}
-				if (workingSet->rows[i]->valid!=1 && workingSet->rows[i]->valid!=0)
+				if (workingSet.rows[i]->valid!=1 && workingSet.rows[i]->valid!=0)
 				{
 					workingSet->rows[i]->valid=0;
 				}
-				if (workingSet->nrows>l1size)
+				if (workingSet.nrows>l1size)
 				{
 					l1cache->capmiss++;
 					break;
