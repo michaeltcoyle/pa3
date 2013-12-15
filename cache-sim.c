@@ -640,7 +640,7 @@ int main(int argc, char *argv[])
 					l2cache->capmiss++;
 					break;
 				}
-				else if (strcmp(workingSet->rows[i].tag,tag2)==0)
+				if (strcmp(workingSet->rows[i].tag,tag2)==0)
 				{
 					if (workingSet->rows[i].valid==1 && strcmp(workingSet->rows[i].block,block2)==0)
 					{
@@ -687,7 +687,7 @@ int main(int argc, char *argv[])
 					l3cache->capmiss++;
 					break;
 				}
-				else if (strcmp(workingSet->rows[i].tag,tag3)==0)
+				if (strcmp(workingSet->rows[i].tag,tag3)==0)
 				{
 					if (workingSet->rows[i].valid==1 && strcmp(workingSet->rows[i].block,block3)==0)
 					{
