@@ -13,9 +13,9 @@
 struct Row {
 
 	int first;
-	int block;
+	char block;
 	int valid;
-	int tag;
+	char tag;
 
 };
 
@@ -584,7 +584,7 @@ int main(int argc, char *argv[])
 				}
 				if (workingSet.rows[i].valid!=1 && workingSet.rows[i].valid!=0)
 				{
-					workingSet->rows[i]->valid=0;
+					workingSet.rows[i].valid=0;
 				}
 				if (workingSet.nrows>l1size)
 				{
