@@ -576,31 +576,31 @@ int main(int argc, char *argv[])
 		
 			l1pass = 0;
 			struct Set workingSet = l1cache->sets[set1v];
-			for (int i = 0; i<workingSet[i]->nrows; i++)
+			for (int i = 0; i<workingSet->rows[i]->nrows; i++)
 			{
-				if (workingSet[i]->first!=1 && workingSet[i]->first!=0)
+				if (workingSet->rows[i]->first!=1 && workingSet->rows[i]->first!=0)
 				{
-					workingSet[i]->first=1;
+					workingSet->rows[i]->first=1;
 				}
-				if (workingSet[i]->valid!=1 && workingSet[i]->valid!=0)
+				if (workingSet->rows[i]->valid!=1 && workingSet->rows[i]->valid!=0)
 				{
-					workingSet[i]->valid=0;
+					workingSet->rows[i]->valid=0;
 				}
 				if (workingSet->nrows>l1size)
 				{
 					l1cache->capmiss++;
 					break;
 				}
-				else if (strcmp(workingSet[i]->tag,tag1)==0)
+				else if (strcmp(workingSet->rows[i]->tag,tag1)==0)
 				{
-					if (workingSet[i]->valid==1 && strcmp(workingSet[i]->block,block1)==0)
+					if (workingSet->rows[i]->valid==1 && strcmp(workingSet->rows[i]->block,block1)==0)
 					{
 						l1cache->hit++;
 						l1pass = 1;
-						workingSet[i]->first = 0;
+						workingSet->rows[i]->first = 0;
 						break;
 					}
-					else if (workingSet[i]->valid==1 && workingSet[i]->first == 0)
+					else if (workingSet->rows[i]->valid==1 && workingSet->rows[i]->first == 0)
 					{
 						l1cache->confmiss++
 						break;
@@ -608,8 +608,8 @@ int main(int argc, char *argv[])
 					else
 					{	
 						l1cache->coldmiss++;
-						strcpy(workingSet[i]->block,block1);
-						workingSet[i]->first = 0;
+						strcpy(workingSet->rows[i]->block,block1);
+						workingSet->rows[i]->first = 0;
 						break;
 					}
 				}
@@ -624,31 +624,31 @@ int main(int argc, char *argv[])
 			l2pass = 0;
 			struct Set workingSet = l2cache->sets[set2v];
 			&l2cache[set2v];
-			for (int i=0;i<workingSet[i]->nrows;i++)
+			for (int i=0;i<workingSet->rows[i]->nrows;i++)
 			{
-				if (workingSet[i]->first!=1 && workingSet[i]->first!=0)
+				if (workingSet->rows[i]->first!=1 && workingSet->rows[i]->first!=0)
 				{
-					workingSet[i]->first=1;
+					workingSet->rows[i]->first=1;
 				}
-				if (workingSet[i]->valid!=1 && workingSet[i]->valid!=0)
+				if (workingSet->rows[i]->valid!=1 && workingSet->rows[i]->valid!=0)
 				{
-					workingSet[i]->valid=0;
+					workingSet->rows[i]->valid=0;
 				}
 				if (workingSet->nrows>l2size)
 				{
 					l2cache->capmiss++;
 					break;
 				}
-				else if (strcmp(workingSet[i]->tag,tag2)==0)
+				else if (strcmp(workingSet->rows[i]->tag,tag2)==0)
 				{
-					if (workingSet[i]->valid==1 && strcmp(workingSet[i]->block,block2)==0)
+					if (workingSet->rows[i]->valid==1 && strcmp(workingSet->rows[i]->block,block2)==0)
 					{
 						l2cache->hit++;
 						l2pass = 1;
-						workingSet[i]->first = 0;
+						workingSet->rows[i]->first = 0;
 						break;
 					}
-					else if (workingSet[i]->valid==1 && workingSet[i]->first == 0)
+					else if (workingSet->rows[i]->valid==1 && workingSet->rows[i]->first == 0)
 					{
 						l2cache->confmiss++
 						break;
@@ -656,8 +656,8 @@ int main(int argc, char *argv[])
 					else
 					{	
 						l2cache->coldmiss++;
-						strcpy(workingSet[i]->block,block2);
-						workingSet[i]->first = 0;
+						strcpy(workingSet->rows[i]->block,block2);
+						workingSet->rows[i]->first = 0;
 						break;
 					}
 				}
@@ -671,31 +671,31 @@ int main(int argc, char *argv[])
 		{
 			l3pass = 0;
 			struct Set workingSet = l3cache->sets[set3v];
-			for (int i=0;i<workingSet[i]->nrows;i++)
+			for (int i=0;i<workingSet->rows[i]->nrows;i++)
 			{	
-				if (workingSet[i]->first!=1 && workingSet[i]->first!=0)
+				if (workingSet->rows[i]->first!=1 && workingSet->rows[i]->first!=0)
 				{
-					workingSet[i]->first=1;
+					workingSet->rows[i]->first=1;
 				}
-				if (workingSet[i]->valid!=1 && workingSet[i]->valid!=0)
+				if (workingSet->rows[i]->valid!=1 && workingSet->rows[i]->valid!=0)
 				{
-					workingSet[i]->valid=0;
+					workingSet->rows[i]->valid=0;
 				}
 				if (workingSet->nrows>l3size)
 				{
 					l3cache->capmiss++;
 					break;
 				}
-				else if (strcmp(workingSet[i]->tag,tag3)==0)
+				else if (strcmp(workingSet->rows[i]->tag,tag3)==0)
 				{
-					if (workingSet[i]->valid==1 && strcmp(workingSet[i]->block,block3)==0)
+					if (workingSet->rows[i]->valid==1 && strcmp(workingSet->rows[i]->block,block3)==0)
 					{
 						l3cache->hit++;
 						l3pass = 1;
-						workingSet[i]->first = 0;
+						workingSet->rows[i]->first = 0;
 						break;
 					}
-					else if (workingSet[i]->valid==1 && workingSet[i]->first == 0)
+					else if (workingSet->rows[i]->valid==1 && workingSet->rows[i]->first == 0)
 					{
 						l3cache->confmiss++
 						break;
@@ -703,8 +703,8 @@ int main(int argc, char *argv[])
 					else
 					{	
 						l3cache->coldmiss++;
-						strcpy(workingSet[i]->block,block3);
-						workingSet[i]->first = 0;
+						strcpy(workingSet->rows[i]->block,block3);
+						workingSet->rows[i]->first = 0;
 						break;
 					}
 				}
