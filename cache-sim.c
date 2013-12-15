@@ -269,16 +269,23 @@ int main(int argc, char *argv[])
 		s1bits = llog2(1);
 	}
 
-
+	int getlength = 1;
+	int addrlength;
 	char currAddr[15];
 	while (1)
 	{
+
 		fscanf(trace, "%s", currAddr); 		//read an address
+		if (getlength == 1)
+		{
+			addrlength = strlen(currAddr);
+			getlength = 0;
+		}
 		if (feof(trace)) 	//end of file
 		{
 			break;
 		}
-		printf("%s",currAddr);
+		
 	}
 
 
