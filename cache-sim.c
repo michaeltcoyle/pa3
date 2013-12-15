@@ -12,12 +12,14 @@
 
 struct Row {
 
-	int first = 1;
+	int first;
 	int block;
-	int valid = 0;
+	int valid;
 	int tag;
 
 };
+
+//initialize structs / constructor type stuff
 
 struct Set {
 
@@ -30,11 +32,11 @@ struct Cache {
 
 	int nrows;
 	struct Set *sets;
-	int miss = 0;
-	int hit = 0;
-	int coldmiss = 0;
-	int confmiss = 0;
-	int capmiss = 0;
+	int miss;
+	int hit;
+	int coldmiss;
+	int confmiss;
+	int capmiss;
 
 };
 
@@ -399,6 +401,29 @@ int main(int argc, char *argv[])
 	int addrlength;
 	char currAddr[17];
 	memaccesses = 0;
+
+
+	l1cache->miss = 0;
+	l1cache->hit = 0;
+	l1cache->coldmiss = 0;
+	l1cache->confmiss = 0;
+	l1cache->capmiss = 0;
+	
+	l2cache->miss = 0;
+	l2cache->hit = 0;
+	l2cache->coldmiss = 0;
+	l2cache->confmiss = 0;
+	l2cache->capmiss = 0;
+
+	l3cache->miss = 0;
+	l3cache->hit = 0;
+	l3cache->coldmiss = 0;
+	l3cache->confmiss = 0;
+	l3cache->capmiss = 0;
+
+
+	//start reading addresses
+	
 	while (1)
 	{
 		fscanf(trace, "%s", currAddr); 		//read an address
@@ -536,9 +561,16 @@ int main(int argc, char *argv[])
 		
 
 		//implementation
+
+
+		
 		int l1pass = 0;
 		int l2pass = 0;
 		int l3pass = 0;
+
+		
+
+		
 		if ((l1pass == 0) && (strcmp(l1assoc,"direct")==0))
 		{
 		
@@ -546,6 +578,14 @@ int main(int argc, char *argv[])
 			Set workingSet = l1cache[set1v];
 			for (int i = 0; i<workingSet->nrows; i++)
 			{
+				if (workingSet[i]->first!=1 && workingSet[i]->first!=0)
+				{
+					workingSet[i]->first=1;
+				}
+				if (workingSet[i]->valid!=1 && workingSet[i]->valid!=0)
+				{
+					workingSet[i]->valid=0;
+				}
 				if (workingSet->nrows>l1size)
 				{
 					l1cache->capmiss++;
@@ -553,15 +593,24 @@ int main(int argc, char *argv[])
 				}
 				else if (strcmp(workingSet[i]->tag,tag1)==0)
 				{
-					if (workingSet[i]->valid==1)
+					if (workingSet[i]->valid==1 && strcmp(workingSet[i]->block,block1)==0)
 					{
 						l1cache->hit++;
 						l1pass = 1;
+						first = 0;
+						break;
+					}
+					else if (workingSet[i]->valid==1 && first == 0)
+					{
+						l1cache->confmiss++
 						break;
 					}
 					else
-					{
-						continue;
+					{	
+						l1cache->coldmiss++;
+						strcpy(workingSet[i]->block,block1);
+						first = 0;
+						break;
 					}
 				}
 				else
@@ -576,6 +625,14 @@ int main(int argc, char *argv[])
 			workingSet = l2cache[set2v];
 			for (int i=0;i<workingSet->nrows;i++)
 			{
+				if (workingSet[i]->first!=1 && workingSet[i]->first!=0)
+				{
+					workingSet[i]->first=1;
+				}
+				if (workingSet[i]->valid!=1 && workingSet[i]->valid!=0)
+				{
+					workingSet[i]->valid=0;
+				}
 				if (workingSet->nrows>l2size)
 				{
 					l2cache->capmiss++;
@@ -583,15 +640,24 @@ int main(int argc, char *argv[])
 				}
 				else if (strcmp(workingSet[i]->tag,tag2)==0)
 				{
-					if (workingSet[i]->valid==1)
+					if (workingSet[i]->valid==1 && strcmp(workingSet[i]->block,block2)==0)
 					{
 						l2cache->hit++;
 						l2pass = 1;
+						first = 0;
+						break;
+					}
+					else if (workingSet[i]->valid==1 && first == 0)
+					{
+						l2cache->confmiss++
 						break;
 					}
 					else
-					{
-						continue;
+					{	
+						l2cache->coldmiss++;
+						strcpy(workingSet[i]->block,block2);
+						first = 0;
+						break;
 					}
 				}
 				else
@@ -605,22 +671,40 @@ int main(int argc, char *argv[])
 			l3pass = 0;
 			workingSet = l3cache[set3v];
 			for (int i=0;i<workingSet->nrows;i++)
-			{					if (workingSet->nrows>l3size)
+			{	
+				if (workingSet[i]->first!=1 && workingSet[i]->first!=0)
+				{
+					workingSet[i]->first=1;
+				}
+				if (workingSet[i]->valid!=1 && workingSet[i]->valid!=0)
+				{
+					workingSet[i]->valid=0;
+				}
+				if (workingSet->nrows>l3size)
 				{
 					l3cache->capmiss++;
 					break;
 				}
 				else if (strcmp(workingSet[i]->tag,tag3)==0)
 				{
-					if (workingSet[i]->valid==1)
+					if (workingSet[i]->valid==1 && strcmp(workingSet[i]->block,block3)==0)
 					{
 						l3cache->hit++;
 						l3pass = 1;
+						first = 0;
+						break;
+					}
+					else if (workingSet[i]->valid==1 && first == 0)
+					{
+						l3cache->confmiss++
 						break;
 					}
 					else
-					{
-						continue;		
+					{	
+						l3cache->coldmiss++;
+						strcpy(workingSet[i]->block,block3);
+						first = 0;
+						break;
 					}
 				}
 				else
@@ -690,6 +774,11 @@ int main(int argc, char *argv[])
 		printf("last address l3 block dec: %ld\n",block3v);
 		printf("memory accesses: %d\n",memaccesses);
 #endif
+
+
+		l1cache->miss = l1cache->coldmiss+l1cache->confmiss+l1cache->capmiss;
+		l2cache->miss = l2cache->coldmiss+l2cache->confmiss+l2cache->capmiss;
+		l3cache->miss = l3cache->coldmiss+l3cache->confmiss+l3cache->capmiss;
 
 return 0;
 }
