@@ -319,7 +319,6 @@ int main(int argc, char *argv[])
 		fscanf(trace, "%s", currAddr); 		//read an address
 
 		addrlength = strlen(currAddr)-2;
-		getlength = 0;
 		t1bits = addrlength-(b1bits+s1bits);
 		t2bits = addrlength-(b2bits+s2bits);
 		t3bits = addrlength-(b3bits+s3bits);
