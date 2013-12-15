@@ -574,7 +574,8 @@ int main(int argc, char *argv[])
 		if ((l1pass == 0) && (strcmp(l1assoc,"direct")==0))
 		{
 			l1pass = 0;
-			struct Set workingSet = l1cache->sets[set1v];
+			struct Set workingSet = l1set[set1v];
+			
 			for (int i = 0; i<workingSet.nrows; i++)
 			{
 				if (workingSet.rows[i].first!=1 && workingSet.rows[i].first!=0)
@@ -622,7 +623,7 @@ int main(int argc, char *argv[])
 		if ((l1pass = 0) && (l2pass == 0) && (strcmp(l2assoc,"direct")==0))
 		{
 			l2pass = 0;
-			struct Set workingSet = l2cache->sets[set2v];
+			struct Set workingSet = l2set->sets[set2v];
 			for (int i=0;i<workingSet.nrows;i++)
 			{
 				if (workingSet.rows[i].first!=1 && workingSet.rows[i].first!=0)
