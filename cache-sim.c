@@ -624,7 +624,7 @@ int main(int argc, char *argv[])
 		{
 			l2pass = 0;
 			struct Set *workingSet = &l2set[set2v];
-			for (int i=0;i<workingSet.nrows;i++)
+			for (int i=0;i<workingSet->nrows;i++)
 			{
 				if (workingSet->rows[i].first!=1 && workingSet->rows[i].first!=0)
 				{
@@ -634,7 +634,7 @@ int main(int argc, char *argv[])
 				{
 					workingSet->rows[i].valid=0;
 				}
-				if (workingSet.nrows>l2size)
+				if (workingSet->nrows>l2size)
 				{
 					l2cache->capmiss++;
 					break;
@@ -671,7 +671,7 @@ int main(int argc, char *argv[])
 		{
 			l3pass = 0;
 			struct Set *workingSet = &l3set[set3v];
-			for (int i=0;i<workingSet.nrows;i++)
+			for (int i=0;i<workingSet->nrows;i++)
 			{	
 				if (workingSet->rows[i].first!=1 && workingSet->rows[i].first!=0)
 				{
@@ -681,7 +681,7 @@ int main(int argc, char *argv[])
 				{
 					workingSet->rows[i].valid=0;
 				}
-				if (workingSet.nrows>l3size)
+				if (workingSet->nrows>l3size)
 				{
 					l3cache->capmiss++;
 					break;
