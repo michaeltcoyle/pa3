@@ -499,9 +499,9 @@ int main(int argc, char *argv[])
 		printf("l1cache setsize: %d\n",l1set->nrows);
 		printf("l2cache setsize: %d\n",l2set->nrows);
 		printf("l3cache setsize: %d\n",l3set->nrows);
-		printf("l1cache rows: %d\n",l1cache->nrows*l1set->nrows;
-		printf("l2cache rows: %d\n",l2cache->nrows*l2set->nrows;
-		printf("l3cache rows: %d\n",l3cache->nrows*l3set->nrows;
+		printf("l1cache rows: %d\n",l1cache->nrows*l1set->nrows);
+		printf("l2cache rows: %d\n",l2cache->nrows*l2set->nrows);
+		printf("l3cache rows: %d\n",l3cache->nrows*l3set->nrows);
 #endif
 
 return 0;
