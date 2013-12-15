@@ -1,8 +1,8 @@
 #Michael Coyle makefile
 COMPILER = gcc
 CCFLAGS = -pedantic -Wall -std=c99
-all: cache-sim
-
+all: cache-sim.c
+	$(COMPILER) $(CCFLAGS) -lm -o cache-sim
 cache-sim: cache-sim.o 
 	$(COMPILER) $(CCFLAGS) -lm -o cache-sim cache-sim.o
 cache-sim.o: cache-sim.c
