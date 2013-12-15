@@ -590,7 +590,7 @@ int main(int argc, char *argv[])
 					l1cache->capmiss++;
 					break;
 				}
-				else if (strcmp(workingSet.rows[i].tag,tag1)==0)
+				if (strcmp(workingSet.rows[i].tag,tag1)==0)
 				{
 					printf("tst");
 					if (workingSet.rows[i].valid==1 && strcmp(workingSet.rows[i].block,block1)==0)
