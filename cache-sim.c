@@ -336,11 +336,13 @@ int main(int argc, char *argv[])
 		//append leading 0s
 		
 		char tempAddr[15] = "";
+		char tempStr[addrlength];
+		memcpy(tempStr,&currAddr[2];addrlength);
 		for (int i = 0; i < 16-addrlength; i++)
 		{
 			strcat(tempAddr,"0");
 		}
-		strcat(tempAddr,currAddr.substr(2,17));
+		strcat(tempAddr,tempStr);
 		currAddr = tempAddr;
 		printf("current address: %s\n",currAddr);
 		
