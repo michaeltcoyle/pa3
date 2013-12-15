@@ -471,9 +471,9 @@ int main(int argc, char *argv[])
 		memcpy(set1,&currAddr[t1bits],s1bits);
 		memcpy(block1,&currAddr[s1bits+t1bits],b1bits);
 
-		long tag1v = strtol( tag1.c_str(), & u, 16 );
-		long set1v = strtol( set1.c_str(), & u, 16 );
-		long block1v = strtol( block1.c_str(), & u, 16 );
+		long tag1v = strtol(tag1,&u,16);
+		long set1v = strtol(set1,&u,16);
+		long block1v = strtol(block1,&u,16);
 		
 		char tag2[t2bits];
 		char set2[s2bits];
@@ -482,9 +482,9 @@ int main(int argc, char *argv[])
 		memcpy(set2,&currAddr[t2bits],s2bits);
 		memcpy(block2,&currAddr[s2bits+t2bits],b2bits);
 
-		long tag2v = strtol( tag2.c_str(), & u, 16 );
-		long set2v = strtol( set2.c_str(), & u, 16 );
-		long block2v = strtol( block2.c_str(), & u, 16 );
+		long tag2v = strtol(tag2,&u,16);
+		long set2v = strtol(set2,&u,16);
+		long block2v = strtol(block2,&u,16);
 
 		char tag3[t3bits];
 		char set3[s3bits];
@@ -493,9 +493,9 @@ int main(int argc, char *argv[])
 		memcpy(set3,&currAddr[t3bits],s3bits);
 		memcpy(block32,&currAddr[s3bits+t3bits],b3bits);
 
-		long tag3v = strtol( tag3.c_str(), & u, 16 );
-		long set3v = strtol( set3.c_str(), & u, 16 );
-		long block3v = strtol( block3.c_str(), & u, 16 );
+		long tag3v = strtol(tag3,&u,16);
+		long set3v = strtol(set3,&u,16);
+		long block3v = strtol(block3,&u,16);
 		
 		
 
