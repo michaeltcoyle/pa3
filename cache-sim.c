@@ -237,6 +237,7 @@ int main(int argc, char *argv[])
 		printf("l3assoc: %s\n",l3assoc);
 		printf("blocksize: %d\n",blocksize);
 		printf("replacealg: %s\n",replacealg);
+		printf("filename: %s\n",filename);
 		if (l1n!=-1){printf("l1n: %d\n",l1n);}
 		if (l2n!=-1){printf("l2n: %d\n",l2n);}
 		if (l3n!=-1){printf("l3n: %d\n",l3n);}
