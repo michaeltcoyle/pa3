@@ -597,10 +597,10 @@ int main(int argc, char *argv[])
 					{
 						l1cache->hit++;
 						l1pass = 1;
-						workingSet[i]->first = 0;
+						workingSet.rows[i].first = 0;
 						break;
 					}
-					else if (workingSet[i]->valid==1 && workingSet[i]->first == 0)
+					else if (workingSet.rows[i].valid==1 && workingSet.rows[i].first == 0)
 					{
 						l1cache->confmiss++
 						break;
@@ -608,8 +608,8 @@ int main(int argc, char *argv[])
 					else
 					{	
 						l1cache->coldmiss++;
-						strcpy(workingSet[i]->block,block1);
-						workingSet[i]->first = 0;
+						strcpy(workingSet.rows[i].block,block1);
+						workingSet.rows[i].first = 0;
 						break;
 					}
 				}
