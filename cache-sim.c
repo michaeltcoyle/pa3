@@ -493,6 +493,9 @@ int main(int argc, char *argv[])
 		memcpy(tag1,&currAddr[0],t1bits);
 		memcpy(set1,&currAddr[t1bits-1],s1bits);
 		memcpy(block1,&currAddr[s1bits+t1bits-1],b1bits);
+		tag1[t1bits]=0;
+		set1[s1bits]=0;
+		block1[b1bits]=0;
 
 		tag1v = strtol(tag1,&u,16);
 		set1v = strtol(set1,&u,16);
