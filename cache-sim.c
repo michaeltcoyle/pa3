@@ -580,7 +580,6 @@ int main(int argc, char *argv[])
 				if (workingSet.rows[i].first!=1 && workingSet.rows[i].first!=0)
 				{
 					workingSet.rows[i].first=1;
-					printf("Test");
 				}
 				if (workingSet.rows[i].valid!=1 && workingSet.rows[i].valid!=0)
 				{
@@ -593,6 +592,7 @@ int main(int argc, char *argv[])
 				}
 				else if (strcmp(workingSet.rows[i].tag,tag1)==0)
 				{
+					printf("tst");
 					if (workingSet.rows[i].valid==1 && strcmp(workingSet.rows[i].block,block1)==0)
 					{
 						l1cache->hit++;
