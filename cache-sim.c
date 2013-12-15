@@ -8,11 +8,16 @@
 #include <tgmath.h>
 #include "cache-sim.h"
 
-//this version successfully parses command line
+//this version successfully parses command line (and probably gets correct bits (t,s,b)
+
+struct set {
+
+	int size;
+	
 
 
-//debug
-int debug = 1;
+}
+
 
 //global variables
 int l1size;
@@ -51,7 +56,17 @@ int llog2(int n)
     return log10(n)/log10(2);  
 }
 
+//hex to binary
 
+void HexToBin(char hex_number, char* bit_number) 
+{
+	int max = 128;
+        for(int i = 63 ; i >-1 ; i--)
+        {
+            bit_number [i] = (hex_number & max ) ? 1 : 0;
+            max >>=1;
+        }
+}
 
 
 //main program
@@ -298,23 +313,36 @@ int main(int argc, char *argv[])
 
 	int getlength = 1;
 	int addrlength;
-	char currAddr[15];
+	char currAddr[17];
 	while (1)
 	{
 
 		fscanf(trace, "%s", currAddr); 		//read an address
 		if (getlength == 1)
 		{
-			addrlength = strlen(currAddr);
+			addrlength = strlen(currAddr)-2;
 			getlength = 0;
-			t1bits = addrlength-(b1bits+s1bits+2);
-			t2bits = addrlength-(b2bits+s2bits+2);
-			t3bits = addrlength-(b3bits+s3bits+2);
+			t1bits = addrlength-(b1bits+s1bits);
+			t2bits = addrlength-(b2bits+s2bits);
+			t3bits = addrlength-(b3bits+s3bits);
 		}
+
+		
 		if (feof(trace)) 	//end of file
 		{
 			break;
 		}
+
+		//append leading 0s
+		
+		char tempAddr[15] = "";
+		for (int i = 0; i < 16-addrlength; i++)
+		{
+			strcat(tempAddr,"0");
+		}
+		strcat(tempAddr,currAddr.substr(2,17));
+		currAddr = tempAddr;
+		printf("current address: %s\n",currAddr);
 		
 	}
 
