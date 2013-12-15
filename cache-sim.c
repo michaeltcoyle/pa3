@@ -278,6 +278,7 @@ int main(int argc, char *argv[])
 		{
 			break;
 		}
+		printf("%s",currAddr);
 	}
 
 
