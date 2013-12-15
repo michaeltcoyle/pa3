@@ -248,7 +248,7 @@ int main(int argc, char *argv[])
 	
 
 	struct Cache *l1 = malloc(sizeof(struct Cache));
-	l1->rows = malloc((l1size * sizeof(Row));
+	l1->rows = malloc((l1size * sizeof(struct Row));
 	if (l1->rows == 0)
 	{
     		handle_out_of_memory();
@@ -257,7 +257,7 @@ int main(int argc, char *argv[])
 	l1->rows = l1size;
 
 	struct Cache *l2 = malloc(sizeof(struct Cache));
-	l2->rows = malloc((l2size * sizeof(Row));
+	l2->rows = malloc((l2size * sizeof(struct Row));
 	if (l2->rows == 0)
 	{
     		handle_out_of_memory();
@@ -266,7 +266,7 @@ int main(int argc, char *argv[])
 	l2->rows = l1size;
 
 	struct Cache *l3 = malloc(sizeof(struct Cache));
-	l3->rows = malloc((l1size * sizeof(Row));
+	l3->rows = malloc((l1size * sizeof(struct Row));
 	if (l3->rows == 0)
 	{
     		handle_out_of_memory();
