@@ -275,6 +275,25 @@ int main(int argc, char *argv[])
 	int b3bits;
 	int s3bits;
 	int t3bits;
+	char tag1[t1bits];
+	char set1[s1bits];
+	char block1[b1bits];
+	char tag2[t2bits];
+	char set2[s2bits];
+	char block2[b2bits];
+	char tag3[t3bits];
+	char set3[s3bits];
+	char block3[b3bits];
+	long tag1v;
+	long set1v;
+	long block1v;
+	long tag2v;
+	long set2v;
+	long block2v;
+	long tag3v;
+	long set3v;
+	long block3v;
+
 
 //l1 assoc 
 
@@ -464,38 +483,32 @@ int main(int argc, char *argv[])
 		//setup tag, set, and block information.
 		char *u;
 
-		char tag1[t1bits];
-		char set1[s1bits];
-		char block1[b1bits];
+
 		memcpy(tag1,&currAddr[0],t1bits);
 		memcpy(set1,&currAddr[t1bits],s1bits);
 		memcpy(block1,&currAddr[s1bits+t1bits],b1bits);
 
-		long tag1v = strtol(tag1,&u,16);
-		long set1v = strtol(set1,&u,16);
-		long block1v = strtol(block1,&u,16);
+		tag1v = strtol(tag1,&u,16);
+		set1v = strtol(set1,&u,16);
+		block1v = strtol(block1,&u,16);
 		
-		char tag2[t2bits];
-		char set2[s2bits];
-		char block2[b2bits];
+		
 		memcpy(tag2,&currAddr[0],t2bits);
 		memcpy(set2,&currAddr[t2bits],s2bits);
 		memcpy(block2,&currAddr[s2bits+t2bits],b2bits);
 
-		long tag2v = strtol(tag2,&u,16);
-		long set2v = strtol(set2,&u,16);
-		long block2v = strtol(block2,&u,16);
+		tag2v = strtol(tag2,&u,16);
+		set2v = strtol(set2,&u,16);
+		block2v = strtol(block2,&u,16);
 
-		char tag3[t3bits];
-		char set3[s3bits];
-		char block3[b3bits];
+
 		memcpy(tag3,&currAddr[0],t3bits);
 		memcpy(set3,&currAddr[t3bits],s3bits);
 		memcpy(block32,&currAddr[s3bits+t3bits],b3bits);
 
-		long tag3v = strtol(tag3,&u,16);
-		long set3v = strtol(set3,&u,16);
-		long block3v = strtol(block3,&u,16);
+		tag3v = strtol(tag3,&u,16);
+		set3v = strtol(set3,&u,16);
+		block3v = strtol(block3,&u,16);
 		
 		
 
