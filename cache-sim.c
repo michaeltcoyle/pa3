@@ -18,10 +18,17 @@ struct Row {
 
 };
 
-struct Cache {
+struct Set {
 
 	int nrows;
 	struct Row *rows;
+
+};
+
+struct Cache {
+
+	int nrows;
+	struct Set *sets;
 
 };
 
@@ -248,20 +255,7 @@ int main(int argc, char *argv[])
 	}
 	
 
-	struct Cache *l1 = malloc(sizeof(struct Cache));
-	l1->rows = malloc((l1size * sizeof(struct Row)));
 
-	l1->nrows = l1size;
-
-	struct Cache *l2 = malloc(sizeof(struct Cache));
-	l2->rows = malloc((l2size * sizeof(struct Row)));
-
-	l2->nrows = l1size;
-
-	struct Cache *l3 = malloc(sizeof(struct Cache));
-	l3->rows = malloc((l1size * sizeof(struct Row)));
-
-	l3->nrows = l1size;
 
 	//begin simulation
 
@@ -340,6 +334,36 @@ int main(int argc, char *argv[])
 	int setsize1 = pow(16,s1bits);
 	int setsize2 = pow(16,s2bits);
 	int setsize3 = pow(16,s3bits);
+
+	struct Cache *l1 = malloc(sizeof(struct Cache));
+	l1->sets = malloc((l1size * sizeof(struct Row)));
+
+	l1->nrows = l1size/setsize1;
+	
+	struct Cache *l2 = malloc(sizeof(struct Cache));
+	l2->sets = malloc((l2size * sizeof(struct Row)));
+
+	l2->nrows = l2size/setsize2;
+
+	struct Cache *l3 = malloc(sizeof(struct Cache));
+	l3->sets = malloc((l3size * sizeof(struct Row)));
+
+	l3->nrows = l3size/setsize3;
+
+	struct Set *l1 = malloc(sizeof(struct Set));
+	l1->sets = malloc(((l1size/setsize1) * sizeof(struct Row)));
+
+	l1->nrows = l1size;
+
+	struct Cache *l2 = malloc(sizeof(struct Cache));
+	l2->sets = malloc(((l2size/setsize2) * sizeof(struct Row)));
+
+	l2->nrows = l1size;
+
+	struct Cache *l3 = malloc(sizeof(struct Cache));
+	l3->sets = malloc(((l3size/setsize3) * sizeof(struct Row)));
+
+	l3->nrows = l1size;
 	
 	int addrlength;
 	char currAddr[17];
@@ -430,8 +454,13 @@ int main(int argc, char *argv[])
 		
 		strcat(tempAddr,tempStr);
 		strcpy(currAddr,tempAddr);
+
+		
+		
+
+		
 #ifdef DEBUG
-		printf("current address: %s\n",currAddr);
+	//	printf("current address: %s\n",currAddr);
 #endif
 		
 	}
