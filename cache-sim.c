@@ -23,7 +23,7 @@ char l1assoc[8];
 char l2assoc[8];
 char l3assoc[8];
 char replacealg[4];
-char filename[];
+char filename[strlen(argv[argc-1])];
 int l1n = -1;
 int l2n = -1;
 int l3n = -1;
