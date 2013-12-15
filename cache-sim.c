@@ -311,21 +311,19 @@ int main(int argc, char *argv[])
 		s3bits = l3n;
 	}
 
-	int getlength = 1;
 	int addrlength;
 	char currAddr[17];
 	while (1)
 	{
 
 		fscanf(trace, "%s", currAddr); 		//read an address
-		if (getlength == 1)
-		{
-			addrlength = strlen(currAddr)-2;
-			getlength = 0;
-			t1bits = addrlength-(b1bits+s1bits);
-			t2bits = addrlength-(b2bits+s2bits);
-			t3bits = addrlength-(b3bits+s3bits);
-		}
+
+		addrlength = strlen(currAddr)-2;
+		getlength = 0;
+		t1bits = addrlength-(b1bits+s1bits);
+		t2bits = addrlength-(b2bits+s2bits);
+		t3bits = addrlength-(b3bits+s3bits);
+
 
 		
 		if (feof(trace)) 	//end of file
