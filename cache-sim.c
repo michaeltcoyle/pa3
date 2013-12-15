@@ -53,6 +53,7 @@ char replacealg[4];
 int l1n = -1;
 int l2n = -1;
 int l3n = -1;
+memaccesses = 0;
 
 FILE *trace;
 
@@ -400,7 +401,6 @@ int main(int argc, char *argv[])
 	
 	int addrlength;
 	char currAddr[17];
-	memaccesses = 0;
 
 
 	l1cache->miss = 0;
@@ -575,7 +575,7 @@ int main(int argc, char *argv[])
 		{
 		
 			l1pass = 0;
-			Set workingSet = l1cache[set1v];
+			struct Set workingSet = l1cache[set1v];
 			for (int i = 0; i<workingSet->nrows; i++)
 			{
 				if (workingSet[i]->first!=1 && workingSet[i]->first!=0)
@@ -622,7 +622,7 @@ int main(int argc, char *argv[])
 		if ((l1pass = 0) && (l2pass == 0) && (strcmp(l2assoc,"direct")==0))
 		{
 			l2pass = 0;
-			workingSet = l2cache[set2v];
+			struct workingSet = l2cache[set2v];
 			for (int i=0;i<workingSet->nrows;i++)
 			{
 				if (workingSet[i]->first!=1 && workingSet[i]->first!=0)
@@ -669,7 +669,7 @@ int main(int argc, char *argv[])
 		if ((l2pass = 0) && (l2pass == 0) && (l3pass == 0) && (strcmp(l3assoc,"direct")==0))
 		{
 			l3pass = 0;
-			workingSet = l3cache[set3v];
+			struct workingSet = l3cache[set3v];
 			for (int i=0;i<workingSet->nrows;i++)
 			{	
 				if (workingSet[i]->first!=1 && workingSet[i]->first!=0)
