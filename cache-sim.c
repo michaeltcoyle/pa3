@@ -336,17 +336,17 @@ int main(int argc, char *argv[])
 	int setsize3 = pow(16,s3bits);
 
 	struct Cache *l1 = malloc(sizeof(struct Cache));
-	l1->sets = malloc((l1size * sizeof(struct Row)));
+	l1->sets = malloc((l1size * sizeof(struct Set)));
 
 	l1->nrows = l1size/setsize1;
 	
 	struct Cache *l2 = malloc(sizeof(struct Cache));
-	l2->sets = malloc((l2size * sizeof(struct Row)));
+	l2->sets = malloc((l2size * sizeof(struct Set)));
 
 	l2->nrows = l2size/setsize2;
 
 	struct Cache *l3 = malloc(sizeof(struct Cache));
-	l3->sets = malloc((l3size * sizeof(struct Row)));
+	l3->sets = malloc((l3size * sizeof(struct Set)));
 
 	l3->nrows = l3size/setsize3;
 
@@ -355,12 +355,12 @@ int main(int argc, char *argv[])
 
 	l1cache->nrows = l1size;
 
-	struct Cache *l2cache = malloc(sizeof(struct Cache));
+	struct Set *l2cache = malloc(sizeof(struct Cache));
 	l2cache->rows = malloc(((l2size/setsize2) * sizeof(struct Row)));
 
 	l2cache->nrows = l1size;
 
-	struct Cache *l3cache = malloc(sizeof(struct Cache));
+	struct Set *l3cache = malloc(sizeof(struct Cache));
 	l3cache->rows = malloc(((l3size/setsize3) * sizeof(struct Row)));
 
 	l3cache->nrows = l1size;
