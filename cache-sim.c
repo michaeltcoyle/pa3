@@ -299,6 +299,7 @@ int main(int argc, char *argv[])
 	int getlength = 1;
 	int addrlength;
 	char currAddr[15];
+	printf("here");
 	while (1)
 	{
 
