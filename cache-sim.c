@@ -351,17 +351,17 @@ int main(int argc, char *argv[])
 	l3->nrows = l3size/setsize3;
 
 	struct Set *l1cache = malloc(sizeof(struct Set));
-	l1cache->sets = malloc(((l1size/setsize1) * sizeof(struct Row)));
+	l1cache->rows = malloc(((l1size/setsize1) * sizeof(struct Row)));
 
 	l1cache->nrows = l1size;
 
 	struct Cache *l2cache = malloc(sizeof(struct Cache));
-	l2cache->sets = malloc(((l2size/setsize2) * sizeof(struct Row)));
+	l2cache->rows = malloc(((l2size/setsize2) * sizeof(struct Row)));
 
 	l2cache->nrows = l1size;
 
 	struct Cache *l3cache = malloc(sizeof(struct Cache));
-	l3cache->sets = malloc(((l3size/setsize3) * sizeof(struct Row)));
+	l3cache->rows = malloc(((l3size/setsize3) * sizeof(struct Row)));
 
 	l3cache->nrows = l1size;
 	
