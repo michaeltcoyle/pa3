@@ -372,17 +372,17 @@ int main(int argc, char *argv[])
 	struct Cache *l1cache = malloc(sizeof(struct Cache));
 	l1cache->sets = malloc((l1size * sizeof(struct Set)));
 
-	l1cache->nrows = l1size/setsize1;
+	l1cache->nsets = l1size/setsize1;
 	
 	struct Cache *l2cache = malloc(sizeof(struct Cache));
 	l2cache->sets = malloc((l2size * sizeof(struct Set)));
 
-	l2cache->nrows = l2size/setsize2;
+	l2cache->nsets = l2size/setsize2;
 
 	struct Cache *l3cache = malloc(sizeof(struct Cache));
 	l3cache->sets = malloc((l3size * sizeof(struct Set)));
 
-	l3cache->nrows = l3size/setsize3;
+	l3cache->nsets = l3size/setsize3;
 
 	struct Set *l1set = malloc(sizeof(struct Set));
 	l1set->rows = malloc(((l1size/setsize1) * sizeof(struct Row)));
@@ -573,10 +573,10 @@ int main(int argc, char *argv[])
 		
 		if ((l1pass == 0) && (strcmp(l1assoc,"direct")==0))
 		{
-		
 			l1pass = 0;
-			struct Set workingSet * = l1cache->sets[set1v];
-			for (int i = 0; i<workingSet->nrows; i++)
+			struct Set workingSet = l1cache->sets[set1v];
+			k = workingSet->nrows
+			for (int i = 0; i<k; i++)
 			{
 				if (workingSet.rows[i].first!=1 && workingSet.rows[i].first!=0)
 				{
