@@ -679,7 +679,7 @@ int main(int argc, char *argv[])
 				{
 					workingSet.rows[i].valid=0;
 				}
-				if (workingSet->nrows>l3size)
+				if (workingSet.nrows>l3size)
 				{
 					l3cache->capmiss++;
 					break;
@@ -750,9 +750,9 @@ int main(int argc, char *argv[])
 		printf("l1cache setsize: %d\n",l1set->nrows);
 		printf("l2cache setsize: %d\n",l2set->nrows);
 		printf("l3cache setsize: %d\n",l3set->nrows);
-		printf("l1cache rows: %d\n",l1cache->nrows*l1set->nrows);
-		printf("l2cache rows: %d\n",l2cache->nrows*l2set->nrows);
-		printf("l3cache rows: %d\n",l3cache->nrows*l3set->nrows);
+		printf("l1cache rows: %d\n",l1cache->nsets*l1set->nrows);
+		printf("l2cache rows: %d\n",l2cache->nsets*l2set->nrows);
+		printf("l3cache rows: %d\n",l3cache->nsets*l3set->nrows);
 		printf("last address l1 tag: %s\n",tag1);
 		printf("last address l1 set: %s\n",set1);
 		printf("last address l1 block: %s\n",block1);
