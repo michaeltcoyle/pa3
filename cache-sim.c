@@ -267,7 +267,7 @@ int main(int argc, char *argv[])
 
 	l2.rows = l1size;
 
-		struct cache *l1 = malloc(sizeof(struct cache));
+	struct cache *l3 = malloc(sizeof(struct cache));
 
 	l3.rows = malloc((l1size * sizeof(Row));
 	if (l3.rows == 0)
