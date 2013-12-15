@@ -18,7 +18,7 @@ struct Row {
 
 };
 
-struct cache {
+struct Cache {
 
 	struct Row *rows;
 
@@ -248,34 +248,34 @@ int main(int argc, char *argv[])
 	
 
 	//struct cache *l1 = malloc(sizeof(struct cache));
-	cache l1;
-	l1.rows = malloc((l1size * sizeof(Row));
-	if (l1.rows == 0)
+	struct Cache l1;
+	l1->rows = malloc((l1size * sizeof(Row));
+	if (l1->rows == 0)
 	{
     		handle_out_of_memory();
     	}
 
-	l1.rows = l1size;
+	l1->rows = l1size;
 
 	//struct cache *l2 = malloc(sizeof(struct cache));
-	cache l2;
-	l2.rows = malloc((l2size * sizeof(Row));
-	if (l2.rows == 0)
+	struct Cache l2;
+	l2->rows = malloc((l2size * sizeof(Row));
+	if (l2->rows == 0)
 	{
     		handle_out_of_memory();
     	}
 
-	l2.rows = l1size;
+	l2->rows = l1size;
 
 	//struct cache *l3 = malloc(sizeof(struct cache));
-	cache l3;
-	l3.rows = malloc((l1size * sizeof(Row));
-	if (l3.rows == 0)
+	struct Cache l3;
+	l3->rows = malloc((l1size * sizeof(Row));
+	if (l3->rows == 0)
 	{
     		handle_out_of_memory();
     	}
 
-	l3.rows = l1size;
+	l3->rows = l1size;
 
 	//begin simulation
 
