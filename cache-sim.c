@@ -578,30 +578,30 @@ int main(int argc, char *argv[])
 			
 			for (int i = 0; i<workingSet->nrows; i++)
 			{
-				if (workingSet.rows[i].first!=1 && workingSet.rows[i].first!=0)
+				if (workingSet->rows[i].first!=1 && workingSet->rows[i].first!=0)
 				{
-					workingSet.rows[i].first=1;
+					workingSet->rows[i].first=1;
 				}
-				if (workingSet.rows[i].valid!=1 && workingSet.rows[i].valid!=0)
+				if (workingSet->rows[i].valid!=1 && workingSet->rows[i].valid!=0)
 				{
-					workingSet.rows[i].valid=0;
+					workingSet->rows[i].valid=0;
 				}
-				if (workingSet.nrows>l1size)
+				if (workingSet->nrows>l1size)
 				{
 					l1cache->capmiss++;
 					break;
 				}
-				if (strcmp(workingSet.rows[i].tag,tag1)==0)
+				if (strcmp(workingSet->rows[i].tag,tag1)==0)
 				{
 					printf("tst");
-					if (workingSet.rows[i].valid==1 && strcmp(workingSet.rows[i].block,block1)==0)
+					if (workingSet->rows[i].valid==1 && strcmp(workingSet->rows[i].block,block1)==0)
 					{
 						l1cache->hit++;
 						l1pass = 1;
-						workingSet.rows[i].first = 0;
+						workingSet->rows[i].first = 0;
 						break;
 					}
-					else if (workingSet.rows[i].valid==1 && workingSet.rows[i].first == 0)
+					else if (workingSet->rows[i].valid==1 && workingSet->rows[i].first == 0)
 					{
 						l1cache->confmiss++;
 						break;
@@ -609,8 +609,8 @@ int main(int argc, char *argv[])
 					else
 					{	
 						l1cache->coldmiss++;
-						strcpy(workingSet.rows[i].block,block1);
-						workingSet.rows[i].first = 0;
+						strcpy(workingSet->rows[i].block,block1);
+						workingSet->rows[i].first = 0;
 						break;
 					}
 				}
