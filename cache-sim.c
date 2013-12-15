@@ -230,8 +230,8 @@ int main(int argc, char *argv[])
 	
 
 	//print debug values
-	if(debug==1)
-	{
+#ifdef DEBUG
+
 		printf("l1size: %d\n",l1size);
 		printf("l2size: %d\n",l2size);
 		printf("l3size: %d\n",l3size);
@@ -244,7 +244,7 @@ int main(int argc, char *argv[])
 		if (l2n!=-1){printf("l2n: %d\n",l2n);}
 		if (l3n!=-1){printf("l3n: %d\n",l3n);}
 		
-	}
+#endif
 
 	//begin simulation
 
