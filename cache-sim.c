@@ -249,28 +249,16 @@ int main(int argc, char *argv[])
 
 	struct Cache *l1 = malloc(sizeof(struct Cache));
 	l1->rows = malloc((l1size * sizeof(struct Row)));
-	if (l1->rows == 0)
-	{
-    		handle_out_of_memory();
-    	}
 
 	l1->rows = l1size;
 
 	struct Cache *l2 = malloc(sizeof(struct Cache));
 	l2->rows = malloc((l2size * sizeof(struct Row)));
-	if (l2->rows == 0)
-	{
-    		handle_out_of_memory();
-    	}
 
 	l2->rows = l1size;
 
 	struct Cache *l3 = malloc(sizeof(struct Cache));
 	l3->rows = malloc((l1size * sizeof(struct Row)));
-	if (l3->rows == 0)
-	{
-    		handle_out_of_memory();
-    	}
 
 	l3->rows = l1size;
 
