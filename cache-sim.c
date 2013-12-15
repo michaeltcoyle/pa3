@@ -317,6 +317,9 @@ int main(int argc, char *argv[])
 	t2bits = 16-(b2bits+s2bits);
 	t3bits = 16-(b3bits+s3bits);
 
+	int setsize1 = pow(16,s1bits);
+	int setsize2 = pow(16,s2bits);
+	int setsize3 = pow(16,s3bits);
 	
 	int addrlength;
 	char currAddr[17];
@@ -407,7 +410,9 @@ int main(int argc, char *argv[])
 		
 		strcat(tempAddr,tempStr);
 		strcpy(currAddr,tempAddr);
+#ifdef DEBUG
 		printf("current address: %s\n",currAddr);
+#endif
 		
 	}
 
@@ -436,6 +441,9 @@ int main(int argc, char *argv[])
 		printf("b3bits: %d\n",b3bits);
 		printf("s3bits: %d\n",s3bits);
 		printf("t3bits: %d\n",t3bits);
+		printf("setsize1: %d\n",setsize1);
+		printf("setsize2: %d\n",setsize2);
+		printf("setsize3: %d\n",setsize3);
 		
 #endif
 
