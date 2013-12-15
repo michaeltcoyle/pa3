@@ -8,7 +8,7 @@ cache-sim: cache-sim.o
 cache-sim.o: cache-sim.c
 	$(COMPILER) cache-sim.o $(CCFLAGS) -c -lm -o cache-sim cache-sim.c
 debug: cache-sim.c
-	$(COMPILER) cache-sim.o $(CCFLAGS) -ggdb -c -lm -o cache-sim cache-sim.c
+	$(COMPILER) cache-sim.c $(CCFLAGS) -ggdb -lm -o cache-sim
 	
 clean:
 	rm -f cache-sim
