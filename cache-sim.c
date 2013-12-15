@@ -311,6 +311,13 @@ int main(int argc, char *argv[])
 		s3bits = l3n;
 	}
 
+//t bits
+
+	t1bits = 16-(b1bits+s1bits);
+	t2bits = 16-(b2bits+s2bits);
+	t3bits = 16-(b3bits+s3bits);
+
+	
 	int addrlength;
 	char currAddr[17];
 	while (1)
@@ -319,9 +326,7 @@ int main(int argc, char *argv[])
 		fscanf(trace, "%s", currAddr); 		//read an address
 
 		addrlength = strlen(currAddr)-2;
-		t1bits = addrlength-(b1bits+s1bits);
-		t2bits = addrlength-(b2bits+s2bits);
-		t3bits = addrlength-(b3bits+s3bits);
+
 
 
 		
