@@ -275,15 +275,7 @@ int main(int argc, char *argv[])
 	int b3bits;
 	int s3bits;
 	int t3bits;
-	char tag1[t1bits];
-	char set1[s1bits];
-	char block1[b1bits];
-	char tag2[t2bits];
-	char set2[s2bits];
-	char block2[b2bits];
-	char tag3[t3bits];
-	char set3[s3bits];
-	char block3[b3bits];
+
 	long tag1v;
 	long set1v;
 	long block1v;
@@ -355,9 +347,23 @@ int main(int argc, char *argv[])
 	t2bits = 16-(b2bits+s2bits);
 	t3bits = 16-(b3bits+s3bits);
 
+
+	char tag1[t1bits];
+	char set1[s1bits];
+	char block1[b1bits];
+	char tag2[t2bits];
+	char set2[s2bits];
+	char block2[b2bits];
+	char tag3[t3bits];
+	char set3[s3bits];
+	char block3[b3bits];
+	
+
 	int setsize1 = pow(16,s1bits);
 	int setsize2 = pow(16,s2bits);
 	int setsize3 = pow(16,s3bits);
+
+	
 
 	struct Cache *l1cache = malloc(sizeof(struct Cache));
 	l1cache->sets = malloc((l1size * sizeof(struct Set)));
