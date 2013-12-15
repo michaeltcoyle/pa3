@@ -622,7 +622,7 @@ int main(int argc, char *argv[])
 		if ((l1pass = 0) && (l2pass == 0) && (strcmp(l2assoc,"direct")==0))
 		{
 			l2pass = 0;
-			Set *workingSet = l2cache[set2v];
+			Set workingSet = &l2cache[set2v];
 			for (int i=0;i<workingSet[i]->nrows;i++)
 			{
 				if (workingSet[i]->first!=1 && workingSet[i]->first!=0)
