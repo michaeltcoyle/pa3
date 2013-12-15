@@ -299,7 +299,6 @@ int main(int argc, char *argv[])
 	int getlength = 1;
 	int addrlength;
 	char currAddr[15];
-	printf("here");
 	while (1)
 	{
 
@@ -335,15 +334,15 @@ int main(int argc, char *argv[])
 		if (l1n!=-1){printf("l1n: %d\n",l1n);}
 		if (l2n!=-1){printf("l2n: %d\n",l2n);}
 		if (l3n!=-1){printf("l3n: %d\n",l3n);}
-		printf("b1bits: %d",b1bits);
-		printf("s1bits: %d",s1bits);
-		printf("t1bits: %d",t1bits);
-		printf("b2bits: %d",b2bits);
-		printf("s2bits: %d",s2bits);
-		printf("t2bits: %d",t2bits);
-		printf("b3bits: %d",b3bits);
-		printf("s3bits: %d",s3bits);
-		printf("t3bits: %d",t3bits);
+		printf("b1bits: %d\n",b1bits);
+		printf("s1bits: %d\n",s1bits);
+		printf("t1bits: %d\n",t1bits);
+		printf("b2bits: %d\n",b2bits);
+		printf("s2bits: %d\n",s2bits);
+		printf("t2bits: %d\n",t2bits);
+		printf("b3bits: %d\n",b3bits);
+		printf("s3bits: %d\n",s3bits);
+		printf("t3bits: %d\n",t3bits);
 		
 #endif
 
