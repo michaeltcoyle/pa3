@@ -350,20 +350,20 @@ int main(int argc, char *argv[])
 
 	l3->nrows = l3size/setsize3;
 
-	struct Set *l1 = malloc(sizeof(struct Set));
-	l1->sets = malloc(((l1size/setsize1) * sizeof(struct Row)));
+	struct Set *l1cache = malloc(sizeof(struct Set));
+	l1cache->sets = malloc(((l1size/setsize1) * sizeof(struct Row)));
 
-	l1->nrows = l1size;
+	l1cache->nrows = l1size;
 
-	struct Cache *l2 = malloc(sizeof(struct Cache));
-	l2->sets = malloc(((l2size/setsize2) * sizeof(struct Row)));
+	struct Cache *l2cache = malloc(sizeof(struct Cache));
+	l2cache->sets = malloc(((l2size/setsize2) * sizeof(struct Row)));
 
-	l2->nrows = l1size;
+	l2cache->nrows = l1size;
 
-	struct Cache *l3 = malloc(sizeof(struct Cache));
-	l3->sets = malloc(((l3size/setsize3) * sizeof(struct Row)));
+	struct Cache *l3cache = malloc(sizeof(struct Cache));
+	l3cache->sets = malloc(((l3size/setsize3) * sizeof(struct Row)));
 
-	l3->nrows = l1size;
+	l3cache->nrows = l1size;
 	
 	int addrlength;
 	char currAddr[17];
