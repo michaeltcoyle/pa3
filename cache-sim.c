@@ -337,7 +337,6 @@ int main(int argc, char *argv[])
 		Cache *l1cache = NewCache();
 		Set *l1sets[l1size/blocksize];
 		l1cache->nsets = 1;
-		l1sets->nrows = 1;
 	}
 	else if (strcmp(l1assoc,"assoc")==0)
 	{
@@ -360,7 +359,6 @@ int main(int argc, char *argv[])
 		Cache *l2cache = NewCache();
 		Set *l2sets[l2size/blocksize];
 		l2cache->nsets = 1;
-		l2sets->nrows = 1;
 	}
 	else if (strcmp(l2assoc,"assoc")==0)
 	{
@@ -382,7 +380,6 @@ int main(int argc, char *argv[])
 		Cache *l3cache = NewCache();
 		Set *l3sets[l3size/blocksize];
 		l3cache->nsets = 1;
-		l3sets->nrows = 1;
 	}
 	else if (strcmp(l3assoc,"assoc")==0)
 	{
@@ -731,7 +728,9 @@ int main(int argc, char *argv[])
 
 			l1pass = 0;
 
-		  	
+		  	Set *l1set = l1cache->sets[set1v];
+		  	Row *l1row = NewRow();
+		  	l1set->rows[0] = l1row;
 
 
 			if (1>l1size)
@@ -798,7 +797,9 @@ int main(int argc, char *argv[])
 
 			l2pass = 0;
 
-
+			Set *l2set = l1cache->sets[set2v];
+		  	Row *l2row = NewRow();
+		  	l2set->rows[0] = l2row;
 
 		  	
 
@@ -864,7 +865,9 @@ int main(int argc, char *argv[])
 
 			l3pass = 0;
 
-
+			Set *l3set = l3cache->sets[set3v];
+		  	Row *l3row = NewRow();
+		  	l3set->rows[0] = l3row;
 		  	
 
 			if (1>l3size)
