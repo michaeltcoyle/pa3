@@ -423,11 +423,7 @@ int main(int argc, char *argv[])
 	l3cache->capmiss = 0;
 
 
-	struct Set *l1set = malloc((setsize1*sizeof(struct Row))+sizeof(struct Set));
 
-	struct Set *l2set = malloc((setsize2*sizeof(struct Row))+sizeof(struct Set));
-	
-	struct Set *l3set = malloc((setsize3*sizeof(struct Row))+sizeof(struct Set));
 
 
 
@@ -581,31 +577,73 @@ int main(int argc, char *argv[])
 		//l1set->nrows = setsize1;
 		//l2set->nrows = setsize2;
 		//l3set->nrows = setsize3;
-
+/*
+		int k = 0;
+		for (int i=0; i<l1cache->nsets;i++)
+		{
+			
+			for (int j=0; j<l1set->nrows;j++)
+			{
+				l1cache->sets[i].rows[j].tag = k;
+				printf("%d\n",l1cache->sets[i].rows[j].tag);
+			}
+		}
+		k = 0;
+		for (int i=0; i<l2cache->nsets;i++)
+		{
 		
+			for (int j=0; j<l2set->nrows;j++)
+			{
+				l2cache->sets[i].rows[j].tag = k;
+				printf("%d\n",l2cache->sets[i].rows[j].tag);
+			}
+		}
+		k=0;
+		for (int i=0; i<l3cache->nsets;i++)
+		{
+		
+			for (int j=0; j<l3set->nrows;j++)
+			{
+				l3cache->sets[i].rows[j].tag = k;
+				printf("%d\n",l3cache->sets[i].rows[j].tag);
+			}
+		}
+		*/
+
+	
+
+	
+	
+	
 		if ((l1pass == 0) && (strcmp(l1assoc,"direct")==0))
 		{
+			struct Set *l1set = malloc((1*sizeof(struct Row))+sizeof(struct Set));
 			l1pass = 0;
-
-			int l1rows = 1;
 	
-			for (int i = 0; i<l1rows; i++)
+			for (int i = 0; i<1; i++)
 			{
-				if (l1cache->sets[set1v].rows[i].first!=1 && l1cache->sets[set1v].rows[i].first!=0)
+				if (l1cache->sets[set1v].rows[i].first==NULL)
 				{
 					l1cache->sets[set1v].rows[i].first=1;
 				}
-				if (l1cache->sets[set1v].rows[i].valid!=1 && l1cache->sets[set1v].rows[i].valid!=0)
+				if (l1cache->sets[set1v].rows[i].valid==NULL)
 				{
 					l1cache->sets[set1v].rows[i].valid=0;
 				}
-				if (l1cache->sets[set1v].nrows>l1size)
+				if (l1cache->sets[set1v].rows[i].block==NULL)
+				{
+					l1cache->sets[set1v].rows[i].block=0;
+				}
+				if (l1cache->sets[set1v].rows[i].tag==NULL)
+				{
+					l1cache->sets[set1v].rows[i].tag=0;
+				}
+				if (1>l1size)
 				{
 					l1cache->capmiss++;
 					break;
 				}
-				printf("%d\n",l1cache->sets[set1v].rows[i].tag);
-				if (l1cache->sets[set1v].rows[i].tag==tag1v)
+				if (set1v==tag1v)
 				{
 					if (l1cache->sets[set1v].rows[i].valid==1 && l1cache->sets[set1v].rows[i].block==block1v)
 					{
@@ -631,19 +669,27 @@ int main(int argc, char *argv[])
 		}
 		if ((l1pass = 0) && (l2pass == 0) && (strcmp(l2assoc,"direct")==0))
 		{
+			struct Set *l2set = malloc((1*sizeof(struct Row))+sizeof(struct Set));
 			l2pass = 0;
-			int l2rows = 1;
-			for (int i=0; i<l2rows;i++)
+			for (int i=0; i<1;i++)
 			{
-				if (l2cache->sets[set2v].rows[i].first!=1 && l2cache->sets[set2v].rows[i].first!=0)
+				if (l2cache->sets[set2v].rows[i].first==NULL)
 				{
 					l2cache->sets[set2v].rows[i].first=1;
 				}
-				if (l2cache->sets[set2v].rows[i].valid!=1 && l2cache->sets[set2v].rows[i].valid!=0)
+				if (l2cache->sets[set2v].rows[i].valid==NULL)
 				{
 					l2cache->sets[set2v].rows[i].valid=0;
 				}
-				if (l2cache->sets[set2v].nrows>l2size)
+				if (l2cache->sets[set2v].rows[i].block==NULL)
+				{
+					l2cache->sets[set2v].rows[i].block=0;
+				}
+				if (l2cache->sets[set2v].rows[i].tag==NULL)
+				{
+					l2cache->sets[set2v].rows[i].tag=0;
+				}
+				if (1>l2size)
 				{
 					l2cache->capmiss++;
 					break;
@@ -678,19 +724,27 @@ int main(int argc, char *argv[])
 		}
 		if ((l2pass = 0) && (l2pass == 0) && (l3pass == 0) && (strcmp(l3assoc,"direct")==0))
 		{
+			struct Set *l3set = malloc((1*sizeof(struct Row))+sizeof(struct Set));
 			l3pass = 0;
-			int l3rows = 1;
-			for (int i=0;i<l3rows;i++)
+			for (int i=0;i<1.nrows;i++)
 			{	
-				if (l3cache->sets[set3v].rows[i].first!=1 && l3cache->sets[set3v].rows[i].first!=0)
+				if (l3cache->sets[set3v].rows[i].first==NULL)
 				{
 					l3cache->sets[set3v].rows[i].first=1;
 				}
-				if (l3cache->sets[set3v].rows[i].valid!=1 && l3cache->sets[set3v].rows[i].valid!=0)
+				if (l3cache->sets[set3v].rows[i].valid==NULL)
 				{
 					l3cache->sets[set3v].rows[i].valid=0;
 				}
-				if (l3cache->sets[set3v].nrows>l3size)
+				if (l3cache->sets[set3v].rows[i].block==NULL)
+				{
+					l3cache->sets[set3v].rows[i].block=0;
+				}
+				if (l3cache->sets[set3v].rows[i].tag==NULL)
+				{
+					l3cache->sets[set3v].rows[i].tag=0;
+				}
+				if (1>l3size)
 				{
 					l3cache->capmiss++;
 					break;
