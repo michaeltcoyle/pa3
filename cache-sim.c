@@ -728,13 +728,9 @@ int main(int argc, char *argv[])
 		if ((l1pass == 0) && (strcmp(l1assoc,"direct")==0))
 		{
 		
-			l1cache->nsets = l1size/blocksize;
+
 			l1pass = 0;
 
-		  	Set *l1set = NewSet();
-		  	l1cache->set = l1set;
-		  	Row *l1row = NewRow();
-		  	l1set->row = l1row;
 		  	
 
 
@@ -799,15 +795,10 @@ int main(int argc, char *argv[])
 		if ((l2pass == 0) && (l1pass == 0) && (strcmp(l2assoc,"direct")==0))
 		{
 		
-			l2cache->nsets = l2size/blocksize;
+
 			l2pass = 0;
 
-		  	Set *l2set = NewSet();
-		  	l2cache->set = l2set;
-		  	Row *l2row = NewRow();
-		  	l2set->row = l2row;
-		  	l2cache->nsets = 1;
-		  	l2set->nrows = 1;
+
 
 		  	
 
@@ -870,16 +861,9 @@ int main(int argc, char *argv[])
 		if ((l3pass == 0) && (l2pass == 0) && (l1pass == 0) && (strcmp(l3assoc,"direct")==0))
 		{
 		
-			l3cache->nsets = l3size/blocksize;
+
 			l3pass = 0;
 
-		  	Set *l3set = NewSet();
-		  	l3cache->set = l3set;
-		  	Row *l3row = NewRow();
-		  	l3set->row = l3row;
-		  	
-		  	l3cache->nsets = 1;
-		  	l3set->nrows = 1;
 
 		  	
 
