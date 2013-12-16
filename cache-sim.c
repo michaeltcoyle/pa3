@@ -599,7 +599,7 @@ int main(int argc, char *argv[])
 					flag = 1;
 				}
 
-				if (0)
+				if (1>l1size)
 				{
 					l1cache->capmiss++;
 					break;
@@ -607,7 +607,7 @@ int main(int argc, char *argv[])
 				if (l1cache->sets[set1v].rows[i].tag == tag1v)
 				{
 					
-					if (l1cache->sets[set1v].rows[i].valid==1 && l1cache->sets[set1v].rows[i].block==block1v)
+					if (l1cache->sets[set1v].rows[i].valid==1)
 					{
 						l1cache->hit++;
 						l1pass = 1;
