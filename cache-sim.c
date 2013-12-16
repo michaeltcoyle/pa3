@@ -359,7 +359,7 @@ int main(int argc, char *argv[])
 		s1bits = llog2(l1n);
 		l1cache->nsets = l1n;
 		l1cache = NewCache(l1cache->nsets,(l1size)/(l1n*blocksize));
-		l1set->nrows = (l1size)/(l1n*blocksize));
+		l1set->nrows = (l1size)/(l1n*blocksize);
 	}
 
 //l2 assoc 
@@ -448,9 +448,9 @@ int main(int argc, char *argv[])
 
 */
 
-	l1cache = NewCache(l1cache->nsets,l1sets->nrows);
-	l2cache = NewCache(l2cache->nsets,l2sets->nrows);
-	l3cache = NewCache(l3cache->nsets,l3sets->nrows);
+	l1cache = NewCache(l1cache->nsets,l1set->nrows);
+	l2cache = NewCache(l2cache->nsets,l2set->nrows);
+	l3cache = NewCache(l3cache->nsets,l3set->nrows);
 
 
 
