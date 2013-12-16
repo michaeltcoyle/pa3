@@ -626,6 +626,7 @@ int main(int argc, char *argv[])
 				
 				if (flag == 0)
 				{
+					printf("test");
 					l1cache->sets[set1v].rows[i].first=1;
 					l1cache->sets[set1v].rows[i].valid=0;
 					l1cache->sets[set1v].rows[i].block=0;
@@ -640,7 +641,7 @@ int main(int argc, char *argv[])
 				}
 				if (set1v==tag1v)
 				{
-					printf("test");
+					
 					if (l1cache->sets[set1v].rows[i].valid==1 && l1cache->sets[set1v].rows[i].block==block1v)
 					{
 						l1cache->hit++;
