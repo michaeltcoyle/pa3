@@ -370,6 +370,18 @@ int main(int argc, char *argv[])
 
 	
 
+	struct Cache *l1cache = malloc(sizeof(struct Cache));
+	l1cache->sets = malloc((l1size*sizeof(struct Set)));
+
+	
+	
+	struct Cache *l2cache = malloc(sizeof(struct Cache));
+	l2cache->sets = malloc((l2size*sizeof(struct Set)));
+
+
+	struct Cache *l3cache = malloc(sizeof(struct Cache));
+	l3cache->sets = malloc((l3size*sizeof(struct Set)));
+
 
 
 
@@ -599,26 +611,13 @@ int main(int argc, char *argv[])
 		*/
 
 	
-		struct Cache *l1cache = malloc(sizeof(struct Cache));
-		l1cache->sets = malloc((l1size*sizeof(struct Set)));
 
-		l1cache->nsets = l1size/setsize1;
-	
-		struct Cache *l2cache = malloc(sizeof(struct Cache));
-		l2cache->sets = malloc((l2size*sizeof(struct Set)));
-	
-		l2cache->nsets = l2size/setsize2;
-
-		struct Cache *l3cache = malloc(sizeof(struct Cache));
-		l3cache->sets = malloc((l3size*sizeof(struct Set)));
-
-		l3cache->nsets = l3size/setsize3;
 	
 	
 		if ((l1pass == 0) && (strcmp(l1assoc,"direct")==0))
 		{
 			//struct Set *l1set = malloc((1*sizeof(struct Row))+sizeof(struct Set));
-
+			l1cache->nsets = 1;
 			l1pass = 0;
 		        int flag = 0;
 			for (int i = 0; i<1; i++)
@@ -668,6 +667,7 @@ int main(int argc, char *argv[])
 		{
 			int flag = 0;
 			//struct Set *l2set = malloc((1*sizeof(struct Row))+sizeof(struct Set));
+			l2cache->nsets = 1;
 			l2pass = 0;
 			for (int i=0; i<1;i++)
 			{
@@ -712,6 +712,7 @@ int main(int argc, char *argv[])
 		if ((l2pass = 0) && (l2pass == 0) && (l3pass == 0) && (strcmp(l3assoc,"direct")==0))
 		{
 			//struct Set *l3set = malloc((1*sizeof(struct Row))+sizeof(struct Set));
+			l3cache->nsets = 1;
 			l3pass = 0;
 			int flag = 0;
 			for (int i=0;i<1;i++)
