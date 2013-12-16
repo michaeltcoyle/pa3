@@ -620,7 +620,7 @@ int main(int argc, char *argv[])
 			struct Set *l1set = malloc((1*sizeof(struct Row))+sizeof(struct Set));
 
 			l1pass = 0;
-		        flag = 0;
+		        int flag = 0;
 			for (int i = 0; i<1; i++)
 			{
 				
@@ -712,7 +712,7 @@ int main(int argc, char *argv[])
 		{
 			struct Set *l3set = malloc((1*sizeof(struct Row))+sizeof(struct Set));
 			l3pass = 0;
-			flag = 0;
+			int flag = 0;
 			for (int i=0;i<1.nrows;i++)
 			{	
 				if (flag == 0)
@@ -791,9 +791,9 @@ int main(int argc, char *argv[])
 		printf("l1cache sets: %d\n",l1cache->nsets);
 		printf("l2cache sets: %d\n",l2cache->nsets);
 		printf("l3cache sets: %d\n",l3cache->nsets);
-		printf("l1cache setsize: %d\n",l1set->nrows);
-		printf("l2cache setsize: %d\n",l2set->nrows);
-		printf("l3cache setsize: %d\n",l3set->nrows);
+		printf("l1cache setsize: %d\n","---");
+		printf("l2cache setsize: %d\n","---");
+		printf("l3cache setsize: %d\n","---");
 		printf("l1cache rows: %d\n",l1cache->nsets*l1set->nrows);
 		printf("l2cache rows: %d\n",l2cache->nsets*l2set->nrows);
 		printf("l3cache rows: %d\n",l3cache->nsets*l3set->nrows);
