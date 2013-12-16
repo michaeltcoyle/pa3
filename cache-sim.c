@@ -585,6 +585,7 @@ int main(int argc, char *argv[])
 			for (int j=0; j<l1set->nrows;j++)
 			{
 				l1cache->sets[i].rows[j].tag = k;
+				printf("%d\n",l1cache->sets[i].rows[j].tag);
 			}
 		}
 		k = 0;
@@ -594,6 +595,7 @@ int main(int argc, char *argv[])
 			for (int j=0; j<l2set->nrows;j++)
 			{
 				l2cache->sets[i].rows[j].tag = k;
+				printf("%d\n",l2cache->sets[i].rows[j].tag);
 			}
 		}
 		k=0;
@@ -603,6 +605,7 @@ int main(int argc, char *argv[])
 			for (int j=0; j<l3set->nrows;j++)
 			{
 				l3cache->sets[i].rows[j].tag = k;
+				printf("%d\n",l3cache->sets[i].rows[j].tag);
 			}
 		}
 		
