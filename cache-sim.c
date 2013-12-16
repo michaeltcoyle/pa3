@@ -626,7 +626,7 @@ int main(int argc, char *argv[])
 				
 				if (flag == 0)
 				{
-					l1cache->sets[set1v].rows[i] = malloc(sizeof(struct Row));
+					struct Row l1cache->sets[set1v].rows[i] = malloc(sizeof(struct Row));
 					l1cache->sets[set1v].rows[i].first=1;
 					l1cache->sets[set1v].rows[i].valid=0;
 					l1cache->sets[set1v].rows[i].block=0;
@@ -672,7 +672,7 @@ int main(int argc, char *argv[])
 			{
 				if (flag == 0)
 				{
-					l2cache->sets[set2v].rows[i] = malloc(sizeof(struct Row));
+					struct Row l2cache->sets[set2v].rows[i] = malloc(sizeof(struct Row));
 					l2cache->sets[set2v].rows[i].first=1;
 					l2cache->sets[set2v].rows[i].valid=0;
 					l2cache->sets[set2v].rows[i].block=0;
@@ -717,7 +717,7 @@ int main(int argc, char *argv[])
 			{	
 				if (flag == 0)
 				{
-					l3cache->sets[set3v].rows[i] = malloc(sizeof(struct Row));
+					struct Row l3cache->sets[set3v].rows[i] = malloc(sizeof(struct Row));
 					l3cache->sets[set3v].rows[i].first=1;
 					l3cache->sets[set3v].rows[i].valid=0;
 					l3cache->sets[set3v].rows[i].block=0;
