@@ -728,9 +728,9 @@ int main(int argc, char *argv[])
 
 			l1pass = 0;
 
-		  	Set l1set = l1cache->set[set1v];
+		  	Set *l1set = &l1cache->set[set1v];
 		  	Row l1row = NewRow();
-		  	l1set.row[0] = l1row;
+		  	l1set->row[0] = l1row;
 
 
 			if (1>l1size)
@@ -797,9 +797,9 @@ int main(int argc, char *argv[])
 
 			l2pass = 0;
 
-			Set l2set = l1cache->set[set2v];
+			Set *l2set = &l1cache->set[set2v];
 		  	Row l2row = NewRow();
-		  	l2set.row[0] = l2row;
+		  	l2set->row[0] = l2row;
 
 		  	
 
@@ -865,9 +865,9 @@ int main(int argc, char *argv[])
 
 			l3pass = 0;
 
-			Set l3set = l3cache->set[set3v];
+			Set *l3set = &l3cache->set[set3v];
 		  	Row l3row = NewRow();
-		  	l3set.row[0] = l3row;
+		  	l3set->row[0] = l3row;
 		  	
 
 			if (1>l3size)
