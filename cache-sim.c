@@ -442,9 +442,9 @@ int main(int argc, char *argv[])
 
 */
 
-	l1cache = NewCache(l1cache->nsets,l1set->nrows);
-	l2cache = NewCache(l2cache->nsets,l2set->nrows);
-	l3cache = NewCache(l3cache->nsets,l3set->nrows);
+	l1cache = NewCache(l1cache->nsets);
+	l2cache = NewCache(l2cache->nsets);
+	l3cache = NewCache(l3cache->nsets);
 
 
 
