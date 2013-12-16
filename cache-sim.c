@@ -425,9 +425,9 @@ int main(int argc, char *argv[])
 
 	struct Set *l1set = malloc((setsize1*sizeof(struct Row))+sizeof(struct Set));
 
-	struct Set *l2set = malloc((setsize1*sizeof(struct Row))+sizeof(struct Set));
+	struct Set *l2set = malloc((setsize2*sizeof(struct Row))+sizeof(struct Set));
 	
-	struct Set *l3set = malloc((setsize1*sizeof(struct Row))+sizeof(struct Set));
+	struct Set *l3set = malloc((setsize3*sizeof(struct Row))+sizeof(struct Set));
 
 
 
