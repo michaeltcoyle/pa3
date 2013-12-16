@@ -411,9 +411,21 @@ int main(int argc, char *argv[])
 
 //t bits
 
-	t1bits = 64-(b1bits+s1bits);
-	t2bits = 64-(b2bits+s2bits);
-	t3bits = 64-(b3bits+s3bits);
+	t1bits = 16-(b1bits+s1bits);
+	t2bits = 16-(b2bits+s2bits);
+	t3bits = 16-(b3bits+s3bits);
+
+	t1bits = t1bits*4;
+	t2bits = t2bits*4;
+	t3bits = t3bits*4;
+
+	s1bits = s1bits*4;
+	s2bits = s2bits*4;
+	s3bits = s3bits*4;
+
+	b1bits = b1bits*4;
+	b2bits = b2bits*4;
+	b3bits = b3bits*4;
 
 
 	char tag1[t1bits];
@@ -471,7 +483,7 @@ int main(int argc, char *argv[])
 	l3set->nrows = setsize3;*/
 	
 	int addrlength;
-	char currAddr0x[19];
+	char currAddr0x[20];
 
 
 /*	l1cache->miss = 0;
@@ -499,8 +511,8 @@ int main(int argc, char *argv[])
 
 	//start reading addresses
 
-	char currAddr16[17] = "";
-	char tempAddr[65] = "";
+	char currAddr16[18] = "";
+	char tempAddr[67] = "";
 	
 	
 	while (1)
@@ -602,7 +614,7 @@ int main(int argc, char *argv[])
 
 		//convert addr to binary
 		
-		for (int i = 0; i<currAddr16[i]-1; i++)
+		for (int i = 0; currAddr16[i] != '\0'; i++)
 		{
 			switch (currAddr16[i])
 			{
