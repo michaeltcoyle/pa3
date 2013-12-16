@@ -733,10 +733,11 @@ int main(int argc, char *argv[])
 				}
 				if (l1row->first == 1)
 				{
-				`	l1cache->miss++;
+					l1cache->miss++;
 					l1row->block=block1v;
 					l1row->first = 0;
 					l1row->valid = 1;
+				}
 				else
 				{	
 					l1cache->miss++;
