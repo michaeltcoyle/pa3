@@ -385,6 +385,8 @@ int main(int argc, char *argv[])
 
 	l3cache->nsets = l3size/setsize3;
 
+	printf("Test1");
+
 	/*struct Set *l1set = malloc(sizeof(struct Set));
 	l1set->rows = malloc(((l1size/setsize1) * sizeof(struct Row)));
 
