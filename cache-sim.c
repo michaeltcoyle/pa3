@@ -640,6 +640,7 @@ int main(int argc, char *argv[])
 				}
 				if (set1v==tag1v)
 				{
+					printf("test");
 					if (l1cache->sets[set1v].rows[i].valid==1 && l1cache->sets[set1v].rows[i].block==block1v)
 					{
 						l1cache->hit++;
@@ -669,6 +670,7 @@ int main(int argc, char *argv[])
 			l2pass = 0;
 			for (int i=0; i<1;i++)
 			{
+				
 				if (flag == 0)
 				{
 					l2cache->sets[set2v].rows[i].first=1;
