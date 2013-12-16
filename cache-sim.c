@@ -565,51 +565,52 @@ int main(int argc, char *argv[])
 		//convert addr to binary
 		for (int i = 0; i<strlen(currAddr); i++)
 		{
+			printf("%c",currAddr[i]);
 			switch (currAddr[i])
 			{
-				case "0":
+				case '0':
 					strcat(tempAddr,"0000");
-				case "1":
+				case '1':
 					strcat(tempAddr,"0001");
-				case "2":
+				case '2':
 					strcat(tempAddr,"0010");
-				case "3":
+				case '3':
 					strcat(tempAddr,"0011");
-				case "4":
+				case '4':
 					strcat(tempAddr,"0100");
-				case "5":
+				case '5':
 					strcat(tempAddr,"0101");
-				case "6":
+				case '6':
 					strcat(tempAddr,"0110");
-				case "7":
+				case '7':
 					strcat(tempAddr,"0111");
-				case "8":
+				case '8':
 					strcat(tempAddr,"1000");
-				case "9":
+				case '9':
 					strcat(tempAddr,"1001");
-				case "A":
+				case 'A':
 					strcat(tempAddr,"1010");
-				case "a":
+				case 'a':
 					strcat(tempAddr,"1010");
-				case "B":
+				case 'B':
 					strcat(tempAddr,"1011");
-				case "b":
+				case 'b':
 					strcat(tempAddr,"1011");
-				case "C":
+				case 'C':
 					strcat(tempAddr,"1100");
-				case "c":
+				case 'c':
 					strcat(tempAddr,"1100");
-				case "D":
+				case 'D':
 					strcat(tempAddr,"1101");
-				case "d":
+				case 'd':
 					strcat(tempAddr,"1101");
-				case "E":
+				case 'E':
 					strcat(tempAddr,"1110");
-				case "e":
+				case 'e':
 					strcat(tempAddr,"1110");
-				case "F":
+				case 'F':
 					strcat(tempAddr,"1111");
-				case "f":
+				case 'f':
 					strcat(tempAddr,"1111");
 				default:
 					fprintf(stderr,"ERROR: invalid address (can't convert hex to binary).\n");
