@@ -589,7 +589,7 @@ int main(int argc, char *argv[])
 			for (int i = 0; i<1; i++)
 			{
 				
-				/*if (flag == 0)
+				if (flag == 0)
 				{
 				
 					l1cache->sets[set1v].rows[i].first=1;
@@ -597,9 +597,9 @@ int main(int argc, char *argv[])
 					l1cache->sets[set1v].rows[i].block=0;
 					l1cache->sets[set1v].rows[i].tag=0;
 					flag = 1;
-				}*/
+				}
 
-				if (1>l1size)
+				if (0)
 				{
 					l1cache->capmiss++;
 					break;
