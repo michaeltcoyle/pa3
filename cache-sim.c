@@ -598,7 +598,7 @@ int main(int argc, char *argv[])
 			{
 				l1cache->capmiss++;
 			}
-			if (l1cache->sets[set1v].rows[0].tag == tag1v)
+			if ((long)l1cache->sets[set1v].rows[0].tag == tag1v)
 			{	
 				if (l1cache->sets[set1v].rows[0].valid==1 && l1cache->sets[set1v].rows[0].first==1)
 				{
