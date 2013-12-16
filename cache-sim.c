@@ -70,8 +70,8 @@ Row* NewRow(void) {
 Set* NewSet(void) {
   Set *lset = malloc(sizeof(Set));
   if (lset){
-  	lrow->nrows = 0;
-  	lrow->row = NULL;
+  	lset->nrows = 0;
+  	lset->row = NULL;
   }
   return lset;
  }
