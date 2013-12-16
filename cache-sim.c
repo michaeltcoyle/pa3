@@ -617,7 +617,7 @@ int main(int argc, char *argv[])
 	
 		if ((l1pass == 0) && (strcmp(l1assoc,"direct")==0))
 		{
-			struct Set *l1set = malloc((1*sizeof(struct Row))+sizeof(struct Set));
+			//struct Set *l1set = malloc((1*sizeof(struct Row))+sizeof(struct Set));
 
 			l1pass = 0;
 		        int flag = 0;
@@ -665,7 +665,7 @@ int main(int argc, char *argv[])
 		if ((l1pass = 0) && (l2pass == 0) && (strcmp(l2assoc,"direct")==0))
 		{
 			int flag = 0;
-			struct Set *l2set = malloc((1*sizeof(struct Row))+sizeof(struct Set));
+			//struct Set *l2set = malloc((1*sizeof(struct Row))+sizeof(struct Set));
 			l2pass = 0;
 			for (int i=0; i<1;i++)
 			{
@@ -708,10 +708,10 @@ int main(int argc, char *argv[])
 		}
 		if ((l2pass = 0) && (l2pass == 0) && (l3pass == 0) && (strcmp(l3assoc,"direct")==0))
 		{
-			struct Set *l3set = malloc((1*sizeof(struct Row))+sizeof(struct Set));
+			//struct Set *l3set = malloc((1*sizeof(struct Row))+sizeof(struct Set));
 			l3pass = 0;
 			int flag = 0;
-			for (int i=0;i<1.nrows;i++)
+			for (int i=0;i<;i++)
 			{	
 				if (flag == 0)
 				{
@@ -788,9 +788,9 @@ int main(int argc, char *argv[])
 		printf("l1cache sets: %d\n",l1cache->nsets);
 		printf("l2cache sets: %d\n",l2cache->nsets);
 		printf("l3cache sets: %d\n",l3cache->nsets);
-		printf("l1cache setsize: %d\n","---");
-		printf("l2cache setsize: %d\n","---");
-		printf("l3cache setsize: %d\n","---");
+		printf("l1cache setsize: %s\n","---");
+		printf("l2cache setsize: %s\n","---");
+		printf("l3cache setsize: %s\n","---");
 		printf("l1cache rows: %s\n","---");
 		printf("l2cache rows: %s\n","---");
 		printf("l3cache rows: %s\n","---");
