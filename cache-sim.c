@@ -425,15 +425,15 @@ int main(int argc, char *argv[])
 
 	for (int i = 0; i<l1cache->nsets;i++)
 	{
-		l1cache->sets[i] = malloc(setsize1*sizeof(struct Set));
+		struct Set *l1set = malloc((setsize1*sizeof(struct Row))+sizeof(struct Set));
 	}
 	for (int i = 0; i<l2cache->nsets;i++)
 	{
-		l2cache->sets[i] = malloc(setsize2*sizeof(struct Set));
+		struct Set *l2set = malloc((setsize1*sizeof(struct Row))+sizeof(struct Set));
 	}
-		for (int i = 0; i<l3cache->nsets;i++)
+	for (int i = 0; i<l3cache->nsets;i++)
 	{
-		l3cache->sets[i] = malloc(setsize3*sizeof(struct Set));
+		struct Set *l3set = malloc((setsize1*sizeof(struct Row))+sizeof(struct Set));
 	}
 
 
