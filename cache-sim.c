@@ -669,7 +669,7 @@ int main(int argc, char *argv[])
 				}
 			}
 		}
-		if ((l2pass == 0) && (strcmp(l2assoc,"direct")==0))
+		if ((l2pass == 0) && (l1pass == 0) && (strcmp(l2assoc,"direct")==0))
 		{
 		
 			l2cache->nsets = 1;
@@ -714,7 +714,7 @@ int main(int argc, char *argv[])
 				}
 			}
 		}
-		if ((l3pass == 0) && (strcmp(l3assoc,"direct")==0))
+		if ((l3pass == 0) && (l2pass == 0) && (l1pass == 0) && (strcmp(l3assoc,"direct")==0))
 		{
 		
 			l3cache->nsets = 1;
