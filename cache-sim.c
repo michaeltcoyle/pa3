@@ -367,6 +367,8 @@ int main(int argc, char *argv[])
 	int setsize2 = pow(16,s2bits);
 	int setsize3 = pow(16,s3bits);
 
+	printf("%d\n",setsize1);
+
 	
 
 	struct Cache *l1cache = malloc(sizeof(struct Cache));
@@ -575,7 +577,7 @@ int main(int argc, char *argv[])
 			l1pass = 0;
 			struct Set workingSet = l1cache->sets[set1v];
 			printf("%d\n",workingSet.nrows);
-			for (int i = 0; i<setsize1; i++)
+			for (int i = 0; i<workingSet.nrows; i++)
 			{
 				printf("test");
 				if (workingSet.rows[i].first!=1 && workingSet.rows[i].first!=0)
