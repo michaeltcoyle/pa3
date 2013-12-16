@@ -592,7 +592,7 @@ int main(int argc, char *argv[])
 					l1cache->capmiss++;
 					break;
 				}
-				printf("%s\n",workingSet->rows[i].tag);
+				printf("%ld\n",workingSet->rows[i].tag);
 				if (strcmp(workingSet->rows[i].tag,tag1)==0)
 				{
 					if (workingSet->rows[i].valid==1 && strcmp(workingSet->rows[i].block,block1)==0)
@@ -624,7 +624,8 @@ int main(int argc, char *argv[])
 		if ((l1pass = 0) && (l2pass == 0) && (strcmp(l2assoc,"direct")==0))
 		{
 			l2pass = 0;
-			struct Set workingSet = l2cache->sets[set2v];
+			int workingSetnum = floor(set2v/l2set->nrows);
+			struct Set *workingSet = &l2cache->sets[set2v];
 			for (int i=0;i<workingSet->nrows;i++)
 			{
 				if (workingSet->rows[i].first!=1 && workingSet->rows[i].first!=0)
@@ -671,7 +672,8 @@ int main(int argc, char *argv[])
 		if ((l2pass = 0) && (l2pass == 0) && (l3pass == 0) && (strcmp(l3assoc,"direct")==0))
 		{
 			l3pass = 0;
-			struct Set workingSet = l3cache->sets[set3v];
+			int workingSetnum = floor(set3v/l3set->nrows);
+			struct Set *workingSet = &l3cache->sets[set3v];
 			for (int i=0;i<workingSet->nrows;i++)
 			{	
 				if (workingSet->rows[i].first!=1 && workingSet->rows[i].first!=0)
