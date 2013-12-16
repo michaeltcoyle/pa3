@@ -583,7 +583,7 @@ int main(int argc, char *argv[])
 		{
 			l1pass = 0;
 			
-			for (int i = 0; i<setsize1; i++)
+			for (int i = 0; i<l1set->nrows; i++)
 			{
 				
 				if (l1set->rows[i].first!=1 && l1set->rows[i].first!=0)
@@ -627,7 +627,7 @@ int main(int argc, char *argv[])
 		if ((l1pass = 0) && (l2pass == 0) && (strcmp(l2assoc,"direct")==0))
 		{
 			l2pass = 0;
-			for (int i=0;i<setsize2;i++)
+			for (int i=0; i<l2set->nrows;i++)
 			{
 				if (l2set->rows[i].first!=1 && l2set->rows[i].first!=0)
 				{
@@ -673,7 +673,7 @@ int main(int argc, char *argv[])
 		if ((l2pass = 0) && (l2pass == 0) && (l3pass == 0) && (strcmp(l3assoc,"direct")==0))
 		{
 			l3pass = 0;
-			for (int i=0;i<setsize3;i++)
+			for (int i=0; i<l3set->nrows;i++)
 			{	
 				if (l3set->rows[i].first!=1 && l3set->rows[i].first!=0)
 				{
