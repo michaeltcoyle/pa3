@@ -566,14 +566,6 @@ int main(int argc, char *argv[])
 		
 
 
-		struct Set *l1set = malloc(sizeof(struct Set));
-		l1set[set1v].rows = malloc((sizeof(struct Row)));
-	
-		struct Set *l2set = malloc(sizeof(struct Set));
-		l2set[set2v].rows = malloc((sizeof(struct Row)));
-	
-		struct Set *l3set = malloc(sizeof(struct Set));
-		l3set[set3v].rows = malloc((sizeof(struct Row)));
 
 
 		//implementation
@@ -596,7 +588,9 @@ int main(int argc, char *argv[])
 		
 			l1cache->nsets = 1;
 			l1pass = 0;
-		  
+
+		  	struct Set *l1set = malloc(sizeof(struct Set));
+			l1set[set1v].rows[0] = malloc((sizeof(struct Row)));
 				
 			if (l1cache->sets[set1v].rows[0].first!=1 && l1cache->sets[set1v].rows[0].first!=0)
 				l1cache->sets[set1v].rows[0].first=1;
