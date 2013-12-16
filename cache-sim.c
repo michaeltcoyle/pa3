@@ -623,7 +623,7 @@ int main(int argc, char *argv[])
 		{
 			l2pass = 0;
 			struct Set workingSet = l2cache->sets[set2v];
-			for (int i=0;i<l2cache->sets[workingSetnum].nrows;i++)
+			for (int i=0;i<setsize2;i++)
 			{
 				if (workingSet.rows[i].first!=1 && workingSet.rows[i].first!=0)
 				{
@@ -670,7 +670,7 @@ int main(int argc, char *argv[])
 		{
 			long workingSetnum = set3v;
 			struct Set workingSet = l3cache->sets[set3v];
-			for (int i=0;i<l3cache->sets[workingSetnum].nrows;i++)
+			for (int i=0;i<setsize3;i++)
 			{	
 				if (workingSet.rows[i].first!=1 && workingSet.rows[i].first!=0)
 				{
