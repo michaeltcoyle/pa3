@@ -592,26 +592,26 @@ int main(int argc, char *argv[])
 		  	struct Set *l1set = malloc(sizeof(struct Set));
 			struct Row l1row = l1set[set1v].rows[0];
 			
-			if (l1cache->sets[set1v].rows[0].first!=1 && l1cache->sets[set1v].rows[0].first!=0)
-				l1cache->sets[set1v].rows[0].first=1;
-			if (l1cache->sets[set1v].rows[0].valid!=1 && l1cache->sets[set1v].rows[0].valid!=0)
-				l1cache->sets[set1v].rows[0].valid=0;
-			l1cache->sets[set1v].rows[0].block=0;	
-			l1cache->sets[set1v].rows[0].tag=0;
+			if (l1row.first!=1 && l1row.first!=0)
+				l1row.first=1;
+			if (l1row.valid!=1 && l1row.valid!=0)
+				l1row.valid=0;
+			l1row.block=0;	
+			l1row.tag=0;
 
 			if (1>l1size)
 			{
 				l1cache->capmiss++;
 			}
-			if ((long)l1cache->sets[set1v].rows[0].tag == tag1v)
+			if (l1row.tag == tag1v)
 			{	
-				if (l1cache->sets[set1v].rows[0].valid==1 && l1cache->sets[set1v].rows[0].first==1)
+				if (l1row.valid==1 && l1row.first==1)
 				{
 					l1cache->hit++;
 					l1pass = 1;
-					l1cache->sets[set1v].rows[0].first = 0;
+					l1row.first = 0;
 				}
-				else if (l1cache->sets[set1v].rows[0].valid==1 && l1cache->sets[set1v].rows[0].first == 0)
+				else if (l1row.valid==1 && ll1row.first == 0)
 				{
 					l1cache->confmiss++;
 					break;
@@ -619,8 +619,8 @@ int main(int argc, char *argv[])
 				else
 				{	
 					l1cache->coldmiss++;
-					l1cache->sets[set1v].rows[0].block=block1v;
-					l1cache->sets[set1v].rows[0].first = 0;
+					l1row.block=block1v;
+					l1row.first = 0;
 				}
 			}
 		}/*
