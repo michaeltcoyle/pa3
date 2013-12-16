@@ -555,18 +555,18 @@ int main(int argc, char *argv[])
 
 
 
-		char currAddr[64] = "";
+		char currAddr16[16] = "";
 		
 		strcat(tempAddr,tempStr);
-		strcpy(currAddr,tempAddr);
+		strcpy(currAddr16,tempAddr);
 
 		strcpy(tempAddr,"");
 
 		//convert addr to binary
-		for (int i = 0; i<strlen(currAddr); i++)
+		for (int i = 0; i<strlen(currAddr16); i++)
 		{
-			printf("%c",currAddr[i]);
-			switch (currAddr[i])
+			printf("%c",currAddr16[i]);
+			switch (currAddr16[i])
 			{
 				case '0':
 					strcat(tempAddr,"0000");
@@ -614,13 +614,13 @@ int main(int argc, char *argv[])
 					strcat(tempAddr,"1111");
 				default:
 					fprintf(stderr,"ERROR: invalid address (can't convert hex to binary).\n");
-					printf("%c",currAddr[i]);
+					printf("%c",currAddr16[i]);
 					return 0;
 			}
 		}
 
-		char currAddr16[64] = "";
-		strcpy(currAddr16,currAddr);
+		char currAddr[64] = "";
+
 		strcpy(currAddr,tempAddr);
 		
 
