@@ -595,7 +595,7 @@ int main(int argc, char *argv[])
 				printf("%d\n",workingSet->rows[i].tag);
 				if ((workingSetnum*setsize1)+i==tag1)
 				{
-					if (workingSet->rows[i].valid==1 && strcmp(workingSet->rows[i].block,block1)==0)
+					if (workingSet->rows[i].valid==1 && workingSet->rows[i].block==block1)
 					{
 						l1cache->hit++;
 						l1pass = 1;
@@ -610,7 +610,7 @@ int main(int argc, char *argv[])
 					else
 					{	
 						l1cache->coldmiss++;
-						strcpy(workingSet->rows[i].block,block1);
+						workingSet->rows[i].block=block1;
 						workingSet->rows[i].first = 0;
 						break;
 					}
@@ -643,7 +643,7 @@ int main(int argc, char *argv[])
 				}
 				if ((workingSetnum*setsize2)+i==tag2)
 				{
-					if (workingSet->rows[i].valid==1 && strcmp(workingSet->rows[i].block,block2)==0)
+					if (workingSet->rows[i].valid==1 && workingSet->rows[i].block==block2)
 					{
 						l2cache->hit++;
 						l2pass = 1;
@@ -658,7 +658,7 @@ int main(int argc, char *argv[])
 					else
 					{	
 						l2cache->coldmiss++;
-						strcpy(workingSet->rows[i].block,block2);
+						workingSet->rows[i].block=block2;
 						workingSet->rows[i].first = 0;
 						break;
 					}
@@ -691,7 +691,7 @@ int main(int argc, char *argv[])
 				}
 				if ((workingSetnum*setsize3)+i==tag3)
 				{
-					if (workingSet->rows[i].valid==1 && strcmp(workingSet->rows[i].block,block3)==0)
+					if (workingSet->rows[i].valid==1 && workingSet->rows[i].block==block3)
 					{
 						l3cache->hit++;
 						l3pass = 1;
@@ -706,7 +706,7 @@ int main(int argc, char *argv[])
 					else
 					{	
 						l3cache->coldmiss++;
-						strcpy(workingSet->rows[i].block,block3);
+						workingSet->rows[i].block=block3;
 						workingSet->rows[i].first = 0;
 						break;
 					}
