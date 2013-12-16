@@ -564,7 +564,7 @@ int main(int argc, char *argv[])
 
 
 		//convert addr to binary
-		for (int i = 0; i<strlen(currAddr16); i++)
+		for (int i = 0; i<strlen(currAddr16-1); i++)
 		{
 			switch (currAddr16[i])
 			{
