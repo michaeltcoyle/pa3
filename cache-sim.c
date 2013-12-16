@@ -386,7 +386,9 @@ int main(int argc, char *argv[])
 */
 
 	
-
+	Cache *l1cache = NewCache();
+	Cache *l2cache = NewCache();
+	Cache *l3cache = NewCache();
 
 
 
