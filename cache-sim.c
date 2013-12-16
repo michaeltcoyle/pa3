@@ -589,7 +589,7 @@ int main(int argc, char *argv[])
 				{
 					workingSet.rows[i].valid=0;
 				}
-				if (workingSet->nrows>l1size)
+				if (workingSet.nrows>l1size)
 				{
 					l1cache->capmiss++;
 					break;
@@ -622,7 +622,6 @@ int main(int argc, char *argv[])
 		if ((l1pass = 0) && (l2pass == 0) && (strcmp(l2assoc,"direct")==0))
 		{
 			l2pass = 0;
-			long workingSetnum = set2v;
 			struct Set workingSet = l2cache->sets[set2v];
 			for (int i=0;i<l2cache->sets[workingSetnum].nrows;i++)
 			{
@@ -634,7 +633,7 @@ int main(int argc, char *argv[])
 				{
 					workingSet.rows[i].valid=0;
 				}
-				if (workingSet->nrows>l2size)
+				if (workingSet.nrows>l2size)
 				{
 					l2cache->capmiss++;
 					break;
@@ -681,7 +680,7 @@ int main(int argc, char *argv[])
 				{
 					workingSet.rows[i].valid=0;
 				}
-				if (workingSet->nrows>l3size)
+				if (workingSet.nrows>l3size)
 				{
 					l3cache->capmiss++;
 					break;
