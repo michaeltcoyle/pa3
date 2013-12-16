@@ -498,6 +498,10 @@ int main(int argc, char *argv[])
 
 
 	//start reading addresses
+
+	char currAddr16[17] = "";
+	char tempAddr[65] = "";
+	
 	
 	while (1)
 	{
@@ -523,10 +527,10 @@ int main(int argc, char *argv[])
 		
 		//append leading 0s
 		
-		char tempAddr[65] = "";
-		char tempStr[addrlength];
+		
 		memcpy(tempStr,&currAddr0x[2],addrlength);
 		tempStr[strlen(tempStr)]=0;
+		char tempStr[addrlength];
 
 		switch (addrlength)
 		{
@@ -588,7 +592,7 @@ int main(int argc, char *argv[])
 
 
 
-		char currAddr16[17] = "";
+		
 		
 		strcat(tempAddr,tempStr);
 		strcpy(currAddr16,tempAddr);
