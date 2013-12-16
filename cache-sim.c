@@ -42,8 +42,8 @@ typedef struct obCache {
 } Cache;
 
 
-Cache* NewCache(int numsets, int numrows) {
-  Cache *lcache = malloc(sizeof(Cache)*); 
+Cache* NewCache(int numsets) {
+  Cache *lcache = malloc(sizeof(Cache)+numrows*malloc(sizeof(Row)*numsets*malloc(sizeof(Set)); 
   if (lcache){
   	lcache->nsets = 0;
   	lcache->miss = 0;
