@@ -438,7 +438,7 @@ int main(int argc, char *argv[])
 	l3set->nrows = setsize3;*/
 	
 	int addrlength;
-	char currAddr[17];
+	char currAddr[66];
 
 
 	l1cache->miss = 0;
@@ -490,7 +490,7 @@ int main(int argc, char *argv[])
 		
 		//append leading 0s
 		
-		char tempAddr[15] = "";
+		char tempAddr[64] = "";
 		char tempStr[addrlength];
 		memcpy(tempStr,&currAddr[2],addrlength);
 		tempStr[strlen(tempStr)]=0;
@@ -554,10 +554,61 @@ int main(int argc, char *argv[])
 		}
 
 
+
+
 		
 		strcat(tempAddr,tempStr);
 		strcpy(currAddr,tempAddr);
 
+		strcpy(tempAddr,"");
+
+		//convert addr to binary
+		for (int i = 0; i<strlen(currAddr); i++)
+		{
+			switch (currAddr[i])
+			{
+				case '0':
+					strcat(tempAddr,"0000");
+				case '1':
+					strcat(tempAddr,"0001");
+				case '2':
+					strcat(tempAddr,"0010");
+				case '3':
+					strcat(tempAddr,"0011");
+				case '4':
+					strcat(tempAddr,"0100");
+				case '5':
+					strcat(tempAddr,"0101");
+				case '6':
+					strcat(tempAddr,"0110");
+				case '7':
+					strcat(tempAddr,"0111");
+				case '8':
+					strcat(tempAddr,"1000");
+				case '9':
+					strcat(tempAddr,"1001");
+				case ('A' || 'a'):
+					strcat(tempAddr,"1010");
+				case ('B' || 'b'):
+					strcat(tempAddr,"1011");
+				case ('C' || 'c'):
+					strcat(tempAddr,"1100");
+				case ('D' || 'd'):
+					strcat(tempAddr,"1101");
+				case ('E' || 'e'):
+					strcat(tempAddr,"1110");
+				case ('F' || 'f'):
+					strcat(tempAddr,"1111");
+				default:
+					fprintf(stderr,"ERROR: invalid address (can't convert to binary).");
+					return 0;
+			}
+		}
+
+		char currAddr16[64] = "";
+		strcpy(currAddr16,currAddr);
+		strcpy(currAddr,tempAddr);
+		
 
 		//setup tag, set, and block information.
 		char *u;
@@ -571,9 +622,9 @@ int main(int argc, char *argv[])
 		set1[s1bits]=0;
 		block1[b1bits]=0;
 
-		tag1v = strtol(tag1,&u,16);
-		set1v = strtol(set1,&u,16);
-		block1v = strtol(block1,&u,16);
+		tag1v = strtol(tag1,&u,2);
+		set1v = strtol(set1,&u,2);
+		block1v = strtol(block1,&u,2);
 		
 		
 		memcpy(tag2,&currAddr[0],t2bits);
@@ -584,9 +635,9 @@ int main(int argc, char *argv[])
 		set2[s2bits]=0;
 		block2[b2bits]=0;
 
-		tag2v = strtol(tag2,&u,16);
-		set2v = strtol(set2,&u,16);
-		block2v = strtol(block2,&u,16);
+		tag2v = strtol(tag2,&u,2);
+		set2v = strtol(set2,&u,2);
+		block2v = strtol(block2,&u,2);
 
 
 		memcpy(tag3,&currAddr[0],t3bits);
@@ -597,9 +648,9 @@ int main(int argc, char *argv[])
 		set3[s3bits]=0;
 		block3[b3bits]=0;
 
-		tag3v = strtol(tag3,&u,16);
-		set3v = strtol(set3,&u,16);
-		block3v = strtol(block3,&u,16);
+		tag3v = strtol(tag3,&u,2);
+		set3v = strtol(set3,&u,2);
+		block3v = strtol(block3,&u,2);
 		
 
 
