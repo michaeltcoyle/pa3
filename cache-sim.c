@@ -626,7 +626,6 @@ int main(int argc, char *argv[])
 				
 				if (flag == 0)
 				{
-					struct Row l1cache->sets[set1v].rows[i];
 					l1cache->sets[set1v].rows[i].first=1;
 					l1cache->sets[set1v].rows[i].valid=0;
 					l1cache->sets[set1v].rows[i].block=0;
@@ -672,7 +671,6 @@ int main(int argc, char *argv[])
 			{
 				if (flag == 0)
 				{
-					struct Row l2cache->sets[set2v].rows[i];
 					l2cache->sets[set2v].rows[i].first=1;
 					l2cache->sets[set2v].rows[i].valid=0;
 					l2cache->sets[set2v].rows[i].block=0;
@@ -717,7 +715,6 @@ int main(int argc, char *argv[])
 			{	
 				if (flag == 0)
 				{
-					struct Row l3cache->sets[set3v].rows[i];
 					l3cache->sets[set3v].rows[i].first=1;
 					l3cache->sets[set3v].rows[i].valid=0;
 					l3cache->sets[set3v].rows[i].block=0;
@@ -794,9 +791,9 @@ int main(int argc, char *argv[])
 		printf("l1cache setsize: %d\n","---");
 		printf("l2cache setsize: %d\n","---");
 		printf("l3cache setsize: %d\n","---");
-		printf("l1cache rows: %d\n",l1cache->nsets*l1set->nrows);
-		printf("l2cache rows: %d\n",l2cache->nsets*l2set->nrows);
-		printf("l3cache rows: %d\n",l3cache->nsets*l3set->nrows);
+		printf("l1cache rows: %s\n","---");
+		printf("l2cache rows: %s\n","---");
+		printf("l3cache rows: %s\n","---");
 		printf("last address l1 tag: %s\n",tag1);
 		printf("last address l1 set: %s\n",set1);
 		printf("last address l1 block: %s\n",block1);
