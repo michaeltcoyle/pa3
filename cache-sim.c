@@ -296,7 +296,7 @@ int main(int argc, char *argv[])
 	if (strcmp(l1assoc,"direct")==0)
 	{
 		b1bits = llog2(blocksize);
-		s1bits = 1;
+		s1bits = log2(1);
 	}
 	else if (strcmp(l1assoc,"assoc")==0)
 	{
@@ -577,50 +577,19 @@ int main(int argc, char *argv[])
 		int l2pass = 0;
 		int l3pass = 0;
 
-		l1cache->nsets = set1v;
-		l2cache->nsets = set2v;
-		l3cache->nsets = set3v;
 
 		//l1set->nrows = setsize1;
 		//l2set->nrows = setsize2;
 		//l3set->nrows = setsize3;
 
-		int k = 0;
-		for (int i=0; i<l1cache->nsets;i++)
-		{
-			
-			for (int j=0; j<l1set->nrows;j++)
-			{
-				l1cache->sets[i].rows[j].tag = k;
-				printf("%d\n",l1cache->sets[i].rows[j].tag);
-			}
-		}
-		k = 0;
-		for (int i=0; i<l2cache->nsets;i++)
-		{
-		
-			for (int j=0; j<l2set->nrows;j++)
-			{
-				l2cache->sets[i].rows[j].tag = k;
-				printf("%d\n",l2cache->sets[i].rows[j].tag);
-			}
-		}
-		k=0;
-		for (int i=0; i<l3cache->nsets;i++)
-		{
-		
-			for (int j=0; j<l3set->nrows;j++)
-			{
-				l3cache->sets[i].rows[j].tag = k;
-				printf("%d\n",l3cache->sets[i].rows[j].tag);
-			}
-		}
 		
 		if ((l1pass == 0) && (strcmp(l1assoc,"direct")==0))
 		{
 			l1pass = 0;
-			
-			for (int i = 0; i<l1cache->sets[set1v].nrows; i++)
+
+			int l1rows = 1;
+	
+			for (int i = 0; i<l1rows; i++)
 			{
 				if (l1cache->sets[set1v].rows[i].first!=1 && l1cache->sets[set1v].rows[i].first!=0)
 				{
@@ -663,7 +632,8 @@ int main(int argc, char *argv[])
 		if ((l1pass = 0) && (l2pass == 0) && (strcmp(l2assoc,"direct")==0))
 		{
 			l2pass = 0;
-			for (int i=0; i<l2cache->sets[set2v].nrows;i++)
+			int l2rows = 1;
+			for (int i=0; i<l2rows;i++)
 			{
 				if (l2cache->sets[set2v].rows[i].first!=1 && l2cache->sets[set2v].rows[i].first!=0)
 				{
@@ -709,7 +679,8 @@ int main(int argc, char *argv[])
 		if ((l2pass = 0) && (l2pass == 0) && (l3pass == 0) && (strcmp(l3assoc,"direct")==0))
 		{
 			l3pass = 0;
-			for (int i=0;i<l3cache->sets[set3v].nrows;i++)
+			int l3rows = 1;
+			for (int i=0;i<l3rows;i++)
 			{	
 				if (l3cache->sets[set3v].rows[i].first!=1 && l3cache->sets[set3v].rows[i].first!=0)
 				{
