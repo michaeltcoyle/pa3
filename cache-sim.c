@@ -719,15 +719,12 @@ int main(int argc, char *argv[])
 		  	Row *l1row = NewRow();
 		  	l1set->row = l1row;
 		  	
-				
-			l1row->block=0;	
-			l1row->tag=0;
 
 			if (1>l1size)
 			{
 				l1cache->capmiss++;
 			}
-			if (l1row->tag == tag1v)
+			else if (l1row->tag == tag1v)
 			{	
 				if (l1row->valid==1 && l1row->first==1)
 				{
@@ -738,14 +735,18 @@ int main(int argc, char *argv[])
 				else if (l1row->valid==1 && l1row->first == 0)
 				{
 					l1cache->confmiss++;
-					break;
 				}
 				else
 				{	
 					l1cache->coldmiss++;
 					l1row->block=block1v;
 					l1row->first = 0;
+					
 				}
+			}
+			else
+			{
+				l1cache->miss++;
 			}
 		}
 		if ((l2pass == 0) && (l1pass == 0) && (strcmp(l2assoc,"direct")==0))
@@ -759,20 +760,12 @@ int main(int argc, char *argv[])
 		  	Row *l2row = NewRow();
 		  	l2set->row = l2row;
 		  	
-			
-			if (l2row->first!=1 && l2row->first!=0)
-				l2row->first=1;
-			if (l2row->valid!=1 && l2row->valid!=0)
-				l2row->valid=0;
-				
-			l2row->block=0;	
-			l2row->tag=0;
 
 			if (1>l2size)
 			{
 				l2cache->capmiss++;
 			}
-			if (l2row->tag == tag2v)
+			else if (l2row->tag == tag2v)
 			{	
 				if (l2row->valid==1 && l2row->first==1)
 				{
@@ -783,7 +776,6 @@ int main(int argc, char *argv[])
 				else if (l2row->valid==1 && l2row->first == 0)
 				{
 					l2cache->confmiss++;
-					break;
 				}
 				else
 				{	
@@ -791,6 +783,9 @@ int main(int argc, char *argv[])
 					l2row->block=block2v;
 					l2row->first = 0;
 				}
+			else
+			{
+				l2cache->miss++;
 			}
 		}
 		if ((l3pass == 0) && (l2pass == 0) && (l1pass == 0) && (strcmp(l3assoc,"direct")==0))
@@ -804,20 +799,12 @@ int main(int argc, char *argv[])
 		  	Row *l3row = NewRow();
 		  	l3set->row = l3row;
 		  	
-			
-			if (l3row->first!=1 && l3row->first!=0)
-				l3row->first=1;
-			if (l3row->valid!=1 && l3row->valid!=0)
-				l3row->valid=0;
-				
-			l3row->block=0;	
-			l3row->tag=0;
 
 			if (1>l3size)
 			{
 				l3cache->capmiss++;
 			}
-			if (l3row->tag == tag3v)
+			else if (l3row->tag == tag3v)
 			{	
 				if (l3row->valid==1 && l3row->first==1)
 				{
@@ -836,6 +823,10 @@ int main(int argc, char *argv[])
 					l3row->block=block3v;
 					l3row->first = 0;
 				}
+			}
+			else
+			{
+				l3cache->miss++;
 			}
 		}
 		/*
