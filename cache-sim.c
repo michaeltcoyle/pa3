@@ -568,7 +568,7 @@ int main(int argc, char *argv[])
 		int l2pass = 0;
 		int l3pass = 0;
 
-		
+		printf("test");
 		
 		
 		if ((l1pass == 0) && (strcmp(l1assoc,"direct")==0))
