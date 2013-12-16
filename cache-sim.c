@@ -682,7 +682,7 @@ int main(int argc, char *argv[])
 					l2cache->capmiss++;
 					break;
 				}
-				if ((set2v*setsize2)+i==tag2v)
+				if (set2v==tag2v)
 				{
 					if (l2cache->sets[set2v].rows[i].valid==1 && l2cache->sets[set2v].rows[i].block==block2v)
 					{
@@ -726,7 +726,7 @@ int main(int argc, char *argv[])
 					l3cache->capmiss++;
 					break;
 				}
-				if ((set3v*setsize3)+i==tag3v)
+				if (set3v==tag3v)
 				{
 					if (l3cache->sets[set3v].rows[i].valid==1 && l3cache->sets[set3v].rows[i].block==block3v)
 					{
