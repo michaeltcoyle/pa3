@@ -702,9 +702,7 @@ int main(int argc, char *argv[])
 		int l3pass = 0;
 
 
-		int l1miss = 0;
-		int l2miss = 0;
-		int l3miss = 0;
+
 
 
 
@@ -750,7 +748,6 @@ int main(int argc, char *argv[])
 					l1row->block=block1v;
 					l1row->tag=tag1v;
 					l1row->valid = 1;
-					l1miss = 1;
 				}
 			}
 			else
