@@ -581,9 +581,9 @@ int main(int argc, char *argv[])
 		l2cache->nsets = set2v;
 		l3cache->nsets = set3v;
 
-		l1set->nrows = setsize1;
-		l2set->nrows = setsize2;
-		l3set->nrows = setsize3;
+		//l1set->nrows = setsize1;
+		//l2set->nrows = setsize2;
+		//l3set->nrows = setsize3;
 
 		int k = 0;
 		for (int i=0; i<l1cache->nsets;i++)
