@@ -568,17 +568,15 @@ int main(int argc, char *argv[])
 		int l2pass = 0;
 		int l3pass = 0;
 
-		printf("test");
-		
+	
 		
 		if ((l1pass == 0) && (strcmp(l1assoc,"direct")==0))
 		{
 			l1pass = 0;
-			printf("Test");
 			struct Set workingSet = l1cache->sets[set1v];
 			for (int i = 0; i<workingSet.nrows; i++)
 			{
-				printf("here");
+				printf("test");
 				if (workingSet.rows[i].first!=1 && workingSet.rows[i].first!=0)
 				{
 					workingSet.rows[i].first=1;
