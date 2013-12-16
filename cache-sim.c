@@ -581,7 +581,7 @@ int main(int argc, char *argv[])
 			for (int i = 0; i<setsize1; i++)
 			{
 				printf("here");
-				if (workingSet->rows[i].first!=1 && workingSet->rows[i].first!=0)
+				if (workingSet.rows[i].first!=1 && workingSet->rows[i].first!=0)
 				{
 					workingSet->rows[i].first=1;
 				}
