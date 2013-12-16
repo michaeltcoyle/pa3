@@ -1005,9 +1005,7 @@ int main(int argc, char *argv[])
 		
 	}
 
-		l1cache->miss = l1cache->coldmiss+l1cache->confmiss+l1cache->capmiss;
-		l2cache->miss = l2cache->coldmiss+l2cache->confmiss+l2cache->capmiss;
-		l3cache->miss = l3cache->coldmiss+l3cache->confmiss+l3cache->capmiss;
+
 
 	//print debug values
 #ifdef DEBUG
