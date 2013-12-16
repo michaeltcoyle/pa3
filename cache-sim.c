@@ -807,55 +807,55 @@ int main(int argc, char *argv[])
 			{
 				l2cache->capmiss++;
 				l1cache->miss++;
-				l2row->block=block2v;
-				l2row->tag=tag2v;
-				l2row->first = 0;
-				l2row->valid = 1;
+				l2row.block=block2v;
+				l2row.tag=tag2v;
+				l2row.first = 0;
+				l2row.valid = 1;
 			}
-			else if (l2row->tag == tag2v)
+			else if (l2row.tag == tag2v)
 			{	
-				if (l2row->valid==1)
+				if (l2row.valid==1)
 				{
 					l2cache->hit++;
 					l2pass = 1;
 				}
-				else if (l2row->first == 1)
+				else if (l2row.first == 1)
 				{
 					l2cache->miss++;
-					l2row->block=block2v;
-					l2row->tag=tag2v;
-					l2row->first = 0;
-					l2row->valid = 1;
+					l2row.block=block2v;
+					l2row.tag=tag2v;
+					l2row.first = 0;
+					l2row.valid = 1;
 				}
 				else
 				{	
 					l2cache->miss++;
-					l2row->block=block2v;
-					l2row->tag=tag2v;
-					l2row->valid=1;
+					l2row.block=block2v;
+					l2row.tag=tag2v;
+					l2row.valid=1;
 				}
 			}
 			else
 			{
-				if (l2row->valid==1)
+				if (l2row.valid==1)
 				{
 					l2cache->hit++;
 					l2pass = 1;
 				}
-				else if (l2row->first == 1)
+				else if (l2row.first == 1)
 				{
 					l2cache->miss++;
-					l2row->block=block2v;
-					l2row->tag=tag2v;
-					l2row->first = 0;
-					l2row->valid = 1;
+					l2row.block=block2v;
+					l2row.tag=tag2v;
+					l2row.first = 0;
+					l2row.valid = 1;
 				}
 				else
 				{	
 					l2cache->miss++;
-					l2row->block=block2v;
-					l2row->tag=tag2v;
-					l2row->valid=1;
+					l2row.block=block2v;
+					l2row.tag=tag2v;
+					l2row.valid=1;
 				}
 			}
 		}
@@ -874,55 +874,55 @@ int main(int argc, char *argv[])
 			{
 				l3cache->capmiss++;
 				l3cache->miss++;
-				l3row->block=block3v;
-				l3row->tag=tag3v;
-				l3row->first = 0;
-				l3row->valid = 1;
+				l3row.block=block3v;
+				l3row.tag=tag3v;
+				l3row.first = 0;
+				l3row.valid = 1;
 			}
-			else if (l3row->tag == tag3v)
+			else if (l3row.tag == tag3v)
 			{	
-				if (l3row->valid==1)
+				if (l3row.valid==1)
 				{
 					l3cache->hit++;
 					l3pass = 1;
 				}
-				else if (l3row->first == 1)
+				else if (l3row.first == 1)
 				{
 					l3cache->miss++;
-					l3row->block=block3v;
-					l3row->tag=tag3v;
-					l3row->first = 0;
-					l3row->valid = 1;
+					l3row.block=block3v;
+					l3row.tag=tag3v;
+					l3row.first = 0;
+					l3row.valid = 1;
 				}
 				else
 				{	
 					l3cache->miss++;
-					l3row->block=block3v;
-					l3row->tag=tag3v;
-					l3row->valid = 1;
+					l3row.block=block3v;
+					l3row.tag=tag3v;
+					l3row.valid = 1;
 				}
 			}
 			else
 			{
-				if (l3row->valid==1)
+				if (l3row.valid==1)
 				{
 					l3cache->hit++;
 					l3pass = 1;
 				}
-				else if (l3row->first == 1)
+				else if (l3row.first == 1)
 				{
 					l3cache->miss++;
-					l3row->block=block3v;
-					l3row->tag=tag3v;
-					l3row->first = 0;
-					l3row->valid = 1;
+					l3row.block=block3v;
+					l3row.tag=tag3v;
+					l3row.first = 0;
+					l3row.valid = 1;
 				}
 				else
 				{	
 					l3cache->miss++;
-					l3row->block=block3v;
-					l3row->tag=tag3v;
-					l3row->valid = 1;
+					l3row.block=block3v;
+					l3row.tag=tag3v;
+					l3row.valid = 1;
 				}
 			}
 		}
