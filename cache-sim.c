@@ -56,7 +56,7 @@ Cache* NewCache(void) {
   return lcache;
 }
 
-Row* NewRow(void) {
+Row NewRow(void) {
   Row *lrow = malloc(sizeof(Row));
   if (lrow){
   	lrow->first = 1;
@@ -729,7 +729,7 @@ int main(int argc, char *argv[])
 			l1pass = 0;
 
 		  	Set l1set = l1cache->set[set1v];
-		  	Row *l1row = NewRow();
+		  	Row l1row = NewRow();
 		  	l1set.row[0] = l1row;
 
 
