@@ -68,7 +68,7 @@ Row* NewRow(void) {
 }
 
 Set* NewSet(int numrows) {
-  Set *lset = malloc(sizeof(Set));
+  Set *lset = malloc(sizeof(Set)+numrows*sizeof(Row));
   if (lset){
   	lset->nrows = numrows;
   	lset->row = NULL;
