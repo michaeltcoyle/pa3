@@ -438,7 +438,7 @@ int main(int argc, char *argv[])
 	l3set->nrows = setsize3;*/
 	
 	int addrlength;
-	char currAddr[66];
+	char currAddr0x[18];
 
 
 	l1cache->miss = 0;
@@ -468,9 +468,9 @@ int main(int argc, char *argv[])
 	
 	while (1)
 	{
-		fscanf(trace, "%s", currAddr); 		//read an address
+		fscanf(trace, "%s", currAddr0x); 		//read an address
 
-		addrlength = strlen(currAddr)-2;
+		addrlength = strlen(currAddr0x)-2;
 
 
 
@@ -479,7 +479,7 @@ int main(int argc, char *argv[])
 		{
 			break;
 		}
-		if (strcmp(currAddr,"#eof")==0)
+		if (strcmp(currAddr0x,"#eof")==0)
 		{
 			break;
 		}
@@ -492,7 +492,7 @@ int main(int argc, char *argv[])
 		
 		char tempAddr[64] = "";
 		char tempStr[addrlength];
-		memcpy(tempStr,&currAddr[2],addrlength);
+		memcpy(tempStr,&currAddr0x[2],addrlength);
 		tempStr[strlen(tempStr)]=0;
 
 		switch (addrlength)
@@ -555,20 +555,18 @@ int main(int argc, char *argv[])
 
 
 
-
+		char currAddr[64] = "";
 		
 		strcat(tempAddr,tempStr);
-		strcpy(currAddr,tempAddr);
+		strcpy(currAddr0x,tempAddr);
 
 		strcpy(tempAddr,"");
 
-		printf("%s",currAddr);
-
 		//convert addr to binary
-		for (int i = 0; i<strlen(currAddr); i++)
+		for (int i = 0; i<strlen(currAddr0x); i++)
 		{
-			printf("%c",currAddr[i]);
-			switch (currAddr[i])
+			printf("%c",currAddr0x[i]);
+			switch (currAddr0x[i])
 			{
 				case '0':
 					strcat(tempAddr,"0000");
@@ -616,7 +614,7 @@ int main(int argc, char *argv[])
 					strcat(tempAddr,"1111");
 				default:
 					fprintf(stderr,"ERROR: invalid address (can't convert hex to binary).\n");
-					printf("%c",currAddr[i]);
+					printf("%c",currAddr0x[i]);
 					return 0;
 			}
 		}
