@@ -633,7 +633,10 @@ int main(int argc, char *argv[])
 		  	
 			
 			if (l1row->first!=1 && l1row->first!=0)
+			{
 				l1row->first=1;
+				printf("test!!");
+			}
 			if (l1row->valid!=1 && l1row->valid!=0)
 				l1row->valid=0;
 				
