@@ -25,14 +25,14 @@ typedef struct obRow {
 typedef struct obSet {
 
 	int nrows;
-	obRow *row;
+	Row *row;
 
 } Set;
 
 typedef struct obCache {
 
 	int nsets;
-	obSet *set;
+	Set *set;
 	int miss;
 	int hit;
 	int coldmiss;
