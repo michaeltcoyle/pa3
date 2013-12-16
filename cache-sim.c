@@ -574,7 +574,6 @@ int main(int argc, char *argv[])
 		if ((l1pass == 0) && (strcmp(l1assoc,"direct")==0))
 		{
 			l1pass = 0;
-			long workingSetnum = set1v;
 			
 			struct Set workingSet = l1cache->sets[set1v];
 			printf("here1");
@@ -668,7 +667,7 @@ int main(int argc, char *argv[])
 		}
 		if ((l2pass = 0) && (l2pass == 0) && (l3pass == 0) && (strcmp(l3assoc,"direct")==0))
 		{
-			long workingSetnum = set3v;
+			
 			struct Set workingSet = l3cache->sets[set3v];
 			for (int i=0;i<setsize3;i++)
 			{	
