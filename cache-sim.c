@@ -330,6 +330,9 @@ int main(int argc, char *argv[])
 	Cache *l1cache;
 	Cache *l2cache;
 	Cache *l3cache;
+	Set *l1set;
+	Set *l2set;
+	Set *l3set;
 	
 //l1 assoc 
 
@@ -339,6 +342,7 @@ int main(int argc, char *argv[])
 		s1bits = llog2(l1size/blocksize);
 		l1cache->nsets = l1size/blocksize;
 		l1cache = NewCache(l1cache->nsets,1);
+		l1set->nrows = 1;
 	}
 	else if (strcmp(l1assoc,"assoc")==0)
 	{
@@ -346,6 +350,7 @@ int main(int argc, char *argv[])
 		s1bits = llog2(1);
 		l1cache->nsets = 1;
 		l1cache = NewCache(l1cache->nsets,l1size/blocksize);
+		l1set->nrows = l1size/blocksize;
 		
 	}
 	else if (strcmp(l1assoc,"assoc:n")==0)
@@ -354,6 +359,7 @@ int main(int argc, char *argv[])
 		s1bits = llog2(l1n);
 		l1cache->nsets = l1n;
 		l1cache = NewCache(l1cache->nsets,(l1size)/(l1n*blocksize));
+		l1set->nrows = (l1size)/(l1n*blocksize));
 	}
 
 //l2 assoc 
@@ -364,6 +370,7 @@ int main(int argc, char *argv[])
 		s2bits = llog2(l2size/blocksize);
 		l2cache->nsets = l2size/blocksize;
 		l2cache = NewCache(l2cache->nsets,1);
+		l2set->nrows = 1;
 	}
 	else if (strcmp(l2assoc,"assoc")==0)
 	{
@@ -371,6 +378,7 @@ int main(int argc, char *argv[])
 		s2bits = llog2(1);
 		l2cache->nsets = 1;
 		l2cache = NewCache(l2cache->nsets,l2size/blocksize);
+		l2set->nrows = l2size/blocksize;
 	}
 	else if (strcmp(l2assoc,"assoc:n")==0)
 	{
@@ -378,6 +386,7 @@ int main(int argc, char *argv[])
 		s2bits = llog2(l2n);
 		l2cache->nsets = l2n;
 		l2cache = NewCache(l2cache->nsets,(l2size)/(l2n*blocksize));
+		l2set->nrows = (l2size)/(l2n*blocksize);
 	}
 
 //l3 assoc 
@@ -388,6 +397,7 @@ int main(int argc, char *argv[])
 		s3bits = llog2(l3size/blocksize);
 		l3cache->nsets = l3size/blocksize;
 		l3cache = NewCache(l3cache->nsets,1);
+		l3set->nrows = 1;
 	}
 	else if (strcmp(l3assoc,"assoc")==0)
 	{
@@ -395,6 +405,7 @@ int main(int argc, char *argv[])
 		s3bits = llog2(1);
 		l3cache->nsets = 1;
 		l3cache = NewCache(l3cache->nsets,l3size/blocksize);
+		l3set->nrows = l3size/blocksize;
 	}
 	else if (strcmp(l3assoc,"assoc:n")==0)
 	{
@@ -402,6 +413,7 @@ int main(int argc, char *argv[])
 		s3bits = llog2(l3n);
 		l3cache->nsets = l3n;
 		l3cache = NewCache(l3cache->nsets,(l3size)/(l3n*blocksize));
+		l3set->nrows = (l3size)/(l3n*blocksize);
 	}
 
 //t bits
