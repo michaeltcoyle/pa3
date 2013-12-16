@@ -574,8 +574,8 @@ int main(int argc, char *argv[])
 		if ((l1pass == 0) && (strcmp(l1assoc,"direct")==0))
 		{
 			l1pass = 0;
-			
-			struct Set workingSet = l1cache->sets[set1v];
+
+			struct Set workingSet *= l1cache->sets[set1v];
 			printf("here1");
 			for (int i = 0; i<setsize1; i++)
 			{
