@@ -584,7 +584,7 @@ int main(int argc, char *argv[])
 		
 			for (int j=0; j<l1set->nrows;j++)
 			{
-				l1cache->sets[i].l1set->rows[j].tag = k;
+				l1cache->sets[i]->l1set->rows[j].tag = k;
 			}
 		}
 		k = 0;
@@ -593,7 +593,7 @@ int main(int argc, char *argv[])
 		
 			for (int j=0; j<l2set->nrows;j++)
 			{
-				l2cache->sets[i].l2set->rows[j].tag = k;
+				l2cache->sets[i]->l2set->rows[j].tag = k;
 			}
 		}
 		k=0;
@@ -602,7 +602,7 @@ int main(int argc, char *argv[])
 		
 			for (int j=0; j<l3set->nrows;j++)
 			{
-				l3cache->sets[i].l3set->rows[j].tag = k;
+				l3cache->sets[i]->l3set->rows[j].tag = k;
 			}
 		}
 		
