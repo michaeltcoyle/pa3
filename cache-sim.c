@@ -576,7 +576,14 @@ int main(int argc, char *argv[])
 
 
 
-	
+		struct Set *l1cache->sets[set1v] = malloc(sizeof(struct Set));
+		l1cache->sets = malloc((l1size*sizeof(struct Row)));
+
+		struct Set *l2cache->sets[set2v] = malloc(sizeof(struct Set));
+		l2cache->sets = malloc((l2size*sizeof(struct Row)));
+
+		struct Set *l3cache->sets[set3v] = malloc(sizeof(struct Set));
+		l3cache->sets = malloc((l3size*sizeof(struct Row)));
 
 	
 	
@@ -588,11 +595,11 @@ int main(int argc, char *argv[])
 		  
 				
 			if (l1cache->sets[set1v].rows[0].first!=1 && l1cache->sets[set1v].rows[0].first!=0)
-				*l1cache->sets[set1v].rows[0].first=1;
+				l1cache->sets[set1v].rows[0].first=1;
 			if (l1cache->sets[set1v].rows[0].valid!=1 && l1cache->sets[set1v].rows[0].valid!=0)
-				*l1cache->sets[set1v].rows[0].valid=0;
-			*l1cache->sets[set1v].rows[0].block=0;	
-			*l1cache->sets[set1v].rows[0].tag=0;
+				l1cache->sets[set1v].rows[0].valid=0;
+			l1cache->sets[set1v].rows[0].block=0;	
+			l1cache->sets[set1v].rows[0].tag=0;
 
 			if (1>l1size)
 			{
