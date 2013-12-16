@@ -383,6 +383,15 @@ int main(int argc, char *argv[])
 	l3cache->sets = malloc((l3size*sizeof(struct Set)));
 
 
+	struct Set *l1set = malloc(sizeof(struct Set));
+	l1cache->sets = malloc((l1size*sizeof(struct Row)));
+
+	struct Set *l2set = malloc(sizeof(struct Set));
+	l2cache->sets = malloc((l2size*sizeof(struct Row)));
+
+	struct Set *l3set = malloc(sizeof(struct Set));
+	l3cache->sets = malloc((l3size*sizeof(struct Row)));
+
 
 
 	/*struct Set *l1set = malloc(sizeof(struct Set));
@@ -423,14 +432,7 @@ int main(int argc, char *argv[])
 	l3cache->capmiss = 0;
 
 
-		struct Set *l1cache->sets[set1v] = malloc(sizeof(struct Set));
-		l1cache->sets = malloc((l1size*sizeof(struct Row)));
 
-		struct Set *l2cache->sets[set2v] = malloc(sizeof(struct Set));
-		l2cache->sets = malloc((l2size*sizeof(struct Row)));
-
-		struct Set *l3cache->sets[set3v] = malloc(sizeof(struct Set));
-		l3cache->sets = malloc((l3size*sizeof(struct Row)));
 
 
 
