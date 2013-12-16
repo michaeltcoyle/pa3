@@ -675,7 +675,7 @@ int main(int argc, char *argv[])
 			}
 		}
 
-		char currAddr[64] = "";
+		char currAddr[65] = "";
 
 		strcpy(currAddr,tempAddr);
 		
