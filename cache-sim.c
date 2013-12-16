@@ -616,6 +616,7 @@ int main(int argc, char *argv[])
 					strcat(tempAddr,"1111");
 				default:
 					fprintf(stderr,"ERROR: invalid address (can't convert hex to binary).\n");
+					printf("%c",currAddr[i]);
 					return 0;
 			}
 		}
