@@ -594,7 +594,7 @@ int main(int argc, char *argv[])
 					break;
 				}
 				printf("%d\n",workingSet->rows[i].tag);
-				if ((workingSetnum*setsize1)+i==tag1v)
+				if ((set1v*setsize1)+i==tag1v)
 				{
 					if (workingSet->rows[i].valid==1 && workingSet->rows[i].block==block1v)
 					{
@@ -615,10 +615,6 @@ int main(int argc, char *argv[])
 						workingSet->rows[i].first = 0;
 						break;
 					}
-				}
-				else
-				{
-					continue;
 				}
 			}
 		}
