@@ -668,7 +668,98 @@ int main(int argc, char *argv[])
 					l1row->first = 0;
 				}
 			}
-		}/*
+		}
+		if ((l2pass == 0) && (strcmp(l2assoc,"direct")==0))
+		{
+		
+			l2cache->nsets = 1;
+			l2pass = 0;
+
+		  	Set *l2set = NewSet();
+		  	l2cache->set = l2set;
+		  	Row *l2row = NewRow();
+		  	l2set->row = l2row;
+		  	
+			
+			if (l2row->first!=1 && l2row->first!=0)
+				l2row->first=1;
+			if (l2row->valid!=1 && l2row->valid!=0)
+				l2row->valid=0;
+				
+			l2row->block=0;	
+			l2row->tag=0;
+
+			if (1>l2size)
+			{
+				l2cache->capmiss++;
+			}
+			if (l2row->tag == tag2v)
+			{	
+				if (l2row->valid==1 && l2row->first==1)
+				{
+					l2cache->hit++;
+					l2pass = 1;
+					l2row->first = 0;
+				}
+				else if (l2row->valid==1 && l2row->first == 0)
+				{
+					l2cache->confmiss++;
+					break;
+				}
+				else
+				{	
+					l2cache->coldmiss++;
+					l2row->block=block2v;
+					l2row->first = 0;
+				}
+			}
+		}
+		if ((l3pass == 0) && (strcmp(l3assoc,"direct")==0))
+		{
+		
+			l3cache->nsets = 1;
+			l3pass = 0;
+
+		  	Set *l3set = NewSet();
+		  	l3cache->set = l3set;
+		  	Row *l3row = NewRow();
+		  	l3set->row = l3row;
+		  	
+			
+			if (l3row->first!=1 && l3row->first!=0)
+				l3row->first=1;
+			if (l3row->valid!=1 && l3row->valid!=0)
+				l3row->valid=0;
+				
+			l3row->block=0;	
+			l3row->tag=0;
+
+			if (1>l3size)
+			{
+				l3cache->capmiss++;
+			}
+			if (l3row->tag == tag3v)
+			{	
+				if (l3row->valid==1 && l3row->first==1)
+				{
+					l3cache->hit++;
+					l3pass = 1;
+					l3row->first = 0;
+				}
+				else if (l3row->valid==1 && l3row->first == 0)
+				{
+					l3cache->confmiss++;
+					break;
+				}
+				else
+				{	
+					l3cache->coldmiss++;
+					l3row->block=block3v;
+					l3row->first = 0;
+				}
+			}
+		}
+		/*
 		if ((l1pass == 0) && (l2pass==0) && (strcmp(l1assoc,"direct")==0))
 		{
 		
