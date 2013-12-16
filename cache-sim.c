@@ -710,7 +710,7 @@ int main(int argc, char *argv[])
 	
 		if ((l1pass == 0) && (strcmp(l1assoc,"direct")==0))
 		{
-		
+			printf("test1\n");
 			l1cache->nsets = l1size/blocksize;
 			l1pass = 0;
 
