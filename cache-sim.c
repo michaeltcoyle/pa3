@@ -577,10 +577,9 @@ int main(int argc, char *argv[])
 			long workingSetnum = set1v;
 			
 			struct Set *workingSet = &l1cache->sets[set1v];
-			for (int i = 0; i<l1cache->sets[workingSetnum].nrows; i++)
-			
+			for (int i = 0; i<(l1cache->nsets/setsize1); i++)
 			{
-			printf("%ld\n",set1v);
+				printf("here");
 				if (workingSet->rows[i].first!=1 && workingSet->rows[i].first!=0)
 				{
 					workingSet->rows[i].first=1;
