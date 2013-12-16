@@ -555,7 +555,7 @@ int main(int argc, char *argv[])
 
 
 
-		char currAddr16[16] = "";
+		char currAddr16[16];
 		
 		strcat(tempAddr,tempStr);
 		strcpy(currAddr16,tempAddr);
@@ -564,7 +564,7 @@ int main(int argc, char *argv[])
 
 
 		//convert addr to binary
-		for (int i = 0; i<16; i++)
+		for (int i = 0; i<strlen(currAddr16); i++)
 		{
 			switch (currAddr16[i])
 			{
