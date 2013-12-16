@@ -42,8 +42,8 @@ typedef struct obCache {
 } Cache;
 
 
-Cache* NewCache(int numsets, int numrows) {
-  Cache *lcache = malloc(sizeof(Cache)+(numsets*(sizeof(Set)))+(numsets*numrows*(sizeof(Row))));
+Cache* NewCache(int numsets) {
+  Cache *lcache = malloc(sizeof(Cache)+(numsets*(sizeof(Set));
   if (lcache){
   	lcache->nsets = numsets;
   	lcache->miss = 0;
@@ -340,7 +340,7 @@ int main(int argc, char *argv[])
 	{
 		b1bits = llog2(blocksize);
 		s1bits = llog2(l1size/blocksize);
-		l1cache = NewCache(l1size/blocksize,1);
+		l1cache = NewCache(l1size/blocksize);
 		l1set = NewSet(1);
 
 	}
@@ -348,7 +348,7 @@ int main(int argc, char *argv[])
 	{
 		b1bits = llog2(blocksize);
 		s1bits = llog2(1);
-		l1cache = NewCache(1,l1size/blocksize);
+		l1cache = NewCache(1);
 		l1set = NewSet(l1size/blocksize);
 		
 	}
@@ -356,7 +356,7 @@ int main(int argc, char *argv[])
 	{
 		b1bits = llog2(blocksize);
 		s1bits = llog2(l1n);
-		l1cache = NewCache(l1n,(l1size)/(l1n*blocksize));
+		l1cache = NewCache(l1n);
 		l1set = NewSet((l1size)/(l1n*blocksize));
 	}
 
@@ -367,21 +367,21 @@ int main(int argc, char *argv[])
 	{
 		b2bits = llog2(blocksize);
 		s2bits = llog2(l2size/blocksize);
-		l2cache = NewCache(l2size/blocksize,1);
+		l2cache = NewCache(l2size/blocksize);
 		l2set = NewSet(1);
 	}
 	else if (strcmp(l2assoc,"assoc")==0)
 	{
 		b2bits = llog2(blocksize);
 		s2bits = llog2(1);
-		l2cache = NewCache(1,l2size/blocksize);
+		l2cache = NewCache(1);
 		l2set = NewSet(l2size/blocksize);
 	}
 	else if (strcmp(l2assoc,"assoc:n")==0)
 	{
 		b2bits = llog2(blocksize);
 		s2bits = llog2(l2n);
-		l2cache = NewCache(l2n,(l2size)/(l2n*blocksize));
+		l2cache = NewCache(l2n);
 		l2set = NewSet((l2size)/(l2n*blocksize));
 	}
 
@@ -391,21 +391,21 @@ int main(int argc, char *argv[])
 	{
 		b3bits = llog2(blocksize);
 		s3bits = llog2(l3size/blocksize);
-		l3cache = NewCache(l3size/blocksize,1);
+		l3cache = NewCache(l3size/blocksize);
 		l3set = NewSet(1);
 	}
 	else if (strcmp(l3assoc,"assoc")==0)
 	{
 		b3bits = llog2(blocksize);
 		s3bits = llog2(1);
-		l3cache = NewCache(1,l3size/blocksize);
+		l3cache = NewCache(1);
 		l3set = NewSet(l3size/blocksize);
 	}
 	else if (strcmp(l3assoc,"assoc:n")==0)
 	{
 		b3bits = llog2(blocksize);
 		s3bits = llog2(l3n);
-		l3cache = NewCache(l3n,(l3size)/(l3n*blocksize));
+		l3cache = NewCache(l3n);
 		l3set = NewSet((l3size)/(l3n*blocksize));
 	}
 
