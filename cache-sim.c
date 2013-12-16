@@ -612,30 +612,30 @@ int main(int argc, char *argv[])
 			
 			for (int i = 0; i<l1cache->sets[set1v].nrows; i++)
 			{
-				if (l1set->rows[i].first!=1 && l1set->rows[i].first!=0)
+				if (l1cache->sets[set1v].rows[i].first!=1 && l1cache->sets[set1v].rows[i].first!=0)
 				{
-					l1set->rows[i].first=1;
+					l1cache->sets[set1v]->rows[i].first=1;
 				}
-				if (l1set->rows[i].valid!=1 && l1set->rows[i].valid!=0)
+				if (l1cache->sets[set1v].rows[i].valid!=1 && l1cache->sets[set1v].rows[i].valid!=0)
 				{
-					l1set->rows[i].valid=0;
+					l1cache->sets[set1v].valid=0;
 				}
-				if (l1set->nrows>l1size)
+				if (l1cache->sets[set1v].nrows>l1size)
 				{
 					l1cache->capmiss++;
 					break;
 				}
-				printf("%d\n",l1set->rows[i].tag);
-				if (l1set->rows[i].tag==tag1v)
+				printf("%d\n",l1cache->sets[set1v].rows[i].tag);
+				if (l1cache->sets[set1v].rows[i].tag==tag1v)
 				{
-					if (l1set->rows[i].valid==1 && l1set->rows[i].block==block1v)
+					if (l1cache->sets[set1v].rows[i].valid==1 && l1cache->sets[set1v].rows[i].block==block1v)
 					{
 						l1cache->hit++;
 						l1pass = 1;
-						l1set->rows[i].first = 0;
+						l1cache->sets[set1v].rows[i].first = 0;
 						break;
 					}
-					else if (l1set->rows[i].valid==1 && l1set->rows[i].first == 0)
+					else if (l1cache->sets[set1v].rows[i].valid==1 && l1cache->sets[set1v].rows[i].first == 0)
 					{
 						l1cache->confmiss++;
 						break;
@@ -643,8 +643,8 @@ int main(int argc, char *argv[])
 					else
 					{	
 						l1cache->coldmiss++;
-						l1set->rows[i].block=block1v;
-						l1set->rows[i].first = 0;
+						l1cache->sets[set1v].rows[i].block=block1v;
+						l1cache->sets[set1v].rows[i].first = 0;
 						break;
 					}
 				}
