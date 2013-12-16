@@ -45,7 +45,7 @@ typedef struct obCache {
 Cache* NewCache(int numsets, int numrows) {
   Cache *lcache = malloc(sizeof(sizeof(Cache) + numsets*(sizeof(Set)) + (numsets*numrows)*(sizeof(Row))));
   if (lcache){
-  	lcache->nsets = 0;
+  	lcache->nsets = numsets;
   	lcache->miss = 0;
   	lcache->hit = 0;
   	lcache->coldmiss = 0;
@@ -327,7 +327,9 @@ int main(int argc, char *argv[])
 	long set3v;
 	long block3v;
 
-
+	Cache *l1cache;
+	Cache *l2cache;
+	Cache *l3cache;
 	
 //l1 assoc 
 
@@ -425,9 +427,9 @@ int main(int argc, char *argv[])
 
 */
 
-	Cache *l1cache = NewCache(l1cache->nsets,l1sets->nrows);
-	Cache *l2cache = NewCache(l2cache->nsets,l2sets->nrows);
-	Cache *l3cache = NewCache(l3cache->nsets,l3sets->nrows);
+	l1cache = NewCache(l1cache->nsets,l1sets->nrows);
+	l2cache = NewCache(l2cache->nsets,l2sets->nrows);
+	l3cache = NewCache(l3cache->nsets,l3sets->nrows);
 
 
 
