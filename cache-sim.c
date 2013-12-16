@@ -589,12 +589,10 @@ int main(int argc, char *argv[])
 				
 			if (l1cache->sets[set1v].rows[0].first!=1 && l1cache->sets[set1v].rows[0].first!=0)
 				l1cache->sets[set1v].rows[0].first=1;
-			if (l1cache->sets[set1v].rows[0].valid!=1 && l1cache->sets[set1v].rows[0].valid=0)
+			if (l1cache->sets[set1v].rows[0].valid!=1 && l1cache->sets[set1v].rows[0].valid!=0)
 				l1cache->sets[set1v].rows[0].valid=0;
-			if (l1cache->sets[set1v].rows[0].block!>0)
-				l1cache->sets[set1v].rows[0].block=0;
-			if (l1cache->sets[set1v].rows[0].tag!>0)	
-				l1cache->sets[set1v].rows[0].tag=0;
+			l1cache->sets[set1v].rows[0].block=0;	
+			l1cache->sets[set1v].rows[0].tag=0;
 
 			if (1>l1size)
 			{
