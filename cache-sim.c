@@ -51,7 +51,7 @@ Cache* NewCache(int numsets) {
   	lcache->coldmiss = 0;
   	lcache->confmiss = 0;
   	lcache->capmiss = 0;
-  	lcache->set = (numsets*(sizeof(Set)));
+  	lcache->set = malloc(numsets*(sizeof(Set)));
   }
   return lcache;
 }
@@ -71,7 +71,7 @@ Set* NewSet(int numrows) {
   Set *lset = malloc(sizeof(Set))
   if (lset){
   	lset->nrows = numrows;
-  	lset->row = numrows*sizeof(Row);
+  	lset->row = malloc(numrows*sizeof(Row));
   }
   return lset;
  }
