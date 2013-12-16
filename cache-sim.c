@@ -578,11 +578,11 @@ int main(int argc, char *argv[])
 
 	
 
-	/*
+	
 	
 		if ((l1pass == 0) && (strcmp(l1assoc,"direct")==0))
 		{
-			//struct Set *l1set = malloc((1*sizeof(struct Row))+sizeof(struct Set));
+		
 			l1cache->nsets = 1;
 			l1pass = 0;
 		        int flag = 0;
@@ -628,7 +628,7 @@ int main(int argc, char *argv[])
 					}
 				}
 			}
-		}
+		}/*
 		if ((l1pass = 0) && (l2pass == 0) && (strcmp(l2assoc,"direct")==0))
 		{
 			int flag = 0;
