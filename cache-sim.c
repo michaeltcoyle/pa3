@@ -590,7 +590,7 @@ int main(int argc, char *argv[])
 			l1pass = 0;
 
 		  	struct Set *l1set = malloc(sizeof(struct Set));
-			struct Row *l1row = malloc((sizeof(struct Row)));
+			struct Row l1row = malloc((sizeof(struct Row)));
 			l1row = l1set[set1v].rows[0];
 				
 			if (l1cache->sets[set1v].rows[0].first!=1 && l1cache->sets[set1v].rows[0].first!=0)
