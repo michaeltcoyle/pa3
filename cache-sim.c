@@ -614,11 +614,11 @@ int main(int argc, char *argv[])
 			{
 				if (l1cache->sets[set1v].rows[i].first!=1 && l1cache->sets[set1v].rows[i].first!=0)
 				{
-					l1cache->sets[set1v]->rows[i].first=1;
+					l1cache->sets[set1v].rows[i].first=1;
 				}
 				if (l1cache->sets[set1v].rows[i].valid!=1 && l1cache->sets[set1v].rows[i].valid!=0)
 				{
-					l1cache->sets[set1v].valid=0;
+					l1cache->sets[set1v].rows[i].valid=0;
 				}
 				if (l1cache->sets[set1v].nrows>l1size)
 				{
@@ -655,29 +655,29 @@ int main(int argc, char *argv[])
 			l2pass = 0;
 			for (int i=0; i<l2cache->sets[set2v].nrows;i++)
 			{
-				if (l2set->rows[i].first!=1 && l2set->rows[i].first!=0)
+				if (l2cache->sets[set2v].rows[i].first!=1 && l2cache->sets[set2v].rows[i].first!=0)
 				{
-					l2set->rows[i].first=1;
+					l2cache->sets[set2v].rows[i].first=1;
 				}
-				if (l2set->rows[i].valid!=1 && l2set->rows[i].valid!=0)
+				if (l2cache->sets[set2v].rows[i].valid!=1 && l2cache->sets[set2v].rows[i].valid!=0)
 				{
-					l2set->rows[i].valid=0;
+					l2cache->sets[set2v].rows[i].valid=0;
 				}
-				if (l2set->nrows>l2size)
+				if (l2cache->sets[set2v].nrows>l2size)
 				{
 					l2cache->capmiss++;
 					break;
 				}
 				if ((set2v*setsize2)+i==tag2v)
 				{
-					if (l2set->rows[i].valid==1 && l2set->rows[i].block==block2v)
+					if (l2cache->sets[set2v].rows[i].valid==1 && l2cache->sets[set2v].rows[i].block==block2v)
 					{
 						l2cache->hit++;
 						l2pass = 1;
-						l2set->rows[i].first = 0;
+						l2cache->sets[set2v].rows[i].first = 0;
 						break;
 					}
-					else if (l2set->rows[i].valid==1 && l2set->rows[i].first == 0)
+					else if (l2cache->sets[set2v].rows[i].valid==1 && l2cache->sets[set2v].rows[i].first == 0)
 					{
 						l2cache->confmiss++;
 						break;
@@ -685,8 +685,8 @@ int main(int argc, char *argv[])
 					else
 					{	
 						l2cache->coldmiss++;
-						l2set->rows[i].block=block2v;
-						l2set->rows[i].first = 0;
+						l2cache->sets[set2v].rows[i].block=block2v;
+						l2cache->sets[set2v].rows[i].first = 0;
 						break;
 					}
 				}
@@ -701,29 +701,29 @@ int main(int argc, char *argv[])
 			l3pass = 0;
 			for (int i=0;i<l3cache->sets[set3v].nrows;i++)
 			{	
-				if (l3set->rows[i].first!=1 && l3set->rows[i].first!=0)
+				if (l3cache->sets[set3v].rows[i].first!=1 && l3cache->sets[set3v].rows[i].first!=0)
 				{
-					l3set->rows[i].first=1;
+					l3cache->sets[set3v].rows[i].first=1;
 				}
-				if (l3set->rows[i].valid!=1 && l3set->rows[i].valid!=0)
+				if (l3cache->sets[set3v].rows[i].valid!=1 && l3cache->sets[set3v].rows[i].valid!=0)
 				{
-					l3set->rows[i].valid=0;
+					l3cache->sets[set3v].rows[i].valid=0;
 				}
-				if (l3set->nrows>l3size)
+				if (l3cache->sets[set3v].nrows>l3size)
 				{
 					l3cache->capmiss++;
 					break;
 				}
 				if ((set3v*setsize3)+i==tag3v)
 				{
-					if (l3set->rows[i].valid==1 && l3set->rows[i].block==block3v)
+					if (l3cache->sets[set3v].rows[i].valid==1 && l3cache->sets[set3v].rows[i].block==block3v)
 					{
 						l3cache->hit++;
 						l3pass = 1;
-						l3set->rows[i].first = 0;
+						l3cache->sets[set3v].rows[i].first = 0;
 						break;
 					}
-					else if (l3set->rows[i].valid==1 && l3set->rows[i].first == 0)
+					else if (l3cache->sets[set3v].rows[i].valid==1 && l3cache->sets[set3v].rows[i].first == 0)
 					{
 						l3cache->confmiss++;
 						break;
@@ -731,8 +731,8 @@ int main(int argc, char *argv[])
 					else
 					{	
 						l3cache->coldmiss++;
-						l3set->rows[i].block=block3v;
-						l3set->rows[i].first = 0;
+						l3cache->sets[set3v].rows[i].block=block3v;
+						l3cache->sets[set3v].rows[i].first = 0;
 						break;
 					}
 				}
