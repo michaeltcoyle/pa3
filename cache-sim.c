@@ -611,7 +611,7 @@ int main(int argc, char *argv[])
 					l1pass = 1;
 					l1row.first = 0;
 				}
-				else if (l1row.valid==1 && ll1row.first == 0)
+				else if (l1row.valid==1 && l1row.first == 0)
 				{
 					l1cache->confmiss++;
 					break;
