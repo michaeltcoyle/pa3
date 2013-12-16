@@ -333,7 +333,7 @@ int main(int argc, char *argv[])
 	if (strcmp(l1assoc,"direct")==0)
 	{
 		b1bits = llog2(blocksize);
-		s1bits = llog2(l1size);
+		s1bits = blocksize;
 	}
 	else if (strcmp(l1assoc,"assoc")==0)
 	{
@@ -351,7 +351,7 @@ int main(int argc, char *argv[])
 	if (strcmp(l2assoc,"direct")==0)
 	{
 		b2bits = llog2(blocksize);
-		s2bits = llog2(l2size);
+		s2bits = blocksize;
 	}
 	else if (strcmp(l2assoc,"assoc")==0)
 	{
@@ -369,7 +369,7 @@ int main(int argc, char *argv[])
 	if (strcmp(l3assoc,"direct")==0)
 	{
 		b3bits = llog2(blocksize);
-		s3bits = llog2(l3size);
+		s3bits = blocksize;
 	}
 	else if (strcmp(l3assoc,"assoc")==0)
 	{
