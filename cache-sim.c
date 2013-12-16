@@ -783,6 +783,7 @@ int main(int argc, char *argv[])
 					l2row->block=block2v;
 					l2row->first = 0;
 				}
+			}
 			else
 			{
 				l2cache->miss++;
