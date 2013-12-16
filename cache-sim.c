@@ -330,7 +330,7 @@ int main(int argc, char *argv[])
 
 	Cache *l1cache = NewCache();
 	Cache *l2cache = NewCache();
-	Cache *l2cache = NewCache();
+	Cache *l3cache = NewCache();
 //l1 assoc 
 
 	if (strcmp(l1assoc,"direct")==0)
@@ -378,7 +378,6 @@ int main(int argc, char *argv[])
 	{
 		b3bits = llog2(blocksize);
 		s3bits = llog2(l3size/blocksize);
-		Cache *l3cache = NewCache();
 		Set *l3sets[l3size/blocksize];
 		l3cache->nsets = 1;
 	}
@@ -738,55 +737,55 @@ int main(int argc, char *argv[])
 			{
 				l1cache->capmiss++;
 				l1cache->miss++;
-				l1row->block=block1v;
-				l1row->tag=tag1v;
-				l1row->first = 0;
-				l1row->valid = 1;
+				l1row.block=block1v;
+				l1row.tag=tag1v;
+				l1row.first = 0;
+				l1row.valid = 1;
 			}
-			else if (l1row->tag == tag1v)
+			else if (l1row.tag == tag1v)
 			{	
-				if (l1row->valid==1)
+				if (l1row.valid==1)
 				{
 					l1cache->hit++;
 					l1pass = 1;
 				}
-				else if (l1row->first == 1)
+				else if (l1row.first == 1)
 				{
 					l1cache->miss++;
-					l1row->block=block1v;
-					l1row->tag=tag1v;
-					l1row->first = 0;
-					l1row->valid = 1;
+					l1row.block=block1v;
+					l1row.tag=tag1v;
+					l1row.first = 0;
+					l1row.valid = 1;
 				}
 				else
 				{	
 					l1cache->miss++;
-					l1row->block=block1v;
-					l1row->tag=tag1v;
-					l1row->valid = 1;
+					l1row.block=block1v;
+					l1row.tag=tag1v;
+					l1row.valid = 1;
 				}
 			}
 			else
 			{
-				if (l1row->valid==1)
+				if (l1row.valid==1)
 				{
 					l1cache->hit++;
 					l1pass = 1;
 				}
-				else if (l1row->first == 1)
+				else if (l1row.first == 1)
 				{
 					l1cache->miss++;
-					l1row->block=block1v;
-					l1row->tag=tag1v;
-					l1row->first = 0;
-					l1row->valid = 1;
+					l1row.block=block1v;
+					l1row.tag=tag1v;
+					l1row.first = 0;
+					l1row.valid = 1;
 				}
 				else
 				{	
 					l1cache->miss++;
-					l1row->block=block1v;
-					l1row->tag=tag1v;
-					l1row->valid = 1;
+					l1row.block=block1v;
+					l1row.tag=tag1v;
+					l1row.valid = 1;
 				}
 				
 			}
