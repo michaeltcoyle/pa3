@@ -726,22 +726,22 @@ int main(int argc, char *argv[])
 			}
 			else if (l1row->tag == tag1v)
 			{	
-				if (l1row->valid==1 && l1row->first==1)
+				if (l1row->valid==1)
 				{
 					l1cache->hit++;
 					l1pass = 1;
-					l1row->first = 0;
 				}
-				else if (l1row->valid==1 && l1row->first == 0)
+				if (l1row->first == 1)
 				{
-					l1cache->confmiss++;
-				}
-				else
-				{	
-					l1cache->coldmiss++;
+				`	l1cache->miss++;
 					l1row->block=block1v;
 					l1row->first = 0;
-					
+					l1row->valid = 1;
+				else
+				{	
+					l1cache->miss++;
+					l1row->block=block1v;
+					l1row->valid = 1;
 				}
 			}
 			else
