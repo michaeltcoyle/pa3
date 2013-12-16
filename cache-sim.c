@@ -592,8 +592,8 @@ int main(int argc, char *argv[])
 					l1cache->capmiss++;
 					break;
 				}
-				printf("%ld\n",workingSet->rows[i].tag);
-				if (strcmp(workingSet->rows[i].tag,tag1)==0)
+				printf("%d\n",workingSet->rows[i].tag);
+				if ((workingSetnum*setsize1)+i==tag1)
 				{
 					if (workingSet->rows[i].valid==1 && strcmp(workingSet->rows[i].block,block1)==0)
 					{
@@ -641,7 +641,7 @@ int main(int argc, char *argv[])
 					l2cache->capmiss++;
 					break;
 				}
-				if (strcmp(workingSet->rows[i].tag,tag2)==0)
+				if ((workingSetnum*setsize2)+i==tag2)
 				{
 					if (workingSet->rows[i].valid==1 && strcmp(workingSet->rows[i].block,block2)==0)
 					{
@@ -689,7 +689,7 @@ int main(int argc, char *argv[])
 					l3cache->capmiss++;
 					break;
 				}
-				if (strcmp(workingSet->rows[i].tag,tag3)==0)
+				if ((workingSetnum*setsize3)+i==tag3)
 				{
 					if (workingSet->rows[i].valid==1 && strcmp(workingSet->rows[i].block,block3)==0)
 					{
