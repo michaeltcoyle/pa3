@@ -423,18 +423,12 @@ int main(int argc, char *argv[])
 	l3cache->capmiss = 0;
 
 
-	for (int i = 0; i<l1cache->nsets;i++)
-	{
-		struct Set *l1set = malloc((setsize1*sizeof(struct Row))+sizeof(struct Set));
-	}
-	for (int i = 0; i<l2cache->nsets;i++)
-	{
-		struct Set *l2set = malloc((setsize1*sizeof(struct Row))+sizeof(struct Set));
-	}
-	for (int i = 0; i<l3cache->nsets;i++)
-	{
-		struct Set *l3set = malloc((setsize1*sizeof(struct Row))+sizeof(struct Set));
-	}
+	struct Set *l1set = malloc((setsize1*sizeof(struct Row))+sizeof(struct Set));
+
+	struct Set *l2set = malloc((setsize1*sizeof(struct Row))+sizeof(struct Set));
+	
+	struct Set *l3set = malloc((setsize1*sizeof(struct Row))+sizeof(struct Set));
+
 
 
 	//start reading addresses
