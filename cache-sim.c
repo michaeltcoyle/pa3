@@ -702,7 +702,9 @@ int main(int argc, char *argv[])
 		int l3pass = 0;
 
 
-
+		int l1miss = 0;
+		int l2miss = 0;
+		int l3miss = 0;
 
 
 
@@ -748,15 +750,32 @@ int main(int argc, char *argv[])
 					l1row->block=block1v;
 					l1row->tag=tag1v;
 					l1row->valid = 1;
+					l1miss = 1;
 				}
 			}
 			else
 			{
-				l1cache->miss++;
-				l1cache->miss++;
-				l1row->block=block1v;
-				l1row->tag=tag1v;
-				l1row->valid = 1;
+				if (l1row->valid==1)
+				{
+					l1cache->hit++;
+					l1pass = 1;
+				}
+				else if (l1row->first == 1)
+				{
+					l1cache->miss++;
+					l1row->block=block1v;
+					l1row->tag=tag1v;
+					l1row->first = 0;
+					l1row->valid = 1;
+				}
+				else
+				{	
+					l1cache->miss++;
+					l1row->block=block1v;
+					l1row->tag=tag1v;
+					l1row->valid = 1;
+				}
+				
 			}
 			
 		}
@@ -802,8 +821,26 @@ int main(int argc, char *argv[])
 			}
 			else
 			{
-				
-				l2cache->miss++;
+				if (l2row->valid==1)
+				{
+					l2cache->hit++;
+					l2pass = 1;
+				}
+				else if (l2row->first == 1)
+				{
+					l2cache->miss++;
+					l2row->block=block2v;
+					l2row->tag=tag2v;
+					l2row->first = 0;
+					l2row->valid = 1;
+				}
+				else
+				{	
+					l2cache->miss++;
+					l2row->block=block2v;
+					l2row->tag=tag2v;
+					l2row->valid=1;
+				}
 			}
 		}
 		if ((l3pass == 0) && (l2pass == 0) && (l1pass == 0) && (strcmp(l3assoc,"direct")==0))
@@ -847,7 +884,26 @@ int main(int argc, char *argv[])
 			}
 			else
 			{
-				l3cache->miss++;
+				if (l3row->valid==1)
+				{
+					l3cache->hit++;
+					l3pass = 1;
+				}
+				else if (l3row->first == 1)
+				{
+					l3cache->miss++;
+					l3row->block=block3v;
+					l3row->tag=tag3v;
+					l3row->first = 0;
+					l3row->valid = 1;
+				}
+				else
+				{	
+					l3cache->miss++;
+					l3row->block=block3v;
+					l3row->tag=tag3v;
+					l3row->valid = 1;
+				}
 			}
 		}
 		/*
