@@ -12,10 +12,10 @@
 
 struct Row {
 
-	int first = NULL;
-	char block = NULL;
-	int valid = NULL;
-	char tag = NULL;
+	int first;
+	char block;
+	int valid;
+	char tag;
 
 };
 
@@ -624,7 +624,7 @@ int main(int argc, char *argv[])
 			for (int i = 0; i<1; i++)
 			{
 				
-				if (l1cache->sets[set1v].rows[i]==NULL)
+				if (*l1cache->sets[set1v].rows[i]==NULL)
 				{
 					l1cache->sets[set1v].rows[i] = malloc(sizeof(struct Row));
 					l1cache->sets[set1v].rows[i].first=1;
@@ -668,7 +668,7 @@ int main(int argc, char *argv[])
 			l2pass = 0;
 			for (int i=0; i<1;i++)
 			{
-				if (l2cache->sets[set2v].rows[i]==NULL)
+				if (*l2cache->sets[set2v].rows[i]==NULL)
 				{
 					l2cache->sets[set2v].rows[i] = malloc(sizeof(struct Row));
 					l2cache->sets[set2v].rows[i].first=1;
@@ -711,7 +711,7 @@ int main(int argc, char *argv[])
 			l3pass = 0;
 			for (int i=0;i<1.nrows;i++)
 			{	
-				if (l3cache->sets[set3v].rows[i]==NULL)
+				if (*l3cache->sets[set3v].rows[i]==NULL)
 				{
 					l3cache->sets[set3v].rows[i] = malloc(sizeof(struct Row));
 					l3cache->sets[set3v].rows[i].first=1;
