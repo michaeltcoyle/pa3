@@ -371,21 +371,20 @@ int main(int argc, char *argv[])
 	
 
 	struct Cache *l1cache = malloc(sizeof(struct Cache));
-	l1cache->sets = malloc((l1size * sizeof(struct Set)));
+	l1cache->sets = malloc((l1size*sizeof(struct Set)));
 
 	l1cache->nsets = l1size/setsize1;
 	
 	struct Cache *l2cache = malloc(sizeof(struct Cache));
-	l2cache->sets = malloc((l2size * sizeof(struct Set)));
+	l2cache->sets = malloc((l2size*sizeof(struct Set)));
 
 	l2cache->nsets = l2size/setsize2;
 
 	struct Cache *l3cache = malloc(sizeof(struct Cache));
-	l3cache->sets = malloc((l3size * sizeof(struct Set)));
+	l3cache->sets = malloc((l3size*sizeof(struct Set)));
 
 	l3cache->nsets = l3size/setsize3;
 
-	printf("Test1");
 
 	/*struct Set *l1set = malloc(sizeof(struct Set));
 	l1set->rows = malloc(((l1size/setsize1) * sizeof(struct Row)));
