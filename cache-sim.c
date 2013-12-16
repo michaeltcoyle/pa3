@@ -527,10 +527,11 @@ int main(int argc, char *argv[])
 		
 		//append leading 0s
 		
+		char tempStr[addrlength];
 		
 		memcpy(tempStr,&currAddr0x[2],addrlength);
 		tempStr[strlen(tempStr)]=0;
-		char tempStr[addrlength];
+		
 
 		switch (addrlength)
 		{
