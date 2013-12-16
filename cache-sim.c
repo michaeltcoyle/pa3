@@ -339,7 +339,6 @@ int main(int argc, char *argv[])
 		s1bits = llog2(l1size/blocksize);
 		Set *l1sets[l1size/blocksize];
 		l1cache->nsets = l1size/blocksize;
-		l1sets->nrows = 1;
 	}
 	else if (strcmp(l1assoc,"assoc")==0)
 	{
@@ -361,7 +360,6 @@ int main(int argc, char *argv[])
 		s2bits = llog2(l2size/blocksize);
 		Set *l2sets[l2size/blocksize];
 		l2cache->nsets = l2size/blocksize;
-		l2sets->nrows = 1;
 	}
 	else if (strcmp(l2assoc,"assoc")==0)
 	{
@@ -382,7 +380,6 @@ int main(int argc, char *argv[])
 		s3bits = llog2(l3size/blocksize);
 		Set *l3sets[l3size/blocksize];
 		l3cache->nsets = l3size/blocksize;
-		l2sets->nrows = 1;
 	}
 	else if (strcmp(l3assoc,"assoc")==0)
 	{
@@ -734,8 +731,10 @@ int main(int argc, char *argv[])
 			l1pass = 0;
 
 		  	Set *l1set = &l1cache->set[set1v];
+		  	
 		  	Row l1row = l1set->row[0];
 		  	l1set->row[0] = l1row;
+		  	
 
 
 			if (1>l1size)
