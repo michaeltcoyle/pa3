@@ -10,28 +10,28 @@
 
 //this version successfully parses command line (and probably gets correct bits (t,s,b)
 
-struct Row {
+typedef struct obRow {
 
 	int first;
 	char block;
 	int valid;
 	char tag;
 
-};
+} Row;
 
 //initialize structs / constructor type stuff
 
-struct Set {
+struct obSet {
 
 	int nrows;
-	struct Row *rows;
+	obRow *row;
 
-};
+} Set;
 
 struct Cache {
 
 	int nsets;
-	struct Set *sets;
+	obSet *set;
 	int miss;
 	int hit;
 	int coldmiss;
@@ -89,6 +89,10 @@ void HexToBin(char hex_number, char* bit_number)
             bit_number [i] = (hex_number & max ) ? 1 : 0;
             max >>=1;
         }
+}
+
+struct Cache* NewCache(void) {
+  return calloc(sizeof(dict)); 
 }
 
 
@@ -369,7 +373,7 @@ int main(int argc, char *argv[])
 
 
 	
-
+/*
 	struct Cache *l1cache = malloc(sizeof(struct Cache));
 	l1cache->sets = malloc((l1size*sizeof(struct Set)));
 	
@@ -379,7 +383,9 @@ int main(int argc, char *argv[])
 	struct Cache *l3cache = malloc(sizeof(struct Cache));
 	l3cache->sets = malloc((l3size*sizeof(struct Set)));
 
+*/
 
+	
 
 
 
@@ -596,6 +602,7 @@ int main(int argc, char *argv[])
 				l1row.first=1;
 			if (l1row.valid!=1 && l1row.valid!=0)
 				l1row.valid=0;
+				
 			l1row.block=0;	
 			l1row.tag=0;
 
