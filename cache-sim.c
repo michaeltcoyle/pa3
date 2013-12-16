@@ -623,7 +623,7 @@ int main(int argc, char *argv[])
 		if ((l1pass == 0) && (strcmp(l1assoc,"direct")==0))
 		{
 		
-			l1cache->nsets = blocksize;
+			l1cache->nsets = l1size/blocksize;
 			l1pass = 0;
 
 		  	Set *l1set = NewSet();
@@ -668,7 +668,7 @@ int main(int argc, char *argv[])
 		if ((l2pass == 0) && (l1pass == 0) && (strcmp(l2assoc,"direct")==0))
 		{
 		
-			l2cache->nsets = blocksize;
+			l2cache->nsets = l2size/blocksize;
 			l2pass = 0;
 
 		  	Set *l2set = NewSet();
@@ -713,7 +713,7 @@ int main(int argc, char *argv[])
 		if ((l3pass == 0) && (l2pass == 0) && (l1pass == 0) && (strcmp(l3assoc,"direct")==0))
 		{
 		
-			l3cache->nsets = blocksize;
+			l3cache->nsets = l3size/blocksize;
 			l3pass = 0;
 
 		  	Set *l3set = NewSet();
