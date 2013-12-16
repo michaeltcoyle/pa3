@@ -562,7 +562,7 @@ int main(int argc, char *argv[])
 
 		strcpy(tempAddr,"");
 
-		printf("%s",strlen(currAddr16));
+		printf("%d",strlen(currAddr16));
 		//convert addr to binary
 		for (int i = 0; i<strlen(currAddr16); i++)
 		{
