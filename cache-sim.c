@@ -726,6 +726,10 @@ int main(int argc, char *argv[])
 			{
 				l1cache->capmiss++;
 				l1cache->miss++;
+				l1row->block=block1v;
+				l1row->tag=tag1v;
+				l1row->first = 0;
+				l1row->valid = 1;
 			}
 			else if (l1row->tag == tag1v)
 			{	
@@ -795,6 +799,10 @@ int main(int argc, char *argv[])
 			{
 				l2cache->capmiss++;
 				l1cache->miss++;
+				l2row->block=block2v;
+				l2row->tag=tag2v;
+				l2row->first = 0;
+				l2row->valid = 1;
 			}
 			else if (l2row->tag == tag2v)
 			{	
@@ -862,6 +870,11 @@ int main(int argc, char *argv[])
 			if (1>l3size)
 			{
 				l3cache->capmiss++;
+				l3cache->miss++;
+				l3row->block=block3v;
+				l3row->tag=tag3v;
+				l3row->first = 0;
+				l3row->valid = 1;
 			}
 			else if (l3row->tag == tag3v)
 			{	
