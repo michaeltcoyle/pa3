@@ -619,6 +619,84 @@ int main(int argc, char *argv[])
 				}
 			}
 		}
+		if ((l1pass == 0) && (l2pass==0) && (strcmp(l1assoc,"direct")==0))
+		{
+		
+			l2cache->nsets = 1;
+			l2pass = 0;
+		  
+				
+			if (l2cache->sets[set2v].rows[0].first!=1 && l2cache->sets[set2v].rows[0].first!=0)
+				l2cache->sets[set2v].rows[0].first=1;
+			if (l2cache->sets[set2v].rows[0].valid!=1 && l2cache->sets[set2v].rows[0].valid!=0)
+				l2cache->sets[set2v].rows[0].valid=0;
+			l2cache->sets[set2v].rows[0].block=0;	
+			l2cache->sets[set2v].rows[0].tag=0;
+
+			if (1>l2size)
+			{
+				l2cache->capmiss++;
+			}
+			if ((long)l2cache->sets[set2v].rows[0].tag == tag2v)
+			{	
+				if (l2cache->sets[set2v].rows[0].valid==1 && l2cache->sets[set2v].rows[0].first==1)
+				{
+					l2cache->hit++;
+					l2pass = 1;
+					l2cache->sets[set2v].rows[0].first = 0;
+				}
+				else if (l2cache->sets[set2v].rows[0].valid==1 && l2cache->sets[set2v].rows[0].first == 0)
+				{
+					l2cache->confmiss++;
+					break;
+				}
+				else
+				{	
+					l2cache->coldmiss++;
+					l2cache->sets[set2v].rows[0].block=block2v;
+					l2cache->sets[set2v].rows[0].first = 0;
+				}
+			}
+		}
+		if ((l1pass == 0) && (l2pass==0) && (l3pass == 0) && (strcmp(l1assoc,"direct")==0))
+		{
+		
+			l3cache->nsets = 1;
+			l3pass = 0;
+		  
+				
+			if (l3cache->sets[set3v].rows[0].first!=1 && l3cache->sets[set3v].rows[0].first!=0)
+				l3cache->sets[set3v].rows[0].first=1;
+			if (l3cache->sets[set3v].rows[0].valid!=1 && l3cache->sets[set3v].rows[0].valid!=0)
+				l3cache->sets[set3v].rows[0].valid=0;
+			l3cache->sets[set3v].rows[0].block=0;	
+			l3cache->sets[set3v].rows[0].tag=0;
+
+			if (1>l3size)
+			{
+				l3cache->capmiss++;
+			}
+			if ((long)l3cache->sets[set3v].rows[0].tag == tag3v)
+			{	
+				if (l3cache->sets[set3v].rows[0].valid==1 && l3cache->sets[set3v].rows[0].first==1)
+				{
+					l3cache->hit++;
+					l3pass = 1;
+					l3cache->sets[set3v].rows[0].first = 0;
+				}
+				else if (l3cache->sets[set3v].rows[0].valid==1 && l3cache->sets[set3v].rows[0].first == 0)
+				{
+					l3cache->confmiss++;
+					break;
+				}
+				else
+				{	
+					l3cache->coldmiss++;
+					l3cache->sets[set3v].rows[0].block=block3v;
+					l3cache->sets[set3v].rows[0].first = 0;
+				}
+			}
+		}
 		/*
 		if ((l1pass = 0) && (l2pass == 0) && (strcmp(l2assoc,"direct")==0))
 		{
