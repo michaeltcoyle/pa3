@@ -330,9 +330,9 @@ int main(int argc, char *argv[])
 	Cache *l1cache;
 	Cache *l2cache;
 	Cache *l3cache;
-	Set *l1set;
-	Set *l2set;
-	Set *l3set;
+	Set *l1set = NewSet();
+	Set *l2set = NewSet();
+	Set *l3set = NewSet();
 	
 //l1 assoc 
 
