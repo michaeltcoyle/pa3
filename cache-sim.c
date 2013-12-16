@@ -343,7 +343,7 @@ int main(int argc, char *argv[])
 	else if (strcmp(l1assoc,"assoc:n")==0)
 	{
 		b1bits = llog2(blocksize);
-		s1bits = llog2(l1n)
+		s1bits = llog2(l1n);
 	}
 
 //l2 assoc 
