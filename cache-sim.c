@@ -438,7 +438,7 @@ int main(int argc, char *argv[])
 	l3set->nrows = setsize3;*/
 	
 	int addrlength;
-	char currAddr0x[18];
+	char currAddr0x[14];
 
 
 	l1cache->miss = 0;
