@@ -593,9 +593,9 @@ int main(int argc, char *argv[])
 					break;
 				}
 				printf("%d\n",workingSet->rows[i].tag);
-				if ((workingSetnum*setsize1)+i==tag1)
+				if ((workingSetnum*setsize1)+i==tag1v)
 				{
-					if (workingSet->rows[i].valid==1 && workingSet->rows[i].block==block1)
+					if (workingSet->rows[i].valid==1 && workingSet->rows[i].block==block1v)
 					{
 						l1cache->hit++;
 						l1pass = 1;
@@ -610,7 +610,7 @@ int main(int argc, char *argv[])
 					else
 					{	
 						l1cache->coldmiss++;
-						workingSet->rows[i].block=block1;
+						workingSet->rows[i].block=block1v;
 						workingSet->rows[i].first = 0;
 						break;
 					}
@@ -641,9 +641,9 @@ int main(int argc, char *argv[])
 					l2cache->capmiss++;
 					break;
 				}
-				if ((workingSetnum*setsize2)+i==tag2)
+				if ((workingSetnum*setsize2)+i==tag2v)
 				{
-					if (workingSet->rows[i].valid==1 && workingSet->rows[i].block==block2)
+					if (workingSet->rows[i].valid==1 && workingSet->rows[i].block==block2v)
 					{
 						l2cache->hit++;
 						l2pass = 1;
@@ -658,7 +658,7 @@ int main(int argc, char *argv[])
 					else
 					{	
 						l2cache->coldmiss++;
-						workingSet->rows[i].block=block2;
+						workingSet->rows[i].block=block2v;
 						workingSet->rows[i].first = 0;
 						break;
 					}
@@ -689,9 +689,9 @@ int main(int argc, char *argv[])
 					l3cache->capmiss++;
 					break;
 				}
-				if ((workingSetnum*setsize3)+i==tag3)
+				if ((workingSetnum*setsize3)+i==tag3v)
 				{
-					if (workingSet->rows[i].valid==1 && workingSet->rows[i].block==block3)
+					if (workingSet->rows[i].valid==1 && workingSet->rows[i].block==block3v)
 					{
 						l3cache->hit++;
 						l3pass = 1;
@@ -706,7 +706,7 @@ int main(int argc, char *argv[])
 					else
 					{	
 						l3cache->coldmiss++;
-						workingSet->rows[i].block=block3;
+						workingSet->rows[i].block=block3v;
 						workingSet->rows[i].first = 0;
 						break;
 					}
