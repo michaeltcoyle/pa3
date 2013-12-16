@@ -57,12 +57,11 @@ Cache* NewCache(void) {
 }
 
 Row NewRow(void) {
-  Row lrow = malloc(sizeof(Row));
   if (lrow){
-  	lrow->first = 1;
-  	lrow->block = 0;
-  	lrow->valid = 0;
-  	lrow->tag = 0;
+  	lrow.first = 1;
+  	lrow.block = 0;
+  	lrow.valid = 0;
+  	lrow.tag = 0;
   }
   return lrow;
  }
