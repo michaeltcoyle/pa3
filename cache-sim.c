@@ -13,9 +13,9 @@
 typedef struct obRow {
 
 	int first;
-	char block;
+	int block;
 	int valid;
-	char tag;
+	int tag;
 
 } Row;
 
@@ -710,7 +710,7 @@ int main(int argc, char *argv[])
 	
 		if ((l1pass == 0) && (strcmp(l1assoc,"direct")==0))
 		{
-			printf("test1\n");
+		
 			l1cache->nsets = l1size/blocksize;
 			l1pass = 0;
 
@@ -719,14 +719,6 @@ int main(int argc, char *argv[])
 		  	Row *l1row = NewRow();
 		  	l1set->row = l1row;
 		  	
-			
-			if (l1row->first!=1 && l1row->first!=0)
-			{
-				l1row->first=1;
-				printf("test!!");
-			}
-			if (l1row->valid!=1 && l1row->valid!=0)
-				l1row->valid=0;
 				
 			l1row->block=0;	
 			l1row->tag=0;
