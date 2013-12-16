@@ -19,6 +19,7 @@ typedef struct obRow {
 
 } Row;
 
+
 //initialize structs / constructor type stuff
 
 typedef struct obSet {
@@ -40,6 +41,10 @@ typedef struct obCache {
 
 } Cache;
 
+
+Cache* NewCache(void) {
+  return calloc(sizeof(Cache)); 
+}
 
 //global variables
 int l1size;
@@ -91,9 +96,7 @@ void HexToBin(char hex_number, char* bit_number)
         }
 }
 
-Cache* NewCache(void) {
-  return calloc(sizeof(Cache)); 
-}
+
 
 
 //main program
