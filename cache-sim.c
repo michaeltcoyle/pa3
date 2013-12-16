@@ -576,7 +576,7 @@ int main(int argc, char *argv[])
 			l1pass = 0;
 			printf("Test");
 			struct Set workingSet = l1cache->sets[set1v];
-			for (int i = 0; i<setsize1; i++)
+			for (int i = 0; i<workingSet.nrows; i++)
 			{
 				printf("here");
 				if (workingSet.rows[i].first!=1 && workingSet.rows[i].first!=0)
@@ -621,7 +621,7 @@ int main(int argc, char *argv[])
 		{
 			l2pass = 0;
 			struct Set workingSet = l2cache->sets[set2v];
-			for (int i=0;i<setsize2;i++)
+			for (int i=0;i<workingSet.nrows;i++)
 			{
 				if (workingSet.rows[i].first!=1 && workingSet.rows[i].first!=0)
 				{
@@ -668,7 +668,7 @@ int main(int argc, char *argv[])
 		{
 			
 			struct Set workingSet = l3cache->sets[set3v];
-			for (int i=0;i<setsize3;i++)
+			for (int i=0;i<workingSet.nrows;i++)
 			{	
 				if (workingSet.rows[i].first!=1 && workingSet.rows[i].first!=0)
 				{
