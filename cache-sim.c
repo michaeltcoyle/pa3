@@ -601,7 +601,7 @@ int main(int argc, char *argv[])
 		strcpy(tempAddr,"");
 
 		//convert addr to binary
-		/*
+		
 		for (int i = 0; currAddr16[i] != '\0'; i++)
 		{
 			switch (currAddr16[i])
@@ -679,7 +679,7 @@ int main(int argc, char *argv[])
 					#endif
 					return 0;
 			}
-		}*/
+		}
 
 		char currAddr[65] = "";
 
@@ -745,7 +745,7 @@ int main(int argc, char *argv[])
 
 
 
-	
+	/*
 	
 		if ((l1pass == 0) && (strcmp(l1assoc,"direct")==0))
 		{
@@ -954,7 +954,7 @@ int main(int argc, char *argv[])
 				}
 			}
 		}
-
+*/
 		
 	}
 
