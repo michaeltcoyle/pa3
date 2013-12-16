@@ -328,13 +328,15 @@ int main(int argc, char *argv[])
 	long block3v;
 
 
+	Cache *l1cache = NewCache();
+	Cache *l2cache = NewCache();
+	Cache *l2cache = NewCache();
 //l1 assoc 
 
 	if (strcmp(l1assoc,"direct")==0)
 	{
 		b1bits = llog2(blocksize);
 		s1bits = llog2(l1size/blocksize);
-		Cache *l1cache = NewCache();
 		Set *l1sets[l1size/blocksize];
 		l1cache->nsets = 1;
 	}
@@ -356,7 +358,6 @@ int main(int argc, char *argv[])
 	{
 		b2bits = llog2(blocksize);
 		s2bits = llog2(l2size/blocksize);
-		Cache *l2cache = NewCache();
 		Set *l2sets[l2size/blocksize];
 		l2cache->nsets = 1;
 	}
