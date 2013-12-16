@@ -438,7 +438,7 @@ int main(int argc, char *argv[])
 	l3set->nrows = setsize3;*/
 	
 	int addrlength;
-	char currAddr0x[18];
+	char currAddr0x[19];
 
 
 	l1cache->miss = 0;
@@ -490,7 +490,7 @@ int main(int argc, char *argv[])
 		
 		//append leading 0s
 		
-		char tempAddr[64] = "";
+		char tempAddr[65] = "";
 		char tempStr[addrlength];
 		memcpy(tempStr,&currAddr0x[2],addrlength);
 		tempStr[strlen(tempStr)]=0;
@@ -555,7 +555,7 @@ int main(int argc, char *argv[])
 
 
 
-		char currAddr16[16];
+		char currAddr16[17];
 		
 		strcat(tempAddr,tempStr);
 		strcpy(currAddr16,tempAddr);
