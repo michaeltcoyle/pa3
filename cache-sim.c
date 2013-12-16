@@ -43,8 +43,38 @@ typedef struct obCache {
 
 
 Cache* NewCache(void) {
-  return calloc(sizeof(Cache)); 
+  Cache *lcache = malloc(sizeof(Cache)); 
+  if (lcache){
+  	lcache.nsets = 0;
+  	lcache.miss = 0;
+  	lcache.hit = 0;
+  	lcache.coldmiss = 0;
+  	lcache.confmiss = 0;
+  	lcache.capmiss = 0;
+  	lcache->set = NULL;
+  }
+  return lcache;
 }
+
+Row* NewRow(void) {
+  Row *lrow = malloc(sizeof(Row));
+  if (lrow){
+  	lrow.first = 1;
+  	lrow.block = 0;
+  	lrow.valid = 0;
+  	lrow.tag = 0;
+  }
+  return lrow;
+ }
+
+Set* NewSet(void) {
+  Set *lset = malloc(sizeof(Set));
+  if (lset){
+  	lrow.nrows = 0;
+  	lrow->row = NULL;
+  }
+  return lset;
+ }
 
 //global variables
 int l1size;
@@ -393,7 +423,7 @@ int main(int argc, char *argv[])
 	Cache *l2cache = NewCache();
 	Cache *l3cache = NewCache();
 
-
+	
 
 
 	/*struct Set *l1set = malloc(sizeof(struct Set));
@@ -597,11 +627,14 @@ int main(int argc, char *argv[])
 		if ((l1pass == 0) && (strcmp(l1assoc,"direct")==0))
 		{
 		
-			l1cache->nsets = 1;
+			l1cache.nsets = 1;
 			l1pass = 0;
 
-		  	struct Set l1set = l1cache->sets[set1v];
-			struct Row l1row = l1set.rows[0];
+		  	Set *l1set = NewSet();
+		  	l1cache->set = l1set;
+		  	Row *l1row = NewRow();
+		  	l1set->row = l1row;
+		  	
 			
 			if (l1row.first!=1 && l1row.first!=0)
 				l1row.first=1;
