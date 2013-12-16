@@ -720,8 +720,8 @@ int main(int argc, char *argv[])
 		  	l1cache->set = l1set;
 		  	Row *l1row = NewRow();
 		  	l1set->row = l1row;
-		  	l1set->nsets = 1;
-		  	l1row->nrows = 1;
+		  	l1cache->nsets = 1;
+		  	l1set->nrows = 1;
 
 
 			if (1>l1size)
@@ -789,6 +789,9 @@ int main(int argc, char *argv[])
 		  	l2cache->set = l2set;
 		  	Row *l2row = NewRow();
 		  	l2set->row = l2row;
+		  	l2cache->nsets = 1;
+		  	l2set->nrows = 1;
+
 		  	
 
 			if (1>l2size)
@@ -853,6 +856,10 @@ int main(int argc, char *argv[])
 		  	l3cache->set = l3set;
 		  	Row *l3row = NewRow();
 		  	l3set->row = l3row;
+		  	
+		  	l3cache->nsets = 1;
+		  	l3set->nrows = 1;
+
 		  	
 
 			if (1>l3size)
