@@ -732,7 +732,7 @@ int main(int argc, char *argv[])
 					l1cache->hit++;
 					l1pass = 1;
 				}
-				if (l1row->first == 1)
+				else if (l1row->first == 1)
 				{
 					l1cache->miss++;
 					l1row->block=block1v;
@@ -768,24 +768,28 @@ int main(int argc, char *argv[])
 			if (1>l2size)
 			{
 				l2cache->capmiss++;
+				l1cache->miss++
 			}
 			else if (l2row->tag == tag2v)
 			{	
-				if (l2row->valid==1 && l2row->first==1)
+				if (l2row->valid==1)
 				{
 					l2cache->hit++;
 					l2pass = 1;
-					l2row->first = 0;
 				}
-				else if (l2row->valid==1 && l2row->first == 0)
+				else if (l2row->first == 1)
 				{
-					l2cache->confmiss++;
-				}
+					l2cache->miss++;
+					l2row->block=block2v;
+					l2row->tag=tag2v;
+					l2row->first = 0;
+					l2row->valid = 1;
 				else
 				{	
-					l2cache->coldmiss++;
+					l2cache->miss++;
 					l2row->block=block2v;
-					l2row->first = 0;
+					l2row->tag=tag2v;
+					l2row->valid=1;
 				}
 			}
 			else
@@ -811,22 +815,25 @@ int main(int argc, char *argv[])
 			}
 			else if (l3row->tag == tag3v)
 			{	
-				if (l3row->valid==1 && l3row->first==1)
+				if (l3row->valid==1)
 				{
 					l3cache->hit++;
 					l3pass = 1;
-					l3row->first = 0;
 				}
-				else if (l3row->valid==1 && l3row->first == 0)
+				else if (l3row->first == 1)
 				{
-					l3cache->confmiss++;
-					break;
+					l3cache->miss++
+					l3row->block=block3v;
+					l3row->tag=tag3v;
+					l3row->first = 0;
+					l3row->valid = 1;
 				}
 				else
 				{	
-					l3cache->coldmiss++;
+					l3cache->miss++;
 					l3row->block=block3v;
-					l3row->first = 0;
+					l3row->tag=tag3v;
+					l3row->valid = 1;
 				}
 			}
 			else
