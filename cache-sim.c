@@ -21,14 +21,14 @@ typedef struct obRow {
 
 //initialize structs / constructor type stuff
 
-struct obSet {
+typedef struct obSet {
 
 	int nrows;
 	obRow *row;
 
 } Set;
 
-struct Cache {
+typedef struct obCache {
 
 	int nsets;
 	obSet *set;
@@ -38,7 +38,7 @@ struct Cache {
 	int confmiss;
 	int capmiss;
 
-};
+} Cache;
 
 
 //global variables
@@ -91,8 +91,8 @@ void HexToBin(char hex_number, char* bit_number)
         }
 }
 
-struct Cache* NewCache(void) {
-  return calloc(sizeof(dict)); 
+Cache* NewCache(void) {
+  return calloc(sizeof(Cache)); 
 }
 
 
