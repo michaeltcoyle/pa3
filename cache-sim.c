@@ -576,7 +576,7 @@ int main(int argc, char *argv[])
 			l1pass = 0;
 			long workingSetnum = set1v;
 			
-			struct Set workingSet = l1set->sets[set1v];
+			struct Set workingSet = l1cache->sets[set1v];
 			printf("here1");
 			for (int i = 0; i<setsize1; i++)
 			{
