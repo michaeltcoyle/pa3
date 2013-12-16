@@ -361,6 +361,10 @@ int main(int argc, char *argv[])
 		l1cache = NewCache(l1cache->nsets,(l1size)/(l1n*blocksize));
 		l1set->nrows = (l1size)/(l1n*blocksize);
 	}
+	else
+	{
+		l1cache = NewCache(1,1);
+	}
 
 //l2 assoc 
 
@@ -388,6 +392,10 @@ int main(int argc, char *argv[])
 		l2cache = NewCache(l2cache->nsets,(l2size)/(l2n*blocksize));
 		l2set->nrows = (l2size)/(l2n*blocksize);
 	}
+	else
+	{
+		l2cache = NewCache(1,1);
+	}
 
 //l3 assoc 
 
@@ -414,6 +422,10 @@ int main(int argc, char *argv[])
 		l3cache->nsets = l3n;
 		l3cache = NewCache(l3cache->nsets,(l3size)/(l3n*blocksize));
 		l3set->nrows = (l3size)/(l3n*blocksize);
+	}
+	else
+	{
+		l3cache = NewCache(1,1);
 	}
 
 //t bits
