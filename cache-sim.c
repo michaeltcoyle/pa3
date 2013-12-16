@@ -769,6 +769,7 @@ int main(int argc, char *argv[])
 				{
 					l1cache->hit++;
 					l1pass = 1;
+					break;
 				}
 				else if (l1row.first == 1)
 				{
@@ -792,6 +793,7 @@ int main(int argc, char *argv[])
 				{
 					l1cache->hit++;
 					l1pass = 1;
+					break;
 				}
 				else if (l1row.first == 1)
 				{
@@ -839,6 +841,7 @@ int main(int argc, char *argv[])
 				{
 					l2cache->hit++;
 					l2pass = 1;
+					break;
 				}
 				else if (l2row.first == 1)
 				{
@@ -862,6 +865,7 @@ int main(int argc, char *argv[])
 				{
 					l2cache->hit++;
 					l2pass = 1;
+					break;
 				}
 				else if (l2row.first == 1)
 				{
@@ -906,6 +910,7 @@ int main(int argc, char *argv[])
 				{
 					l3cache->hit++;
 					l3pass = 1;
+					break;
 				}
 				else if (l3row.first == 1)
 				{
@@ -914,6 +919,7 @@ int main(int argc, char *argv[])
 					l3row.tag=tag3v;
 					l3row.first = 0;
 					l3row.valid = 1;
+					break;
 				}
 				else
 				{	
@@ -921,6 +927,7 @@ int main(int argc, char *argv[])
 					l3row.block=block3v;
 					l3row.tag=tag3v;
 					l3row.valid = 1;
+					break;
 				}
 			}
 			else
@@ -929,6 +936,7 @@ int main(int argc, char *argv[])
 				{
 					l3cache->hit++;
 					l3pass = 1;
+					break;
 				}
 				else if (l3row.first == 1)
 				{
@@ -937,6 +945,7 @@ int main(int argc, char *argv[])
 					l3row.tag=tag3v;
 					l3row.first = 0;
 					l3row.valid = 1;
+					break;
 				}
 				else
 				{	
@@ -944,6 +953,7 @@ int main(int argc, char *argv[])
 					l3row.block=block3v;
 					l3row.tag=tag3v;
 					l3row.valid = 1;
+					break;
 				}
 			}
 		}
