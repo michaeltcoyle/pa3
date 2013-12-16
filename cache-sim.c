@@ -620,17 +620,18 @@ int main(int argc, char *argv[])
 			struct Set *l1set = malloc((1*sizeof(struct Row))+sizeof(struct Set));
 
 			l1pass = 0;
-	
+		        flag = 0;
 			for (int i = 0; i<1; i++)
 			{
 				
-				if (*l1cache->sets[set1v].rows[i]==NULL)
+				if (flag == 0)
 				{
 					l1cache->sets[set1v].rows[i] = malloc(sizeof(struct Row));
 					l1cache->sets[set1v].rows[i].first=1;
 					l1cache->sets[set1v].rows[i].valid=0;
 					l1cache->sets[set1v].rows[i].block=0;
 					l1cache->sets[set1v].rows[i].tag=0;
+					flag = 1;
 				}
 
 				if (1>l1size)
@@ -664,17 +665,19 @@ int main(int argc, char *argv[])
 		}
 		if ((l1pass = 0) && (l2pass == 0) && (strcmp(l2assoc,"direct")==0))
 		{
+			int flag = 0;
 			struct Set *l2set = malloc((1*sizeof(struct Row))+sizeof(struct Set));
 			l2pass = 0;
 			for (int i=0; i<1;i++)
 			{
-				if (*l2cache->sets[set2v].rows[i]==NULL)
+				if (flag == 0)
 				{
 					l2cache->sets[set2v].rows[i] = malloc(sizeof(struct Row));
 					l2cache->sets[set2v].rows[i].first=1;
 					l2cache->sets[set2v].rows[i].valid=0;
 					l2cache->sets[set2v].rows[i].block=0;
 					l2cache->sets[set2v].rows[i].tag=0;
+					flag = 1;
 				}
 				if (1>l2size)
 				{
@@ -709,15 +712,17 @@ int main(int argc, char *argv[])
 		{
 			struct Set *l3set = malloc((1*sizeof(struct Row))+sizeof(struct Set));
 			l3pass = 0;
+			flag = 0;
 			for (int i=0;i<1.nrows;i++)
 			{	
-				if (*l3cache->sets[set3v].rows[i]==NULL)
+				if (flag == 0)
 				{
 					l3cache->sets[set3v].rows[i] = malloc(sizeof(struct Row));
 					l3cache->sets[set3v].rows[i].first=1;
 					l3cache->sets[set3v].rows[i].valid=0;
 					l3cache->sets[set3v].rows[i].block=0;
 					l3cache->sets[set3v].rows[i].tag=0;
+					flag = 1;
 				}
 				if (1>l3size)
 				{
