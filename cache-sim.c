@@ -716,10 +716,6 @@ int main(int argc, char *argv[])
 						break;
 					}
 				}
-				else
-				{
-					continue;
-				}
 			}
 		}
 		if ((l2pass = 0) && (l2pass == 0) && (l3pass == 0) && (strcmp(l3assoc,"direct")==0))
@@ -770,10 +766,6 @@ int main(int argc, char *argv[])
 						l3cache->sets[set3v].rows[i].first = 0;
 						break;
 					}
-				}
-				else
-				{
-					continue;
 				}
 			}
 		}
