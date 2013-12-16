@@ -720,7 +720,7 @@ int main(int argc, char *argv[])
 		  	l1set->row = l1row;
 		  	for (int i = 0;i<l1cache->nsets;i++)
 		  	{
-		  		Set l1cache->set[i] = malloc(sizeof(Set));
+		  		Set l1cache->set[i] = NewSet();
 		  	}
 
 			if (1>l1size)
