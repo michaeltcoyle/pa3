@@ -602,7 +602,7 @@ int main(int argc, char *argv[])
 
 		//convert addr to binary
 		
-		for (int i = 0; currAddr16[i] != '\0'; i++)
+		for (int i = 0; i<currAddr16[i]-1; i++)
 		{
 			switch (currAddr16[i])
 			{
@@ -745,7 +745,7 @@ int main(int argc, char *argv[])
 
 
 
-	/*
+	
 	
 		if ((l1pass == 0) && (strcmp(l1assoc,"direct")==0))
 		{
@@ -954,7 +954,7 @@ int main(int argc, char *argv[])
 				}
 			}
 		}
-*/
+
 		
 	}
 
