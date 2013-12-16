@@ -610,7 +610,7 @@ int main(int argc, char *argv[])
 		{
 			l1pass = 0;
 			
-			for (int i = 0; i<l1cache->set[set1v].nrows; i++)
+			for (int i = 0; i<l1cache->sets[set1v].nrows; i++)
 			{
 				if (l1set->rows[i].first!=1 && l1set->rows[i].first!=0)
 				{
@@ -653,7 +653,7 @@ int main(int argc, char *argv[])
 		if ((l1pass = 0) && (l2pass == 0) && (strcmp(l2assoc,"direct")==0))
 		{
 			l2pass = 0;
-			for (int i=0; i<l2cache->set[set2v].nrows;i++)
+			for (int i=0; i<l2cache->sets[set2v].nrows;i++)
 			{
 				if (l2set->rows[i].first!=1 && l2set->rows[i].first!=0)
 				{
@@ -699,7 +699,7 @@ int main(int argc, char *argv[])
 		if ((l2pass = 0) && (l2pass == 0) && (l3pass == 0) && (strcmp(l3assoc,"direct")==0))
 		{
 			l3pass = 0;
-			for (int i=0;i<l3cache->set[set3v].nrows;i++)
+			for (int i=0;i<l3cache->sets[set3v].nrows;i++)
 			{	
 				if (l3set->rows[i].first!=1 && l3set->rows[i].first!=0)
 				{
