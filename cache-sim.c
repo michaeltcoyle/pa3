@@ -562,12 +562,10 @@ int main(int argc, char *argv[])
 
 		strcpy(tempAddr,"");
 
-		printf("%c\n",currAddr16);
 
 		//convert addr to binary
 		for (int i = 0; i<strlen(currAddr16); i++)
 		{
-			printf('%c',currAddr16[i]);
 			switch (currAddr16[i])
 			{
 				case '0':
@@ -638,7 +636,9 @@ int main(int argc, char *argv[])
 					break;
 				default:
 					fprintf(stderr,"ERROR: invalid address (can't convert hex to binary).\n");
+					#ifdef DEBUG
 					printf("%c\n",currAddr16[i]);
+					#endif
 					return 0;
 			}
 		}
