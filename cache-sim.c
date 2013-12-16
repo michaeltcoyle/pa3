@@ -626,10 +626,10 @@ int main(int argc, char *argv[])
 				if (flag == 0)
 				{
 				
-					l1cache->sets[set1v].rows[i].first=1;
-					l1cache->sets[set1v].rows[i].valid=0;
-					l1cache->sets[set1v].rows[i].block=0;
-					l1cache->sets[set1v].rows[i].tag=0;
+					l1cache->sets[0].rows[i].first=1;
+					l1cache->sets[0].rows[i].valid=0;
+					l1cache->sets[0].rows[i].block=0;
+					l1cache->sets[0].rows[i].tag=0;
 					flag = 1;
 				}
 
@@ -674,10 +674,10 @@ int main(int argc, char *argv[])
 				
 				if (flag == 0)
 				{
-					l2cache->sets[set2v].rows[i].first=1;
-					l2cache->sets[set2v].rows[i].valid=0;
-					l2cache->sets[set2v].rows[i].block=0;
-					l2cache->sets[set2v].rows[i].tag=0;
+					l2cache->sets[0].rows[i].first=1;
+					l2cache->sets[0].rows[i].valid=0;
+					l2cache->sets[0].rows[i].block=0;
+					l2cache->sets[0].rows[i].tag=0;
 					flag = 1;
 				}
 				if (1>l2size)
@@ -719,10 +719,10 @@ int main(int argc, char *argv[])
 			{	
 				if (flag == 0)
 				{
-					l3cache->sets[set3v].rows[i].first=1;
-					l3cache->sets[set3v].rows[i].valid=0;
-					l3cache->sets[set3v].rows[i].block=0;
-					l3cache->sets[set3v].rows[i].tag=0;
+					l3cache->sets[0].rows[i].first=1;
+					l3cache->sets[0].rows[i].valid=0;
+					l3cache->sets[0].rows[i].block=0;
+					l3cache->sets[0].rows[i].tag=0;
 					flag = 1;
 				}
 				if (1>l3size)
