@@ -587,17 +587,29 @@ int main(int argc, char *argv[])
 					strcat(tempAddr,"1000");
 				case '9':
 					strcat(tempAddr,"1001");
-				case 'A' || 'a':
+				case 'A':
 					strcat(tempAddr,"1010");
-				case 'B' || 'b':
+				case 'a':
+					strcat(tempAddr,"1010");
+				case 'B':
 					strcat(tempAddr,"1011");
-				case 'C' || 'c':
+				case 'b':
+					strcat(tempAddr,"1011");
+				case 'C':
 					strcat(tempAddr,"1100");
-				case 'D' || 'd':
+				case 'c':
+					strcat(tempAddr,"1100");
+				case 'D':
 					strcat(tempAddr,"1101");
-				case 'E' || 'e':
+				case 'd':
+					strcat(tempAddr,"1101");
+				case 'E':
 					strcat(tempAddr,"1110");
-				case 'F' || 'f':
+				case 'e':
+					strcat(tempAddr,"1110");
+				case 'F':
+					strcat(tempAddr,"1111");
+				case 'f':
 					strcat(tempAddr,"1111");
 				default:
 					fprintf(stderr,"ERROR: invalid address (can't convert to binary).");
