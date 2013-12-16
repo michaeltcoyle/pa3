@@ -400,10 +400,6 @@ int main(int argc, char *argv[])
 	char block3[b3bits];
 	
 
-	int setsize1 = pow(16,s1bits);
-	int setsize2 = pow(16,s2bits);
-	int setsize3 = pow(16,s3bits);
-
 
 	
 /*
@@ -627,7 +623,7 @@ int main(int argc, char *argv[])
 		if ((l1pass == 0) && (strcmp(l1assoc,"direct")==0))
 		{
 		
-			l1cache->nsets = 1;
+			l1cache->nsets = l1size;;
 			l1pass = 0;
 
 		  	Set *l1set = NewSet();
@@ -672,7 +668,7 @@ int main(int argc, char *argv[])
 		if ((l2pass == 0) && (l1pass == 0) && (strcmp(l2assoc,"direct")==0))
 		{
 		
-			l2cache->nsets = 1;
+			l2cache->nsets = l2size;
 			l2pass = 0;
 
 		  	Set *l2set = NewSet();
@@ -717,7 +713,7 @@ int main(int argc, char *argv[])
 		if ((l3pass == 0) && (l2pass == 0) && (l1pass == 0) && (strcmp(l3assoc,"direct")==0))
 		{
 		
-			l3cache->nsets = 1;
+			l3cache->nsets = l3size;
 			l3pass = 0;
 
 		  	Set *l3set = NewSet();
@@ -962,7 +958,7 @@ int main(int argc, char *argv[])
 		printf("t3bits: %d\n",t3bits);
 		printf("s3bits: %d\n",s3bits);
 		printf("b3bits: %d\n",b3bits);
-		printf("setsize1: %d\n",setsize1);
+		printf("setsize1: %d\n",);
 		printf("setsize2: %d\n",setsize2);
 		printf("setsize3: %d\n",setsize3);
 		printf("l1cache sets: %d\n",l1cache->nsets);
