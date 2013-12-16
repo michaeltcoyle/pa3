@@ -334,11 +334,16 @@ int main(int argc, char *argv[])
 	{
 		b1bits = llog2(blocksize);
 		s1bits = llog2(l1size/blocksize);
+		Cache *l1cache = NewCache();
+		Set *l1sets[l1size/blocksize];
+		l1cache->nsets = 1;
+		l1sets->nrows = 1;
 	}
 	else if (strcmp(l1assoc,"assoc")==0)
 	{
 		b1bits = llog2(blocksize);
 		s1bits = llog2(1);
+		
 	}
 	else if (strcmp(l1assoc,"assoc:n")==0)
 	{
@@ -352,6 +357,10 @@ int main(int argc, char *argv[])
 	{
 		b2bits = llog2(blocksize);
 		s2bits = llog2(l2size/blocksize);
+		Cache *l2cache = NewCache();
+		Set *l2sets[l2size/blocksize];
+		l2cache->nsets = 1;
+		l2sets->nrows = 1;
 	}
 	else if (strcmp(l2assoc,"assoc")==0)
 	{
@@ -370,6 +379,10 @@ int main(int argc, char *argv[])
 	{
 		b3bits = llog2(blocksize);
 		s3bits = llog2(l3size/blocksize);
+		Cache *l3cache = NewCache();
+		Set *l3sets[l3size/blocksize];
+		l3cache->nsets = 1;
+		l3sets->nrows = 1;
 	}
 	else if (strcmp(l3assoc,"assoc")==0)
 	{
@@ -415,9 +428,13 @@ int main(int argc, char *argv[])
 */
 
 	
-	Cache *l1cache = NewCache();
-	Cache *l2cache = NewCache();
-	Cache *l3cache = NewCache();
+
+
+
+
+	
+	
+	
 
 	
 
@@ -718,8 +735,7 @@ int main(int argc, char *argv[])
 		  	l1cache->set = l1set;
 		  	Row *l1row = NewRow();
 		  	l1set->row = l1row;
-		  	l1cache->nsets = 1;
-		  	l1set->nrows = 1;
+		  	
 
 
 			if (1>l1size)
@@ -752,7 +768,6 @@ int main(int argc, char *argv[])
 					l1row->block=block1v;
 					l1row->tag=tag1v;
 					l1row->valid = 1;
-					printf("%d\n",l1row->tag);
 				}
 			}
 			else
