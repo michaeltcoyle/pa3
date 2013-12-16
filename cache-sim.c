@@ -56,7 +56,7 @@ Cache* NewCache(void) {
   return lcache;
 }
 
-Row NewRow(void) {
+Row* NewRow(void) {
   Row *lrow = malloc(sizeof(Row));
   if (lrow){
   	lrow->first = 1;
@@ -65,7 +65,7 @@ Row NewRow(void) {
   	lrow->tag = 0;
   }
   return lrow;
- }
+}
 
 Set* NewSet(void) {
   Set *lset = malloc(sizeof(Set));
