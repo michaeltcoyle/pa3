@@ -718,10 +718,9 @@ int main(int argc, char *argv[])
 		  	l1cache->set = l1set;
 		  	Row *l1row = NewRow();
 		  	l1set->row = l1row;
-		  	for (int i = 0;i<l1cache->nsets;i++)
-		  	{
-		  		Set l1cache->set[i] = NewSet();
-		  	}
+		  	l1set->nsets = 1;
+		  	l1row->nrows = 1;
+
 
 			if (1>l1size)
 			{
@@ -754,12 +753,12 @@ int main(int argc, char *argv[])
 			else
 			{
 				l1cache->miss++;
-				while (1)
-				{
-					break;
-				}
-				
+				l1cache->miss++;
+				l1row->block=block1v;
+				l1row->tag=tag1v;
+				l1row->valid = 1;
 			}
+			
 		}
 		if ((l2pass == 0) && (l1pass == 0) && (strcmp(l2assoc,"direct")==0))
 		{
