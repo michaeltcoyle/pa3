@@ -636,27 +636,27 @@ int main(int argc, char *argv[])
 		  	l1set->row = l1row;
 		  	
 			
-			if (l1row.first!=1 && l1row.first!=0)
-				l1row.first=1;
-			if (l1row.valid!=1 && l1row.valid!=0)
-				l1row.valid=0;
+			if (l1row->first!=1 && l1row->first!=0)
+				l1row->first=1;
+			if (l1row->valid!=1 && l1row->valid!=0)
+				l1row->valid=0;
 				
-			l1row.block=0;	
-			l1row.tag=0;
+			l1row->block=0;	
+			l1row->tag=0;
 
 			if (1>l1size)
 			{
 				l1cache->capmiss++;
 			}
-			if (l1row.tag == tag1v)
+			if (l1row->tag == tag1v)
 			{	
-				if (l1row.valid==1 && l1row.first==1)
+				if (l1row->valid==1 && l1row->first==1)
 				{
 					l1cache->hit++;
 					l1pass = 1;
-					l1row.first = 0;
+					l1row->first = 0;
 				}
-				else if (l1row.valid==1 && l1row.first == 0)
+				else if (l1row->valid==1 && l1row->first == 0)
 				{
 					l1cache->confmiss++;
 					break;
@@ -664,8 +664,8 @@ int main(int argc, char *argv[])
 				else
 				{	
 					l1cache->coldmiss++;
-					l1row.block=block1v;
-					l1row.first = 0;
+					l1row->block=block1v;
+					l1row->first = 0;
 				}
 			}
 		}/*
