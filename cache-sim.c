@@ -711,7 +711,7 @@ int main(int argc, char *argv[])
 			//struct Set *l3set = malloc((1*sizeof(struct Row))+sizeof(struct Set));
 			l3pass = 0;
 			int flag = 0;
-			for (int i=0;i<;i++)
+			for (int i=0;i<1;i++)
 			{	
 				if (flag == 0)
 				{
