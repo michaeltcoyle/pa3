@@ -668,7 +668,7 @@ int main(int argc, char *argv[])
 			l2pass = 0;
 			for (int i=0; i<1;i++)
 			{
-				if (l2cache->sets[set2v].rows[i]==NULL)
+				if (l2cache->sets[set2v].rows[i]==*NULL)
 				{
 					l2cache->sets[set2v].rows[i] = malloc(sizeof(struct Row));
 					l2cache->sets[set2v].rows[i].first=1;
