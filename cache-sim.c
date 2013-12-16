@@ -472,7 +472,7 @@ int main(int argc, char *argv[])
 	l3set->nrows = setsize3;*/
 	
 	int addrlength;
-	char currAddr0x[20];
+	char currAddr0x[19];
 
 
 /*	l1cache->miss = 0;
@@ -501,7 +501,7 @@ int main(int argc, char *argv[])
 	//start reading addresses
 
 	char currAddr16[18] = "";
-	char tempAddr[67] = "";
+	char tempAddr[65] = "";
 	
 	
 	while (1)
@@ -531,7 +531,7 @@ int main(int argc, char *argv[])
 		char tempStr[addrlength];
 		
 		memcpy(tempStr,&currAddr0x[2],addrlength);
-		tempStr[strlen(tempStr)+1]=0;
+		tempStr[strlen(tempStr)]=0;
 		
 
 		switch (addrlength)
