@@ -768,7 +768,7 @@ int main(int argc, char *argv[])
 			if (1>l2size)
 			{
 				l2cache->capmiss++;
-				l1cache->miss++
+				l1cache->miss++;
 			}
 			else if (l2row->tag == tag2v)
 			{	
@@ -784,6 +784,7 @@ int main(int argc, char *argv[])
 					l2row->tag=tag2v;
 					l2row->first = 0;
 					l2row->valid = 1;
+				}
 				else
 				{	
 					l2cache->miss++;
@@ -822,7 +823,7 @@ int main(int argc, char *argv[])
 				}
 				else if (l3row->first == 1)
 				{
-					l3cache->miss++
+					l3cache->miss++;
 					l3row->block=block3v;
 					l3row->tag=tag3v;
 					l3row->first = 0;
