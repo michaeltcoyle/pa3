@@ -578,6 +578,33 @@ int main(int argc, char *argv[])
 		int l3pass = 0;
 
 
+		int k = 0;
+		for (int i=0; i<l1cache->nsets;i++)
+		{
+		
+			for (int j=0; j<l1set->nrows;j++)
+			{
+				l1cache->sets[i].l1set->rows[j].tag = k;
+			}
+		}
+		k = 0;
+		for (int i=0; i<l2cache->nsets;i++)
+		{
+		
+			for (int j=0; j<l2set->nrows;j++)
+			{
+				l2cache->sets[i].l2set->rows[j].tag = k;
+			}
+		}
+		k=0;
+		for (int i=0; i<l3cache->nsets;i++)
+		{
+		
+			for (int j=0; j<l3set->nrows;j++)
+			{
+				l3cache->sets[i].l3set->rows[j].tag = k;
+			}
+		}
 		
 		if ((l1pass == 0) && (strcmp(l1assoc,"direct")==0))
 		{
@@ -585,7 +612,6 @@ int main(int argc, char *argv[])
 			
 			for (int i = 0; i<l1set->nrows; i++)
 			{
-				
 				if (l1set->rows[i].first!=1 && l1set->rows[i].first!=0)
 				{
 					l1set->rows[i].first=1;
@@ -600,7 +626,7 @@ int main(int argc, char *argv[])
 					break;
 				}
 				printf("%d\n",l1set->rows[i].tag);
-				if ((set1v*setsize1)+i==tag1v)
+				if (l1set->rows[i].tag==tag1v)
 				{
 					if (l1set->rows[i].valid==1 && l1set->rows[i].block==block1v)
 					{
