@@ -603,7 +603,7 @@ int main(int argc, char *argv[])
 
 		//convert addr to binary
 		
-		for (int i = 0; i<15; i++)
+		for (int i = 0; i<=15; i++)
 		{
 			switch (currAddr16[i])
 			{
@@ -754,9 +754,9 @@ int main(int argc, char *argv[])
 
 			l1pass = 0;
 
-		  	Set *l1set = &l1cache->set[set1v];
+		  	//Set *l1set = &l1cache->set[set1v];
 		  	
-		  	Row l1row = l1set->row[0];
+		  	Row l1row = l1cache->set[set1v]->row[0];
 		  	
 
 
@@ -799,7 +799,6 @@ int main(int argc, char *argv[])
 				{
 					l1cache->hit++;
 					l1pass = 1;
-					break;
 				}
 				else if (l1row.first == 1)
 				{
@@ -826,8 +825,8 @@ int main(int argc, char *argv[])
 
 			l2pass = 0;
 
-			Set *l2set = &l1cache->set[set2v];
-		  	Row l2row = l2set->row[0];
+			//Set *l2set = &l1cache->set[set2v];
+		  	Row l2row = l2cache->set[set2v]->row[0];
 
 		  	
 
@@ -894,8 +893,8 @@ int main(int argc, char *argv[])
 
 			l3pass = 0;
 
-			Set *l3set = &l3cache->set[set3v];
-		  	Row l3row = l3set->row[0];
+			//Set *l3set = &l3cache->set[set3v];
+		  	Row l3row = l3cache->set[set3v]->row[0];
 		  	
 
 			if (1>l3size)
