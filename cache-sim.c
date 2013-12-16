@@ -582,35 +582,34 @@ int main(int argc, char *argv[])
 		if ((l1pass == 0) && (strcmp(l1assoc,"direct")==0))
 		{
 			l1pass = 0;
-			struct Set workingSet = l1set[set1v];
 			
 			for (int i = 0; i<setsize1; i++)
 			{
 				
-				if (workingSet.rows[i].first!=1 && workingSet.rows[i].first!=0)
+				if (l1set.rows[i].first!=1 && l1set.rows[i].first!=0)
 				{
-					workingSet.rows[i].first=1;
+					l1set.rows[i].first=1;
 				}
-				if (workingSet.rows[i].valid!=1 && workingSet.rows[i].valid!=0)
+				if (l1set.rows[i].valid!=1 && l1set.rows[i].valid!=0)
 				{
-					workingSet.rows[i].valid=0;
+					l1set.rows[i].valid=0;
 				}
-				if (workingSet.nrows>l1size)
+				if (l1set.nrows>l1size)
 				{
 					l1cache->capmiss++;
 					break;
 				}
-				printf("%d\n",workingSet.rows[i].tag);
+				printf("%d\n",l1set.rows[i].tag);
 				if ((set1v*setsize1)+i==tag1v)
 				{
-					if (workingSet.rows[i].valid==1 && workingSet.rows[i].block==block1v)
+					if (l1set.rows[i].valid==1 && l1set.rows[i].block==block1v)
 					{
 						l1cache->hit++;
 						l1pass = 1;
-						workingSet.rows[i].first = 0;
+						l1set.rows[i].first = 0;
 						break;
 					}
-					else if (workingSet.rows[i].valid==1 && workingSet.rows[i].first == 0)
+					else if (l1set.rows[i].valid==1 && l1set.rows[i].first == 0)
 					{
 						l1cache->confmiss++;
 						break;
@@ -618,8 +617,8 @@ int main(int argc, char *argv[])
 					else
 					{	
 						l1cache->coldmiss++;
-						workingSet.rows[i].block=block1v;
-						workingSet.rows[i].first = 0;
+						l1set.rows[i].block=block1v;
+						l1set.rows[i].first = 0;
 						break;
 					}
 				}
@@ -628,32 +627,31 @@ int main(int argc, char *argv[])
 		if ((l1pass = 0) && (l2pass == 0) && (strcmp(l2assoc,"direct")==0))
 		{
 			l2pass = 0;
-			struct Set workingSet = l2set[set2v];
 			for (int i=0;i<setsize2;i++)
 			{
-				if (workingSet.rows[i].first!=1 && workingSet.rows[i].first!=0)
+				if (l2set.rows[i].first!=1 && l2set.rows[i].first!=0)
 				{
-					workingSet.rows[i].first=1;
+					l2set.rows[i].first=1;
 				}
-				if (workingSet.rows[i].valid!=1 && workingSet.rows[i].valid!=0)
+				if (l2set.rows[i].valid!=1 && l2set.rows[i].valid!=0)
 				{
-					workingSet.rows[i].valid=0;
+					l2set.rows[i].valid=0;
 				}
-				if (workingSet.nrows>l2size)
+				if (l2set.nrows>l2size)
 				{
 					l2cache->capmiss++;
 					break;
 				}
 				if ((set2v*setsize2)+i==tag2v)
 				{
-					if (workingSet.rows[i].valid==1 && workingSet.rows[i].block==block2v)
+					if (l2set.rows[i].valid==1 && l2set.rows[i].block==block2v)
 					{
 						l2cache->hit++;
 						l2pass = 1;
-						workingSet.rows[i].first = 0;
+						l2set.rows[i].first = 0;
 						break;
 					}
-					else if (workingSet.rows[i].valid==1 && workingSet.rows[i].first == 0)
+					else if (l2set.rows[i].valid==1 && l2set.rows[i].first == 0)
 					{
 						l2cache->confmiss++;
 						break;
@@ -661,8 +659,8 @@ int main(int argc, char *argv[])
 					else
 					{	
 						l2cache->coldmiss++;
-						workingSet.rows[i].block=block2v;
-						workingSet.rows[i].first = 0;
+						l2set.rows[i].block=block2v;
+						l2set.rows[i].first = 0;
 						break;
 					}
 				}
@@ -674,33 +672,32 @@ int main(int argc, char *argv[])
 		}
 		if ((l2pass = 0) && (l2pass == 0) && (l3pass == 0) && (strcmp(l3assoc,"direct")==0))
 		{
-			
-			struct Set workingSet = l3set[set3v];
+			l3pass = 0;
 			for (int i=0;i<setsize3;i++)
 			{	
-				if (workingSet.rows[i].first!=1 && workingSet.rows[i].first!=0)
+				if (l3set.rows[i].first!=1 && l3set.rows[i].first!=0)
 				{
-					workingSet.rows[i].first=1;
+					l3set.rows[i].first=1;
 				}
-				if (workingSet.rows[i].valid!=1 && workingSet.rows[i].valid!=0)
+				if (l3set.rows[i].valid!=1 && l3set.rows[i].valid!=0)
 				{
-					workingSet.rows[i].valid=0;
+					l3set.rows[i].valid=0;
 				}
-				if (workingSet.nrows>l3size)
+				if (l3set.nrows>l3size)
 				{
 					l3cache->capmiss++;
 					break;
 				}
 				if ((set3v*setsize3)+i==tag3v)
 				{
-					if (workingSet.rows[i].valid==1 && workingSet.rows[i].block==block3v)
+					if (l3set.rows[i].valid==1 && l3set.rows[i].block==block3v)
 					{
 						l3cache->hit++;
 						l3pass = 1;
-						workingSet.rows[i].first = 0;
+						l3set.rows[i].first = 0;
 						break;
 					}
-					else if (workingSet.rows[i].valid==1 && workingSet.rows[i].first == 0)
+					else if (l3set.rows[i].valid==1 && l3set.rows[i].first == 0)
 					{
 						l3cache->confmiss++;
 						break;
@@ -708,8 +705,8 @@ int main(int argc, char *argv[])
 					else
 					{	
 						l3cache->coldmiss++;
-						workingSet.rows[i].block=block3v;
-						workingSet.rows[i].first = 0;
+						l3set.rows[i].block=block3v;
+						l3set.rows[i].first = 0;
 						break;
 					}
 				}
