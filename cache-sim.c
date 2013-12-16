@@ -604,7 +604,7 @@ int main(int argc, char *argv[])
 					l1cache->capmiss++;
 					break;
 				}
-				if (l1cache->sets[set1v].rows[i].tag == tag1v)
+				/*if (l1cache->sets[set1v].rows[i].tag == tag1v)
 				{
 					
 					if (l1cache->sets[set1v].rows[i].valid==1 && l1cache->sets[set1v].rows[i].block==block1v)
@@ -626,7 +626,7 @@ int main(int argc, char *argv[])
 						l1cache->sets[set1v].rows[i].first = 0;
 						break;
 					}
-				}
+				}*/
 			}
 		}/*
 		if ((l1pass = 0) && (l2pass == 0) && (strcmp(l2assoc,"direct")==0))
