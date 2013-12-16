@@ -627,7 +627,7 @@ int main(int argc, char *argv[])
 		if ((l1pass == 0) && (strcmp(l1assoc,"direct")==0))
 		{
 		
-			l1cache.nsets = 1;
+			l1cache->nsets = 1;
 			l1pass = 0;
 
 		  	Set *l1set = NewSet();
