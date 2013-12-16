@@ -381,14 +381,7 @@ int main(int argc, char *argv[])
 
 
 
-	struct Set *l1set = malloc(sizeof(struct Set));
-	l1set.rows = malloc((sizeof(struct Row)));
 
-	struct Set *l2set = malloc(sizeof(struct Set));
-	l2set.rows = malloc((sizeof(struct Row)));
-
-	struct Set *l3set = malloc(sizeof(struct Set));
-	l3set.rows = malloc((sizeof(struct Row)));
 
 
 
@@ -571,6 +564,17 @@ int main(int argc, char *argv[])
 		set3v = strtol(set3,&u,16);
 		block3v = strtol(block3,&u,16);
 		
+
+
+		struct Set *l1set = malloc(sizeof(struct Set));
+		l1set[set1v].rows = malloc((sizeof(struct Row)));
+	
+		struct Set *l2set = malloc(sizeof(struct Set));
+		l2set[set2v].rows = malloc((sizeof(struct Row)));
+	
+		struct Set *l3set = malloc(sizeof(struct Set));
+		l3set[set3v].rows = malloc((sizeof(struct Row)));
+
 
 		//implementation
 
