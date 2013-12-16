@@ -367,7 +367,6 @@ int main(int argc, char *argv[])
 	int setsize2 = pow(16,s2bits);
 	int setsize3 = pow(16,s3bits);
 
-	printf("%d\n",setsize1);
 
 	
 
@@ -386,7 +385,7 @@ int main(int argc, char *argv[])
 
 	l3cache->nsets = l3size/setsize3;
 
-	struct Set *l1set = malloc(sizeof(struct Set));
+	/*struct Set *l1set = malloc(sizeof(struct Set));
 	l1set->rows = malloc(((l1size/setsize1) * sizeof(struct Row)));
 
 	l1set->nrows = setsize1;
@@ -399,7 +398,7 @@ int main(int argc, char *argv[])
 	struct Set *l3set = malloc(sizeof(struct Set));
 	l3set->rows = malloc(((l3size/setsize3) * sizeof(struct Row)));
 
-	l3set->nrows = setsize3;
+	l3set->nrows = setsize3;*/
 	
 	int addrlength;
 	char currAddr[17];
@@ -422,6 +421,20 @@ int main(int argc, char *argv[])
 	l3cache->coldmiss = 0;
 	l3cache->confmiss = 0;
 	l3cache->capmiss = 0;
+
+
+	for (int i = 0; i<l1cache->nsets;i++)
+	{
+		l1cache->sets[i] = malloc(setsize1*sizeof(struct Set));
+	}
+	for (int i = 0; i<l2cache->nsets;i++)
+	{
+		l2cache->sets[i] = malloc(setsize2*sizeof(struct Set));
+	}
+		for (int i = 0; i<l3cache->nsets;i++)
+	{
+		l3cache->sets[i] = malloc(setsize3*sizeof(struct Set));
+	}
 
 
 	//start reading addresses
@@ -570,7 +583,7 @@ int main(int argc, char *argv[])
 		int l2pass = 0;
 		int l3pass = 0;
 
-	
+
 		
 		if ((l1pass == 0) && (strcmp(l1assoc,"direct")==0))
 		{
