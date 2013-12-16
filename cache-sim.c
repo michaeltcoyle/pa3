@@ -613,7 +613,7 @@ int main(int argc, char *argv[])
 	
 
 	
-	
+		printf("Test");
 	
 		if ((l1pass == 0) && (strcmp(l1assoc,"direct")==0))
 		{
