@@ -614,7 +614,6 @@ int main(int argc, char *argv[])
 	
 
 	
-		printf("Test");
 	
 		if ((l1pass == 0) && (strcmp(l1assoc,"direct")==0))
 		{
@@ -627,7 +626,7 @@ int main(int argc, char *argv[])
 				
 				if (flag == 0)
 				{
-					printf("test");
+				
 					l1cache->sets[set1v].rows[i].first=1;
 					l1cache->sets[set1v].rows[i].valid=0;
 					l1cache->sets[set1v].rows[i].block=0;
@@ -640,7 +639,7 @@ int main(int argc, char *argv[])
 					l1cache->capmiss++;
 					break;
 				}
-				if (set1v==tag1v)
+				if (l1cache->sets[set1v].rows[i].tag == tag1v)
 				{
 					
 					if (l1cache->sets[set1v].rows[i].valid==1 && l1cache->sets[set1v].rows[i].block==block1v)
@@ -686,7 +685,7 @@ int main(int argc, char *argv[])
 					l2cache->capmiss++;
 					break;
 				}
-				if (set2v==tag2v)
+				if (l2cache->sets[set2v].rows[i].tag == tag2v)
 				{
 					if (l2cache->sets[set2v].rows[i].valid==1 && l2cache->sets[set2v].rows[i].block==block2v)
 					{
@@ -730,7 +729,7 @@ int main(int argc, char *argv[])
 					l3cache->capmiss++;
 					break;
 				}
-				if (set3v==tag3v)
+				if (l3cache->sets[set3v].rows[i].tag == tag3v)
 				{
 					if (l3cache->sets[set3v].rows[i].valid==1 && l3cache->sets[set3v].rows[i].block==block3v)
 					{
