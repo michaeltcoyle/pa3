@@ -51,7 +51,7 @@ Cache* NewCache(int numsets) {
   	lcache->coldmiss = 0;
   	lcache->confmiss = 0;
   	lcache->capmiss = 0;
-  	lcache->set = (numsets*(sizeof(Set);
+  	lcache->set = (numsets*(sizeof(Set)));
   }
   return lcache;
 }
