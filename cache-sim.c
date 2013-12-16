@@ -958,9 +958,6 @@ int main(int argc, char *argv[])
 		printf("t3bits: %d\n",t3bits);
 		printf("s3bits: %d\n",s3bits);
 		printf("b3bits: %d\n",b3bits);
-		printf("setsize1: %d\n",);
-		printf("setsize2: %d\n",setsize2);
-		printf("setsize3: %d\n",setsize3);
 		printf("l1cache sets: %d\n",l1cache->nsets);
 		printf("l2cache sets: %d\n",l2cache->nsets);
 		printf("l3cache sets: %d\n",l3cache->nsets);
