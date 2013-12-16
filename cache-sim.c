@@ -757,7 +757,7 @@ int main(int argc, char *argv[])
 		  	//Set *l1set = &l1cache->set[set1v];
 
 		  	Row *l1row = NewRow(1);
-		  	l1cache->set[set1v]->row[0] = l1row;
+		  	l1cache->set[set1v].row[0] = &l1row;
 		  	
 
 
