@@ -607,7 +607,7 @@ int main(int argc, char *argv[])
 				if (l1cache->sets[set1v].rows[i].tag == tag1v)
 				{
 					
-					if (l1cache->sets[set1v].rows[i].valid==1)
+					if (l1cache->sets[set1v].rows[i].valid==1 && l1cache->sets[set1v].rows[i].first==1)
 					{
 						l1cache->hit++;
 						l1pass = 1;
