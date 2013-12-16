@@ -589,8 +589,8 @@ int main(int argc, char *argv[])
 			l1cache->nsets = 1;
 			l1pass = 0;
 
-		  	struct Set *l1set = malloc(sizeof(struct Set));
-			struct Row l1row = l1set[set1v].rows[0];
+		  	struct Set *l1set = malloc(sizeof(struct Set))l1cache->sets[set1v];
+			struct Row l1row = l1set.rows[0];
 			
 			if (l1row.first!=1 && l1row.first!=0)
 				l1row.first=1;
