@@ -577,11 +577,18 @@ int main(int argc, char *argv[])
 		int l2pass = 0;
 		int l3pass = 0;
 
+		l1cache->nsets = set1v;
+		l2cache->nsets = set2v;
+		l3cache->nsets = set3v;
+
+		l1set->nrows = setsize1;
+		l2set->nrows = setsize2;
+		l3set->nrows = setsize3;
 
 		int k = 0;
 		for (int i=0; i<l1cache->nsets;i++)
 		{
-		
+			
 			for (int j=0; j<l1set->nrows;j++)
 			{
 				l1cache->sets[i].rows[j].tag = k;
