@@ -42,8 +42,8 @@ typedef struct obCache {
 } Cache;
 
 
-Cache* NewCache(void) {
-  Cache *lcache = malloc(sizeof(Cache)); 
+Cache* NewCache(int numsets, int numrows) {
+  Cache *lcache = malloc(sizeof(Cache)*); 
   if (lcache){
   	lcache->nsets = 0;
   	lcache->miss = 0;
@@ -328,9 +328,7 @@ int main(int argc, char *argv[])
 	long block3v;
 
 
-	Cache *l1cache = NewCache();
-	Cache *l2cache = NewCache();
-	Cache *l3cache = NewCache();
+	
 //l1 assoc 
 
 	if (strcmp(l1assoc,"direct")==0)
@@ -338,7 +336,8 @@ int main(int argc, char *argv[])
 		b1bits = llog2(blocksize);
 		s1bits = llog2(l1size/blocksize);
 		Set *l1sets[l1size/blocksize];
-		l1cache->nsets = 1;
+		l1cache->nsets = l1size/blocksize;
+		l1sets->nrows = 1;
 	}
 	else if (strcmp(l1assoc,"assoc")==0)
 	{
@@ -359,7 +358,8 @@ int main(int argc, char *argv[])
 		b2bits = llog2(blocksize);
 		s2bits = llog2(l2size/blocksize);
 		Set *l2sets[l2size/blocksize];
-		l2cache->nsets = 1;
+		l2cache->nsets = l2size/blocksize;
+		l2sets->nrows = 1;
 	}
 	else if (strcmp(l2assoc,"assoc")==0)
 	{
@@ -379,7 +379,8 @@ int main(int argc, char *argv[])
 		b3bits = llog2(blocksize);
 		s3bits = llog2(l3size/blocksize);
 		Set *l3sets[l3size/blocksize];
-		l3cache->nsets = 1;
+		l3cache->nsets = l3size/blocksize;
+		l2sets->nrows = 1;
 	}
 	else if (strcmp(l3assoc,"assoc")==0)
 	{
@@ -424,7 +425,9 @@ int main(int argc, char *argv[])
 
 */
 
-	
+	Cache *l1cache = NewCache(l1cache->nsets,l1sets->nrows);
+	Cache *l2cache = NewCache(l2cache->nsets,l2sets->nrows);
+	Cache *l3cache = NewCache(l3cache->nsets,l3sets->nrows);
 
 
 
