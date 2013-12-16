@@ -752,6 +752,7 @@ int main(int argc, char *argv[])
 					l1row->block=block1v;
 					l1row->tag=tag1v;
 					l1row->valid = 1;
+					printf("%d\n",l1row->tag);
 				}
 			}
 			else
