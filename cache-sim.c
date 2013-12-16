@@ -577,7 +577,7 @@ int main(int argc, char *argv[])
 			int workingSetnum = floor(set1v/l1set->nrows);
 			struct Set *workingSet = &l1cache->sets[set1v];
 			
-			for (int i = 0; i<workingSet->nrows; i++)
+			for (int i = 0; i<l1cache->nrows; i++)
 			{
 				if (workingSet->rows[i].first!=1 && workingSet->rows[i].first!=0)
 				{
@@ -626,7 +626,7 @@ int main(int argc, char *argv[])
 			l2pass = 0;
 			int workingSetnum = floor(set2v/l2set->nrows);
 			struct Set *workingSet = &l2cache->sets[set2v];
-			for (int i=0;i<workingSet->nrows;i++)
+			for (int i=0;i<l3cache->nrows;i++)
 			{
 				if (workingSet->rows[i].first!=1 && workingSet->rows[i].first!=0)
 				{
